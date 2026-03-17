@@ -3,198 +3,167 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VIRO XYZ | GHOST BROWSER</title>
+<title>VIRO XYZ | GHOST OS</title>
 <link href="https://fonts.googleapis.com" rel="stylesheet">
 
 <style>
-:root { --main-purple: #9d4edd; --dark-purple: #3c096c; --bg-black: #050505; }
-* { margin:0; padding:0; box-sizing:border-box; cursor: crosshair; }
+:root { --p: #9d4edd; --dp: #3c096c; --bg: #050505; --g: #0f0; }
+* { margin:0; padding:0; box-sizing:border-box; cursor: crosshair; font-family: 'Fira Mono', monospace; }
+body { background: var(--bg); color: #fff; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
 
-body {
-  font-family: 'Fira Mono', monospace;
-  background: var(--bg-black);
-  color: #fff;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
+/* Background Binary */
+.binary-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; font-size: 10px; color: rgba(157, 78, 221, 0.1); word-break: break-all; z-index: -1; pointer-events: none; }
 
-/* Binary Background from your Image */
-.binary-bg {
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  font-size: 12px;
-  color: rgba(157, 78, 221, 0.15);
-  word-break: break-all;
-  z-index: -1;
-  pointer-events: none;
-  line-height: 1;
-}
+/* Top Bar & Tabs */
+.top-bar { background: #111; display: flex; align-items: center; padding: 5px 10px; border-bottom: 1px solid var(--dp); }
+.tab-container { display: flex; gap: 5px; flex-grow: 1; margin: 0 15px; }
+.tab { background: #1a1a1a; padding: 5px 15px; font-size: 0.7rem; border: 1px solid var(--dp); color: var(--p); cursor: pointer; }
+.tab.active { background: var(--dp); color: #fff; border-color: var(--p); }
 
-/* Browser UI */
-.browser-frame {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  border: 1px solid var(--main-purple);
-  margin: 15px;
-  background: rgba(0,0,0,0.85);
-  box-shadow: 0 0 20px var(--dark-purple);
-}
+/* Navigation & URL */
+.nav-section { background: #0a0a0a; padding: 10px; display: flex; gap: 10px; align-items: center; border-bottom: 1px solid #222; }
+.btn-nav { background: none; border: 1px solid var(--p); color: var(--p); padding: 4px 8px; font-size: 0.7rem; }
+.btn-nav:hover { background: var(--p); color: #000; }
+.url-box { flex-grow: 1; background: #000; border: 1px solid var(--dp); padding: 6px 12px; display: flex; align-items: center; }
+.url-box span { color: var(--p); font-size: 0.7rem; margin-right: 8px; }
+#urlInp { background: transparent; border: none; outline: none; color: #fff; width: 100%; font-size: 0.8rem; }
 
-.toolbar {
-  background: #111;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  border-bottom: 1px solid var(--dark-purple);
-}
+/* Layout */
+.main-area { display: flex; flex-grow: 1; overflow: hidden; }
+.sidebar { width: 60px; background: #0a0a0a; border-right: 1px solid var(--dp); display: flex; flex-direction: column; align-items: center; padding: 20px 0; gap: 25px; }
+.side-icon { color: var(--p); font-size: 1.2rem; cursor: pointer; opacity: 0.6; }
+.side-icon:hover, .side-icon.active { opacity: 1; text-shadow: 0 0 10px var(--p); }
 
-.nav-btns { display: flex; gap: 8px; }
-.nav-btn { 
-    background: transparent; border: 1px solid var(--main-purple); 
-    color: var(--main-purple); padding: 5px 10px; font-size: 0.8rem;
-}
-.nav-btn:hover { background: var(--main-purple); color: #000; }
+.content-pane { flex-grow: 1; position: relative; background: rgba(0,0,0,0.6); overflow-y: auto; padding: 30px; }
 
-.search-container {
-  flex-grow: 1;
-  display: flex;
-  background: #000;
-  border: 1px solid var(--dark-purple);
-  padding: 6px 12px;
-  align-items: center;
-}
+/* Components */
+.card { background: #111; border: 1px solid var(--dp); padding: 15px; margin-bottom: 15px; }
+.status-tag { font-size: 0.6rem; padding: 2px 5px; border-radius: 3px; margin-left: 10px; }
+.on { background: var(--g); color: #000; }
 
-.search-container span { color: var(--main-purple); font-weight: bold; margin-right: 8px; }
+/* Custom Inspect */
+#inspect { position: absolute; bottom: 0; left: 0; width: 100%; height: 30%; background: #050505; border-top: 2px solid var(--p); display: none; padding: 10px; font-size: 0.7rem; z-index: 100; }
 
-#urlInput {
-  background: transparent; border: none; outline: none;
-  color: #fff; width: 100%; font-family: inherit;
-}
-
-/* Side Menu / Tools */
-.main-view { display: flex; flex-grow: 1; overflow: hidden; }
-
-.sidebar {
-  width: 200px;
-  border-right: 1px solid var(--dark-purple);
-  padding: 20px;
-  background: #0a0a0a;
-}
-
-.tool-label { font-size: 0.7rem; color: var(--main-purple); margin-bottom: 15px; display: block; }
-
-.toggle-item { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 0.8rem; }
-.status-on { color: #0f0; }
-.status-off { color: #f00; }
-
-/* Viewport */
-.viewport { flex-grow: 1; padding: 40px; position: relative; overflow-y: auto; }
-
-/* Custom Inspect Element Modal */
-#inspectModal {
-  position: absolute; bottom: 10px; right: 10px;
-  width: 400px; height: 250px;
-  background: #111; border: 1px solid var(--main-purple);
-  display: none; flex-direction: column; z-index: 100;
-}
-.inspect-header { background: var(--dark-purple); padding: 5px; font-size: 0.7rem; display: flex; justify-content: space-between; }
+/* Game Grid */
+.game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px; }
+.game-item { aspect-ratio: 1; background: #1a1a1a; border: 1px solid var(--dp); display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 0.7rem; }
+.game-item:hover { border-color: var(--p); transform: scale(1.05); }
 
 </style>
 </head>
 <body>
 
-<div class="binary-bg" id="bin"></div>
+<div class="binary-bg" id="bg"></div>
 
-<div class="browser-frame">
-  <div class="toolbar">
-    <div class="nav-btns">
-      <button class="nav-btn" onclick="location.reload()">HOME</button>
-      <button class="nav-btn" onclick="history.back()">BACK</button>
-    </div>
-    
-    <div class="search-container">
-      <span>HTTPS://</span>
-      <input type="text" id="urlInput" placeholder="ENTER ENCRYPTED DESTINATION..." autocomplete="off">
-    </div>
+<div class="top-bar">
+  <div style="color:var(--p); font-weight:bold; font-size:0.8rem;">VIRO_OS</div>
+  <div class="tab-container">
+    <div class="tab active">GHOST_BROWSER</div>
+    <div class="tab" onclick="alert('System: Login required for Terminal_v4')">TERMINAL</div>
+  </div>
+</div>
 
-    <button class="nav-btn" onclick="toggleInspect()">INSPECT</button>
+<div class="nav-section">
+  <button class="btn-nav" onclick="location.reload()">HOME</button>
+  <button class="btn-nav" onclick="toggleInspect()">INSPECT</button>
+  <div class="url-box">
+    <span>GOTO://</span>
+    <input type="text" id="urlInp" placeholder="ENTER ENCRYPTED URL OR SEARCH..." autocomplete="off">
+  </div>
+</div>
+
+<div class="main-area">
+  <div class="sidebar">
+    <div class="side-icon active" onclick="showPane('home')">🌐</div>
+    <div class="side-icon" onclick="showPane('games')">🎮</div>
+    <div class="side-icon" onclick="showPane('settings')">⚙️</div>
   </div>
 
-  <div class="main-view">
-    <div class="sidebar">
-      <span class="tool-label">// SYSTEM_PROTECT</span>
+  <div class="content-pane" id="mainPane">
+    <!-- Home View -->
+    <div id="view-home">
+      <h1 style="color:var(--p); font-size:2.5rem;">VIRO XYZ</h1>
+      <p style="color:#555; margin-bottom:30px;">PROXY_SESSION: <span style="color:var(--g)">ENCRYPTED</span></p>
       
-      <div class="toggle-item">AD_BLOCK <span class="status-on">ACTIVE</span></div>
-      <div class="toggle-item">SECURLY_BYPASS <span class="status-on">MASKED</span></div>
-      <div class="toggle-item">POPUP_KILL <span class="status-on">ACTIVE</span></div>
-      
-      <hr style="border: 0.5px solid var(--dark-purple); margin: 20px 0;">
-      
-      <span class="tool-label">// PROXY_CONFIG</span>
-      <div class="toggle-item" style="font-size:0.7rem">NODE: <span style="color:var(--main-purple)">GHOST-NY-01</span></div>
+      <div class="card">
+        <h3>SYSTEM_LOGS</h3>
+        <p style="font-size:0.7rem; color:var(--g);">> SeCURLY bypassed via Stealth-Node-01</p>
+        <p style="font-size:0.7rem; color:var(--g);">> AdBlocker: 124 elements neutralized</p>
+        <p style="font-size:0.7rem; color:var(--g);">> Canvas Fingerprint: SPOOFED</p>
+      </div>
     </div>
 
-    <div class="viewport" id="viewport">
-      <h1 style="color: var(--main-purple); font-size: 3rem; margin-bottom: 0;">VIRO XYZ</h1>
-      <p style="letter-spacing: 5px; margin-bottom: 30px;">GHOST_BROWSER_V1</p>
-      
-      <div style="border-left: 3px solid var(--main-purple); padding-left: 20px;">
-        <p>> ENCRYPTION: AES-256</p>
-        <p>> PROXY STATUS: <span style="color:#0f0">CONNECTED</span></p>
-        <p>> SECURLY: <span style="color:#f00">BLOCKED</span></p>
+    <!-- Games View -->
+    <div id="view-games" style="display:none;">
+      <h2 style="margin-bottom:20px;">_UNBLOCKED_VAULT</h2>
+      <div class="game-grid">
+        <div class="game-item"><span>1v1.LOL</span></div>
+        <div class="game-item"><span>SLOPE</span></div>
+        <div class="game-item"><span>RETRO_BOWL</span></div>
+        <div class="game-item"><span>BITLIFE</span></div>
+      </div>
+    </div>
+
+    <!-- Settings View -->
+    <div id="view-settings" style="display:none;">
+      <h2>_SETTINGS</h2>
+      <div class="card">
+        <p>PROXY_SERVER <span class="status-tag on">NY_GHOST_1</span></p><br>
+        <p>AD_DISABLER <span class="status-tag on">ACTIVE</span></p><br>
+        <p>SECURLY_MASK <span class="status-tag on">STABLE</span></p>
       </div>
     </div>
   </div>
 
-  <!-- Custom Inspect Element -->
-  <div id="inspectModal">
-    <div class="inspect-header">
-        <span>GHOST_INSPECT.EXE</span>
-        <span onclick="toggleInspect()" style="cursor:pointer">X</span>
+  <div id="inspect">
+    <div style="display:flex; justify-content:space-between; border-bottom:1px solid #333; margin-bottom:5px;">
+      <span>GHOST_INSPECTOR_V1</span>
+      <span onclick="toggleInspect()" style="cursor:pointer">X</span>
     </div>
-    <div style="padding:10px; font-size: 0.8rem; color: #aaa; overflow-y: scroll;">
-        <div style="color: #0f0;">&lt;div class="viewport"&gt;</div>
-        <div style="padding-left: 15px;">&lt;h1&gt;VIRO XYZ&lt;/h1&gt;</div>
-        <div style="padding-left: 15px; color: #555;">&lt;!-- Content Encrypted by Viro Proxy --&gt;</div>
-        <div style="color: #0f0;">&lt;/div&gt;</div>
+    <div id="inspectContent" style="color:#aaa;">
+      &lt;body&gt;<br>
+      &nbsp;&nbsp;&lt;div class="ghost-wrapper"&gt;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;VIRO XYZ&lt;/h1&gt;<br>
+      &nbsp;&nbsp;&lt;/div&gt;<br>
+      &lt;/body&gt;
     </div>
   </div>
 </div>
 
 <script>
-// Generate Binary Background
-const bin = document.getElementById('bin');
-let binaryString = "";
-for(let i=0; i<5000; i++) { binaryString += Math.round(Math.random()); }
-bin.innerText = binaryString;
+// Background Binary Logic
+const bg = document.getElementById('bg');
+bg.innerText = Array.from({length: 6000}, () => Math.round(Math.random())).join('');
 
-// Search Logic
-const urlInput = document.getElementById('urlInput');
-urlInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        let val = urlInput.value.trim();
-        if(!val) return;
-        // Simulating the proxy "redirect"
-        document.getElementById('viewport').innerHTML = `
-            <div style="text-align:center; margin-top: 50px;">
-                <h2 style="color:var(--main-purple)">ROUTING THROUGH PROXY...</h2>
-                <p>Accessing: ${val}</p>
-                <div style="margin-top:20px; color:#555">SeCURLY check bypassed. Logs cleared.</div>
-            </div>
-        `;
-    }
+// Navigation Logic
+function showPane(id) {
+  ['home', 'games', 'settings'].forEach(v => document.getElementById('view-'+v).style.display = 'none');
+  document.getElementById('view-'+id).style.display = 'block';
+}
+
+// Search & Proxy Sim
+document.getElementById('urlInp').addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    const val = e.target.value.toLowerCase();
+    document.getElementById('mainPane').innerHTML = `
+      <div class="card">
+        <h2 style="color:var(--p)">ROUTING_TO: ${val}</h2>
+        <p>Proxy: Node_Ghost_Encrypted</p>
+        <div style="margin-top:20px; border:1px dashed var(--dp); padding:10px;">
+          [SYS] SSL Handshake Successful...<br>
+          [SYS] Bypassing SeCURLY filtering...<br>
+          [SYS] Loading unblocked content...
+        </div>
+      </div>
+    `;
+  }
 });
 
-// Inspect Element Toggle
+// Custom Inspect Toggle
 function toggleInspect() {
-    const modal = document.getElementById('inspectModal');
-    modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+  const insp = document.getElementById('inspect');
+  insp.style.display = (insp.style.display === 'block') ? 'none' : 'block';
 }
 </script>
-
 </body>
 </html>
