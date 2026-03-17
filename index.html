@@ -5,199 +5,192 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Viro Xyz</title>
 <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
+
 <style>
-  /* Reset */
-  * { margin:0; padding:0; box-sizing:border-box; }
+* { margin:0; padding:0; box-sizing:border-box; }
 
-  body {
-    font-family: 'Fira Mono', monospace;
-    color: #fff;
-    background: #000;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-    position: relative;
-  }
+body {
+  font-family: 'Fira Mono', monospace;
+  color: #fff;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  padding: 20px;
+}
 
-  /* TV Flicker effect */
-  @keyframes tvFlicker {
-    0%,100%{opacity:1;}
-    50%{opacity:0.95;}
-  }
+/* CRT Flicker */
+@keyframes tvFlicker { 0%,100%{opacity:1;} 50%{opacity:0.95;} }
 
-  body::before {
-    content:"";
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: repeating-linear-gradient(
-      0deg,
-      rgba(255,255,255,0.03),
-      rgba(255,255,255,0.03) 1px,
-      transparent 2px,
-      transparent 4px
-    );
-    pointer-events:none;
-    animation: tvFlicker 0.15s infinite;
-    z-index:1;
-  }
+body::before {
+  content:"";
+  position:absolute;
+  width:100%; height:100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.03),
+    rgba(255,255,255,0.03) 1px,
+    transparent 2px,
+    transparent 4px
+  );
+  animation: tvFlicker 0.15s infinite;
+  pointer-events:none;
+  z-index:1;
+}
 
-  /* Cracked screen overlay */
-  body::after {
-    content:"";
-    position:absolute;
-    top:0; left:0;
-    width:100%; height:100%;
-    background: url('https://i.imgur.com/8y0l2uB.png') no-repeat center/cover;
-    opacity:0.2;
-    pointer-events:none;
-    z-index:2;
-  }
+/* Cracked screen */
+body::after {
+  content:"";
+  position:absolute;
+  width:100%; height:100%;
+  background: url('https://i.imgur.com/8y0l2uB.png') no-repeat center/cover;
+  opacity:0.2;
+  pointer-events:none;
+  z-index:2;
+}
 
-  /* Rain */
-  .rain {
-    position:absolute;
-    width:100%; height:100%;
-    pointer-events:none;
-    top:0; left:0;
-    z-index:3;
-  }
+/* Rain */
+.rain {
+  position:absolute;
+  width:100%; height:100%;
+  z-index:3;
+  pointer-events:none;
+}
 
-  .drop {
-    position:absolute;
-    width:1px; height:15px;
-    background: rgba(255,255,255,0.1);
-    animation: fall linear infinite;
-  }
+.drop {
+  position:absolute;
+  width:1px;
+  height:15px;
+  background: rgba(255,255,255,0.1);
+  animation: fall linear infinite;
+}
 
-  @keyframes fall {
-    0% { transform: translateY(-20px); opacity:0; }
-    30% { opacity:1; }
-    100% { transform: translateY(100vh); opacity:0; }
-  }
+@keyframes fall {
+  0% { transform: translateY(-20px); opacity:0; }
+  30% { opacity:1; }
+  100% { transform: translateY(100vh); opacity:0; }
+}
 
-  /* Logo */
-  .logo {
-    font-size: 3rem;
-    font-weight: bold;
-    margin: 20px;
-    z-index:4;
-    position:relative;
-    text-align:center;
-  }
+/* Layout */
+.logo {
+  font-size: 3rem;
+  margin: 20px;
+  z-index:4;
+}
 
-  /* Content box */
-  .content {
-    max-width: 800px;
-    width: 100%;
-    background:#111;
-    padding:20px;
-    border-radius:5px;
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    position:relative;
-    z-index:4;
-  }
+.content {
+  max-width: 800px;
+  width: 100%;
+  background:#111;
+  padding:20px;
+  border-radius:5px;
+  z-index:4;
+}
 
-  h1,h2 { margin-bottom:10px; font-weight:normal; }
-  p { margin-bottom:20px; }
+h1, h2 {
+  margin-bottom:10px;
+  font-weight:normal;
+}
 
-  /* Buttons */
-  .button-container { display:flex; flex-direction:column; gap:10px; }
-  .btn {
-    background:#000; color:#fff;
-    border:1px solid #fff;
-    padding:8px 12px;
-    border-radius:3px;
-    text-decoration:none;
-    font-family:'Fira Mono', monospace;
-    cursor:pointer;
-    position:relative;
-    overflow:hidden;
-  }
-  .btn::after {
-    content:'|';
-    display:inline-block;
-    margin-left:5px;
-    animation: blink 1s infinite;
-  }
-  @keyframes blink { 0%,50%,100%{opacity:1;} 25%,75%{opacity:0;} }
-  .btn:hover { background:#fff; color:#000; }
+p {
+  margin-bottom:15px;
+}
 
-  footer { margin-top:auto; padding-top:20px; font-size:0.9rem; color:#ccc; text-align:center; position:relative; z-index:4; }
+/* XD header */
+.ascii-art {
+  font-size:1.5rem;
+  margin-bottom:15px;
+}
 
-  /* Extra terminal-style sections */
-  .section {
-    margin-top:15px;
-    border-top:1px solid #555;
-    padding-top:10px;
-    width:100%;
-  }
+/* Buttons */
+.button-container {
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-bottom:20px;
+}
 
-  .ascii-art {
-    font-size:0.7rem;
-    white-space: pre;
-    color:#ccc;
-    margin-bottom:10px;
-  }
+.btn {
+  background:#000;
+  color:#fff;
+  border:1px solid #fff;
+  padding:10px;
+  text-decoration:none;
+  font-family:'Fira Mono', monospace;
+  display:inline-block;
+}
+
+.btn::after {
+  content:'|';
+  margin-left:5px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,50%,100%{opacity:1;}
+  25%,75%{opacity:0;}
+}
+
+.btn:hover {
+  background:#fff;
+  color:#000;
+}
+
+footer {
+  margin-top:auto;
+  padding-top:20px;
+  color:#ccc;
+  z-index:4;
+}
 </style>
 </head>
+
 <body>
 
-  <!-- Rain Overlay -->
-  <div class="rain"></div>
+<div class="rain"></div>
 
-  <!-- Logo -->
-  <div class="logo">V</div>
+<div class="logo">V</div>
 
-  <!-- Terminal Content -->
-  <div class="content">
-    <h1>Welcome to my website vro 🥹</h1>
-    <p>This is my terminal hub. All my stuff will be hosted here (downloads, info, and other projects). Navigate like a pro: type commands or click the buttons below.</p>
+<div class="content">
+  <h1>Welcome</h1>
 
-    <h2>Available Commands</h2>
-    <div class="button-container">
-      <a href="downloads.html" class="btn">downloads</a>
-      <a href="Bio.html" class="btn">bio</a>
-      <a href="other.html" class="btn">other</a>
-    </div>
+  <div class="ascii-art">XD</div>
 
-    <!-- Extra sections -->
-    <div class="section">
-      <div class="ascii-art">
-        ,--.  ,--. ,--.,--. ,--.  ,--.  
-        |  '--'  | |  |`--'  /  |  |  
-        |  .--.  | |  | ,--.  '  |  |  
-        |  |  |  | `--' |  |   | `--'  
-        `--'  `--' `----'`--'   `----'  
-      </div>
-      <p>Tip: Click on the commands above to navigate, or imagine typing commands like a real terminal! Everything here is for learning, experimentation, and fun.</p>
-    </div>
+  <p>welcome to my website vro 🥹, I'll host all my stuff here (downloads, etc) so click some buttons 👍</p>
 
-    <div class="section">
-      <p>Fun fact: The homepage simulates a retro CRT terminal with flickering scan lines, rain overlay, and a cracked screen effect. You can explore it safely in any modern browser.</p>
-    </div>
+  <div class="button-container">
+    <a href="downloads.html" class="btn">downloads</a>
+    <a href="bio.html" class="btn">bio</a>
+    <a href="other.html" class="btn">other</a>
   </div>
 
-  <footer>&copy; 2026 Viro Xyz</footer>
+  <h2>guns.lol</h2>
+  <p>> PLEASE LOOK AT MY GUNS.LOL PAGE AND SHARE WITH YO FRIENDS TWIN I NEED TS</p>
+
+  <div class="button-container">
+    <a href="https://guns.lol/theadminstrator" target="_blank" class="btn">
+      guns.lol
+    </a>
+  </div>
+
+</div>
+
+<footer>&copy; 2026 Viro Xyz</footer>
 
 <script>
-  // Generate rain drops
-  const rainContainer = document.querySelector('.rain');
-  const numDrops = 150;
-  for(let i=0;i<numDrops;i++){
-    const drop = document.createElement('div');
-    drop.classList.add('drop');
-    drop.style.left = Math.random() * 100 + 'vw';
-    drop.style.animationDuration = (0.5 + Math.random()*0.5) + 's';
-    drop.style.animationDelay = Math.random() * 2 + 's';
-    drop.style.height = (10 + Math.random()*10) + 'px';
-    rainContainer.appendChild(drop);
-  }
+const rain = document.querySelector('.rain');
+for(let i=0;i<150;i++){
+  let drop = document.createElement('div');
+  drop.classList.add('drop');
+  drop.style.left = Math.random()*100 + 'vw';
+  drop.style.animationDuration = (0.5 + Math.random()*0.5) + 's';
+  drop.style.animationDelay = Math.random()*2 + 's';
+  rain.appendChild(drop);
+}
 </script>
 
 </body>
-  </html>
+</html>
