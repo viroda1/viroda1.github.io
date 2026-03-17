@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Viro Xyz | Browser</title>
+<link href="https://fonts.googleapis.com" rel="stylesheet">
+<style>
+/* ... (Style rules remain the same as previous examples for the CRT/terminal aesthetic) ... */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: 'Fira Mono', monospace; color: #fff; background: #000; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+.browser-container { display: flex; flex-direction: column; height: 100%; border: 2px solid #333; margin: 10px; background: #111; }
+.browser-header { background: #222; padding: 10px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #444; }
+.dot { width: 12px; height: 12px; border-radius: 50%; background: #444; }
+.url-bar-container { flex-grow: 1; display: flex; background: #000; border: 1px solid #444; padding: 5px 15px; align-items: center; }
+.url-bar-container span { color: #555; font-size: 0.8rem; margin-right: 5px; }
+.url-bar { background: transparent; border: none; outline: none; color: #0f0; font-family: 'Fira Mono', monospace; font-size: 0.9rem; width: 100%; }
+.browser-content { flex-grow: 1; padding: 40px; overflow-y: auto; }
+.btn { border: 1px solid #fff; padding: 12px 20px; text-decoration: none; color: #fff; display: inline-block; }
+</style>
+</head>
+<body>
+<div class="browser-container">
+  <div class="browser-header">
+    <div class="dot" style="background:#ff5f56"></div>
+    <div class="dot" style="background:#ffbd2e"></div>
+    <div class="dot" style="background:#27c93f"></div>
+    <div class="url-bar-container">
+      <span>HTTPS://</span>
+      <input type="text" id="urlInput" class="url-bar" value="VIRO.XYZ/BROWSER" spellcheck="false">
+    </div>
+  </div>
+  <div class="browser-content">
+    <h1>Welcome</h1>
+    <p>Type a URL or keyword and press <strong>ENTER</strong>.</p>
+  </div>
+</div>
+<script>
+// URL Bar Logic
+const urlInput = document.getElementById('urlInput');
+urlInput.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    let query = urlInput.value.toLowerCase().trim();
+    if (query === '' || query === 'viro.xyz/browser') return;
+    if (query.includes('.') || query.startsWith('http')) {
+        window.location.href = query.startsWith('http') ? query : 'https://' + query;
+    } else {
+        // Fallback to Google Search
+        window.location.href = "https://www.google.com" + encodeURIComponent(query);
+    }
+  }
+});
+</script>
+</body>
+</html>
