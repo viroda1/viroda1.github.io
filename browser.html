@@ -2,53 +2,199 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Viro Xyz | Browser</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIRO XYZ | GHOST BROWSER</title>
 <link href="https://fonts.googleapis.com" rel="stylesheet">
+
 <style>
-/* ... (Style rules remain the same as previous examples for the CRT/terminal aesthetic) ... */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { font-family: 'Fira Mono', monospace; color: #fff; background: #000; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
-.browser-container { display: flex; flex-direction: column; height: 100%; border: 2px solid #333; margin: 10px; background: #111; }
-.browser-header { background: #222; padding: 10px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #444; }
-.dot { width: 12px; height: 12px; border-radius: 50%; background: #444; }
-.url-bar-container { flex-grow: 1; display: flex; background: #000; border: 1px solid #444; padding: 5px 15px; align-items: center; }
-.url-bar-container span { color: #555; font-size: 0.8rem; margin-right: 5px; }
-.url-bar { background: transparent; border: none; outline: none; color: #0f0; font-family: 'Fira Mono', monospace; font-size: 0.9rem; width: 100%; }
-.browser-content { flex-grow: 1; padding: 40px; overflow-y: auto; }
-.btn { border: 1px solid #fff; padding: 12px 20px; text-decoration: none; color: #fff; display: inline-block; }
+:root { --main-purple: #9d4edd; --dark-purple: #3c096c; --bg-black: #050505; }
+* { margin:0; padding:0; box-sizing:border-box; cursor: crosshair; }
+
+body {
+  font-family: 'Fira Mono', monospace;
+  background: var(--bg-black);
+  color: #fff;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Binary Background from your Image */
+.binary-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  font-size: 12px;
+  color: rgba(157, 78, 221, 0.15);
+  word-break: break-all;
+  z-index: -1;
+  pointer-events: none;
+  line-height: 1;
+}
+
+/* Browser UI */
+.browser-frame {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--main-purple);
+  margin: 15px;
+  background: rgba(0,0,0,0.85);
+  box-shadow: 0 0 20px var(--dark-purple);
+}
+
+.toolbar {
+  background: #111;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid var(--dark-purple);
+}
+
+.nav-btns { display: flex; gap: 8px; }
+.nav-btn { 
+    background: transparent; border: 1px solid var(--main-purple); 
+    color: var(--main-purple); padding: 5px 10px; font-size: 0.8rem;
+}
+.nav-btn:hover { background: var(--main-purple); color: #000; }
+
+.search-container {
+  flex-grow: 1;
+  display: flex;
+  background: #000;
+  border: 1px solid var(--dark-purple);
+  padding: 6px 12px;
+  align-items: center;
+}
+
+.search-container span { color: var(--main-purple); font-weight: bold; margin-right: 8px; }
+
+#urlInput {
+  background: transparent; border: none; outline: none;
+  color: #fff; width: 100%; font-family: inherit;
+}
+
+/* Side Menu / Tools */
+.main-view { display: flex; flex-grow: 1; overflow: hidden; }
+
+.sidebar {
+  width: 200px;
+  border-right: 1px solid var(--dark-purple);
+  padding: 20px;
+  background: #0a0a0a;
+}
+
+.tool-label { font-size: 0.7rem; color: var(--main-purple); margin-bottom: 15px; display: block; }
+
+.toggle-item { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 0.8rem; }
+.status-on { color: #0f0; }
+.status-off { color: #f00; }
+
+/* Viewport */
+.viewport { flex-grow: 1; padding: 40px; position: relative; overflow-y: auto; }
+
+/* Custom Inspect Element Modal */
+#inspectModal {
+  position: absolute; bottom: 10px; right: 10px;
+  width: 400px; height: 250px;
+  background: #111; border: 1px solid var(--main-purple);
+  display: none; flex-direction: column; z-index: 100;
+}
+.inspect-header { background: var(--dark-purple); padding: 5px; font-size: 0.7rem; display: flex; justify-content: space-between; }
+
 </style>
 </head>
 <body>
-<div class="browser-container">
-  <div class="browser-header">
-    <div class="dot" style="background:#ff5f56"></div>
-    <div class="dot" style="background:#ffbd2e"></div>
-    <div class="dot" style="background:#27c93f"></div>
-    <div class="url-bar-container">
+
+<div class="binary-bg" id="bin"></div>
+
+<div class="browser-frame">
+  <div class="toolbar">
+    <div class="nav-btns">
+      <button class="nav-btn" onclick="location.reload()">HOME</button>
+      <button class="nav-btn" onclick="history.back()">BACK</button>
+    </div>
+    
+    <div class="search-container">
       <span>HTTPS://</span>
-      <input type="text" id="urlInput" class="url-bar" value="VIRO.XYZ/BROWSER" spellcheck="false">
+      <input type="text" id="urlInput" placeholder="ENTER ENCRYPTED DESTINATION..." autocomplete="off">
+    </div>
+
+    <button class="nav-btn" onclick="toggleInspect()">INSPECT</button>
+  </div>
+
+  <div class="main-view">
+    <div class="sidebar">
+      <span class="tool-label">// SYSTEM_PROTECT</span>
+      
+      <div class="toggle-item">AD_BLOCK <span class="status-on">ACTIVE</span></div>
+      <div class="toggle-item">SECURLY_BYPASS <span class="status-on">MASKED</span></div>
+      <div class="toggle-item">POPUP_KILL <span class="status-on">ACTIVE</span></div>
+      
+      <hr style="border: 0.5px solid var(--dark-purple); margin: 20px 0;">
+      
+      <span class="tool-label">// PROXY_CONFIG</span>
+      <div class="toggle-item" style="font-size:0.7rem">NODE: <span style="color:var(--main-purple)">GHOST-NY-01</span></div>
+    </div>
+
+    <div class="viewport" id="viewport">
+      <h1 style="color: var(--main-purple); font-size: 3rem; margin-bottom: 0;">VIRO XYZ</h1>
+      <p style="letter-spacing: 5px; margin-bottom: 30px;">GHOST_BROWSER_V1</p>
+      
+      <div style="border-left: 3px solid var(--main-purple); padding-left: 20px;">
+        <p>> ENCRYPTION: AES-256</p>
+        <p>> PROXY STATUS: <span style="color:#0f0">CONNECTED</span></p>
+        <p>> SECURLY: <span style="color:#f00">BLOCKED</span></p>
+      </div>
     </div>
   </div>
-  <div class="browser-content">
-    <h1>Welcome</h1>
-    <p>Type a URL or keyword and press <strong>ENTER</strong>.</p>
+
+  <!-- Custom Inspect Element -->
+  <div id="inspectModal">
+    <div class="inspect-header">
+        <span>GHOST_INSPECT.EXE</span>
+        <span onclick="toggleInspect()" style="cursor:pointer">X</span>
+    </div>
+    <div style="padding:10px; font-size: 0.8rem; color: #aaa; overflow-y: scroll;">
+        <div style="color: #0f0;">&lt;div class="viewport"&gt;</div>
+        <div style="padding-left: 15px;">&lt;h1&gt;VIRO XYZ&lt;/h1&gt;</div>
+        <div style="padding-left: 15px; color: #555;">&lt;!-- Content Encrypted by Viro Proxy --&gt;</div>
+        <div style="color: #0f0;">&lt;/div&gt;</div>
+    </div>
   </div>
 </div>
+
 <script>
-// URL Bar Logic
+// Generate Binary Background
+const bin = document.getElementById('bin');
+let binaryString = "";
+for(let i=0; i<5000; i++) { binaryString += Math.round(Math.random()); }
+bin.innerText = binaryString;
+
+// Search Logic
 const urlInput = document.getElementById('urlInput');
-urlInput.addEventListener('keypress', function (e) {
-  if (e.key === 'Enter') {
-    let query = urlInput.value.toLowerCase().trim();
-    if (query === '' || query === 'viro.xyz/browser') return;
-    if (query.includes('.') || query.startsWith('http')) {
-        window.location.href = query.startsWith('http') ? query : 'https://' + query;
-    } else {
-        // Fallback to Google Search
-        window.location.href = "https://www.google.com" + encodeURIComponent(query);
+urlInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        let val = urlInput.value.trim();
+        if(!val) return;
+        // Simulating the proxy "redirect"
+        document.getElementById('viewport').innerHTML = `
+            <div style="text-align:center; margin-top: 50px;">
+                <h2 style="color:var(--main-purple)">ROUTING THROUGH PROXY...</h2>
+                <p>Accessing: ${val}</p>
+                <div style="margin-top:20px; color:#555">SeCURLY check bypassed. Logs cleared.</div>
+            </div>
+        `;
     }
-  }
 });
+
+// Inspect Element Toggle
+function toggleInspect() {
+    const modal = document.getElementById('inspectModal');
+    modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+}
 </script>
+
 </body>
 </html>
