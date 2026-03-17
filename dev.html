@@ -1,124 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Viro XYZ - Dev AI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viro XYZ - Dev AI v2.0</title>
+    <style>
+        :root {
+            --glow-color: #a855f7;
+            --bg-color: #050505;
+        }
 
-<style>
-body{
-  margin:0;
-  padding:0;
-  font-family:monospace;
-  background:#000;
-  color:#a855f7;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-start;
-  height:100vh;
-}
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+            background: var(--bg-color);
+            color: var(--glow-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-header{
-  width:100%;
-  padding:20px;
-  text-align:center;
-  border-bottom:1px solid #a855f7;
-  font-size:24px;
-}
+        /* Scanline Effect Overlay */
+        body::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            z-index: 10;
+            background-size: 100% 2px, 3px 100%;
+            pointer-events: none;
+        }
 
-#ai-container{
-  width:90%;
-  max-width:800px;
-  margin-top:20px;
-  flex:1;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
-}
+        header {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--glow-color);
+            font-size: 24px;
+            text-shadow: 0 0 10px var(--glow-color);
+            letter-spacing: 2px;
+        }
 
-#output{
-  background:#000;
-  border:1px solid #a855f7;
-  flex:1;
-  padding:15px;
-  overflow-y:auto;
-  white-space:pre-wrap;
-}
+        #ai-container {
+            width: 90%;
+            max-width: 900px;
+            margin-top: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
 
-#input-container{
-  display:flex;
-  margin-top:10px;
-}
+        #output {
+            background: rgba(0, 0, 0, 0.9);
+            border: 1px solid var(--glow-color);
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            box-shadow: inset 0 0 15px rgba(168, 85, 247, 0.2);
+            line-height: 1.5;
+        }
 
-#input-container input{
-  flex:1;
-  padding:10px;
-  background:#000;
-  border:1px solid #a855f7;
-  color:#a855f7;
-}
+        #input-container {
+            display: flex;
+            margin-top: 15px;
+            gap: 10px;
+        }
 
-#input-container button{
-  padding:10px;
-  border:1px solid #a855f7;
-  background:#000;
-  color:#a855f7;
-  cursor:pointer;
-}
+        #input-container input {
+            flex: 1;
+            padding: 12px;
+            background: transparent;
+            border: 1px solid var(--glow-color);
+            color: var(--glow-color);
+            outline: none;
+            font-family: inherit;
+            font-size: 16px;
+        }
 
-#input-container button:hover{
-  background:#a855f7;
-  color:#000;
-}
-</style>
+        #input-container button {
+            padding: 0 25px;
+            border: 1px solid var(--glow-color);
+            background: transparent;
+            color: var(--glow-color);
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        #input-container button:hover {
+            background: var(--glow-color);
+            color: #000;
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+
+        /* Scrollbar Styling */
+        #output::-webkit-scrollbar { width: 6px; }
+        #output::-webkit-scrollbar-thumb { background: var(--glow-color); }
+
+        .user-cmd { color: #fff; font-weight: bold; }
+        .system-msg { color: #4ade80; }
+    </style>
 </head>
-
 <body>
 
-<header>Viro XYZ - Dev AI</header>
+<header>VIRO XYZ // TERMINAL_ACCESS</header>
 
 <div id="ai-container">
-  <div id="output">> Welcome, Developer. Type a command below.</div>
-  <div id="input-container">
-    <input type="text" id="cmd" placeholder="Enter AI command">
-    <button onclick="sendCommand()">RUN</button>
-  </div>
+    <div id="output">>> SYSTEM BOOT COMPLETE...
+>> WELCOME, DEVELOPER. TYPE 'HELP' FOR COMMANDS.</div>
+    
+    <div id="input-container">
+        <input type="text" id="cmd" placeholder="Execute command..." autocomplete="off" autofocus>
+        <button onclick="sendCommand()">RUN</button>
+    </div>
 </div>
 
 <script>
-const output = document.getElementById("output");
-const input = document.getElementById("cmd");
+    const output = document.getElementById("output");
+    const input = document.getElementById("cmd");
 
-// fake AI responses
-const aiResponses = {
-  "hello":"Hello, Developer. How can I assist you today?",
-  "status":"System running smoothly. No errors detected.",
-  "help":"Available commands: hello, status, help, date, time, clear",
-  "date":()=>`Today's date is ${new Date().toLocaleDateString()}`,
-  "time":()=>`Current time is ${new Date().toLocaleTimeString()}`,
-  "clear":()=>{output.innerText="> Welcome, Developer. Type a command below."; return ""; }
-}
+    let history = [];
+    let historyIndex = -1;
 
-function sendCommand(){
-  const cmd = input.value.trim().toLowerCase();
-  if(cmd==="") return;
-  
-  output.innerText += `\n> ${cmd}`;
+    // Logic Map
+    const responses = {
+        "hello": "Greetings. System core initialized and ready.",
+        "status": "All modules operational. CPU: 12% | RAM: 42% | LATENCY: 14ms",
+        "help": "Commands: hello, status, clear, date, whoami, echo [text], color [hex]",
+        "whoami": "User: Root-Admin | Location: Unknown | Access: Level 5",
+        "date": () => `Local timestamp: ${new Date().toLocaleString()}`,
+    };
 
-  if(aiResponses[cmd]){
-    const resp = typeof aiResponses[cmd] === "function" ? aiResponses[cmd]() : aiResponses[cmd];
-    if(resp) output.innerText += `\n${resp}`;
-  } else {
-    output.innerText += `\nUnknown command. Type 'help' for a list of commands.`;
-  }
+    function typeWriter(text, i = 0) {
+        if (i < text.length) {
+            output.innerText += text.charAt(i);
+            output.scrollTop = output.scrollHeight;
+            setTimeout(() => typeWriter(text, i + 1), 15);
+        } else {
+            output.innerText += "\n";
+        }
+    }
 
-  output.scrollTop = output.scrollHeight;
-  input.value="";
-}
+    function sendCommand() {
+        const fullCmd = input.value.trim();
+        if (!fullCmd) return;
 
-input.addEventListener("keypress", e=>{
-  if(e.key==="Enter") sendCommand();
-});
+        const cmdParts = fullCmd.toLowerCase().split(" ");
+        const action = cmdParts[0];
+        const args = cmdParts.slice(1).join(" ");
+
+        // Save to history
+        history.push(fullCmd);
+        historyIndex = -1;
+
+        // Display user input
+        output.innerText += `\n\n> ${fullCmd}\n`;
+        
+        // Process Logic
+        let response = "";
+        if (action === "clear") {
+            output.innerText = ">> Terminal cleared.";
+        } else if (action === "echo") {
+            response = args ? args : "Usage: echo [message]";
+        } else if (action === "color") {
+            if(args) {
+                document.documentElement.style.setProperty('--glow-color', args);
+                response = `UI Color profile updated to: ${args}`;
+            } else {
+                response = "Usage: color [hex_code]";
+            }
+        } else if (responses[action]) {
+            response = typeof responses[action] === "function" ? responses[action]() : responses[action];
+        } else {
+            response = `CRITICAL ERROR: Command '${action}' not found. Type 'help' for documentation.`;
+        }
+
+        if (response) typeWriter(response);
+        
+        input.value = "";
+        output.scrollTop = output.scrollHeight;
+    }
+
+    // Keyboard Listeners
+    input.addEventListener("keydown", e => {
+        if (e.key === "Enter") sendCommand();
+        
+        if (e.key === "ArrowUp") {
+            if (historyIndex < history.length - 1) {
+                historyIndex++;
+                input.value = history[history.length - 1 - historyIndex];
+            }
+        } else if (e.key === "ArrowDown") {
+            if (historyIndex > 0) {
+                historyIndex--;
+                input.value = history[history.length - 1 - historyIndex];
+            } else {
+                historyIndex = -1;
+                input.value = "";
+            }
+        }
+    });
 </script>
 
 </body>
