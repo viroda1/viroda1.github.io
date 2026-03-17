@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viro XYZ - Dev AI v3.0</title>
+    <title>Viro XYZ // GROQ_POWERED</title>
     <style>
         :root {
             --glow-color: #a855f7;
@@ -16,7 +16,7 @@
             font-family: 'Courier New', Courier, monospace;
         }
 
-        /* Matrix Canvas */
+        /* Matrix Rain Layer */
         #matrix-canvas {
             position: fixed; top: 0; left: 0; z-index: 1;
         }
@@ -25,45 +25,61 @@
         #main-wrapper {
             position: relative; z-index: 2;
             display: flex; flex-direction: column; align-items: center;
-            height: 100vh; background: rgba(0, 0, 0, 0.7); /* Translucent */
-            backdrop-filter: blur(2px);
+            height: 100vh; background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(3px);
         }
 
         header {
-            width: 100%; padding: 20px; text-align: center;
+            width: 100%; padding: 15px; text-align: center;
             border-bottom: 1px solid var(--glow-color);
-            color: var(--glow-color); font-size: 24px;
+            color: var(--glow-color); font-size: 22px;
             text-shadow: 0 0 10px var(--glow-color);
+            letter-spacing: 3px;
         }
 
         #ai-container {
-            width: 90%; max-width: 900px; margin-top: 20px;
+            width: 90%; max-width: 1000px; margin-top: 20px;
             flex: 1; display: flex; flex-direction: column; margin-bottom: 20px;
+            overflow: hidden;
         }
 
         #output {
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.4);
             border: 1px solid var(--glow-color);
             flex: 1; padding: 20px; overflow-y: auto;
             white-space: pre-wrap; color: var(--glow-color);
-            box-shadow: inset 0 0 15px rgba(168, 85, 247, 0.2);
+            box-shadow: inset 0 0 20px rgba(168, 85, 247, 0.1);
+            scrollbar-width: thin;
+            scrollbar-color: var(--glow-color) transparent;
         }
 
         #input-container { display: flex; margin-top: 15px; gap: 10px; }
         #input-container input {
-            flex: 1; padding: 12px; background: rgba(0,0,0,0.5);
+            flex: 1; padding: 12px; background: rgba(0,0,0,0.8);
             border: 1px solid var(--glow-color); color: var(--glow-color);
-            outline: none; font-family: inherit;
+            outline: none; font-family: inherit; font-size: 16px;
         }
 
         #input-container button {
-            padding: 0 25px; border: 1px solid var(--glow-color);
+            padding: 0 30px; border: 1px solid var(--glow-color);
             background: transparent; color: var(--glow-color);
             cursor: pointer; font-family: inherit; font-weight: bold;
+            transition: 0.3s;
         }
 
         #input-container button:hover {
             background: var(--glow-color); color: #000;
+            box-shadow: 0 0 15px var(--glow-color);
+        }
+
+        /* Scanline Overlay */
+        #main-wrapper::after {
+            content: " "; display: block; position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            z-index: 10; background-size: 100% 3px, 3px 100%;
+            pointer-events: none;
         }
     </style>
 </head>
@@ -72,35 +88,35 @@
 <canvas id="matrix-canvas"></canvas>
 
 <div id="main-wrapper">
-    <header>VIRO XYZ // QUANTUM_CORE_v3</header>
+    <header>VIRO-XYZ // NEURAL_INTERFACE_v4</header>
     <div id="ai-container">
-        <div id="output">>> MATRIX INITIALIZED...
->> WAITING FOR INPUT...</div>
+        <div id="output">>> UPLINK ESTABLISHED...
+>> GROQ_LLAMA3_CORE: ONLINE
+>> TYPE 'HELP' FOR SYSTEM PROTOCOLS.</div>
         <div id="input-container">
-            <input type="text" id="cmd" placeholder="Ask the AI or run a command..." autocomplete="off" autofocus>
+            <input type="text" id="cmd" placeholder="Execute command or ask AI..." autocomplete="off" autofocus>
             <button onclick="sendCommand()">RUN</button>
         </div>
     </div>
 </div>
 
 <script>
-    // --- MATRIX RAIN EFFECT ---
+    // --- 1. MATRIX RAIN EFFECT ---
     const canvas = document.getElementById('matrix-canvas');
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
-    const chars = "ABCDEFGHIJKLMNOPRSTUVWXYZ0123456789$+-*/=%\"'#&_(),.;:?!\\|{}<>[]^~";
-    const fontSize = 16;
+    const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ$+-*/=%&_<>[]";
+    const fontSize = 14;
     const columns = canvas.width / fontSize;
     const drops = Array(Math.floor(columns)).fill(1);
 
     function drawMatrix() {
         ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
         ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "#0F0"; // Classic Matrix Green
+        ctx.fillStyle = "#0F0";
         ctx.font = fontSize + "px monospace";
-
         for (let i = 0; i < drops.length; i++) {
             const text = chars.charAt(Math.floor(Math.random() * chars.length));
             ctx.fillText(text, i * fontSize, drops[i] * fontSize);
@@ -110,41 +126,102 @@
     }
     setInterval(drawMatrix, 35);
 
-    // --- TERMINAL LOGIC ---
+    // --- 2. AI CONFIGURATION ---
+    const API_KEY = "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";
+    const MODEL = "llama3-8b-8192";
+    const URL = "https://api.groq.com";
+
+    let chatHistory = [
+        { role: "system", content: "You are VIRO-XYZ, a high-level developer terminal AI. Your responses should be technical, concise, and professional. Use a hacker-style tone." }
+    ];
+    let isProcessing = false;
+
+    // --- 3. TERMINAL LOGIC ---
     const output = document.getElementById("output");
     const input = document.getElementById("cmd");
 
     async function sendCommand() {
+        if (isProcessing) return;
         const val = input.value.trim();
         if (!val) return;
         
         output.innerText += `\n\n> ${val}\n`;
         input.value = "";
-
-        if (val.toLowerCase() === "help") {
-            typeEffect("Commands: ai [question], clear, color [hex], whoami");
-        } else if (val.toLowerCase().startsWith("ai ")) {
-            typeEffect("Connecting to Neural Net... [Requires API Integration]");
-            // callAI(val.substring(3)); 
-        } else if (val.toLowerCase() === "clear") {
-            output.innerText = ">> Terminal Reset.";
-        } else {
-            typeEffect(`Searching local databanks for '${val}'... No match found.`);
-        }
         output.scrollTop = output.scrollHeight;
+
+        const cmdLower = val.toLowerCase();
+
+        // System Commands
+        if (cmdLower === "clear") {
+            output.innerText = ">> TERMINAL BUFFER PURGED.";
+            chatHistory = [chatHistory[0]]; 
+        } else if (cmdLower === "whoami") {
+            typeEffect("USER: ROOT-ADMIN | ACCESS: GRANTED | STATUS: ANONYMOUS");
+        } else if (cmdLower === "help") {
+            typeEffect("PROTOCOLS: clear, whoami, color [hex]. Or send free-text for Neural Processing.");
+        } else if (cmdLower.startsWith("color ")) {
+            const hex = val.split(" ")[1];
+            document.documentElement.style.setProperty('--glow-color', hex);
+            typeEffect(`UI COLOR UPDATED TO ${hex}`);
+        } else {
+            // Neural Net Request
+            await callGroqAI(val);
+        }
+    }
+
+    async function callGroqAI(userPrompt) {
+        isProcessing = true;
+        typeEffect("THINKING...");
+        
+        chatHistory.push({ role: "user", content: userPrompt });
+
+        try {
+            const response = await fetch(URL, {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${API_KEY}`,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    model: MODEL,
+                    messages: chatHistory,
+                    temperature: 0.6
+                })
+            });
+
+            const data = await response.json();
+            
+            // Remove "THINKING..." line
+            const lines = output.innerText.split("\n");
+            if (lines[lines.length - 1].includes("THINKING...")) lines.pop();
+            output.innerText = lines.join("\n");
+
+            if (data.choices && data.choices[0]) {
+                const aiResponse = data.choices[0].message.content;
+                chatHistory.push({ role: "assistant", content: aiResponse });
+                typeEffect(aiResponse);
+            } else {
+                typeEffect("CRITICAL_ERR: EMPTY_DATA_PACKET. CHECK API KEY OR USAGE LIMITS.");
+            }
+        } catch (error) {
+            typeEffect("UPLINK_FAILURE: FIREWALL DETECTED OR NO CONNECTION.");
+        } finally {
+            isProcessing = false;
+        }
     }
 
     function typeEffect(text) {
         let i = 0;
+        const speed = text.length > 200 ? 1 : 15; 
         const interval = setInterval(() => {
             output.innerText += text[i];
             i++;
             if (i >= text.length) {
                 clearInterval(interval);
                 output.innerText += "\n";
+                output.scrollTop = output.scrollHeight;
             }
-            output.scrollTop = output.scrollHeight;
-        }, 20);
+        }, speed);
     }
 
     input.addEventListener("keydown", e => { if (e.key === "Enter") sendCommand(); });
