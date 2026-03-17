@@ -3,211 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viro XYZ - Dev AI v2.0</title>
+    <title>Viro XYZ - Dev AI v3.0</title>
     <style>
         :root {
             --glow-color: #a855f7;
             --bg-color: #050505;
         }
 
-        body {
-            margin: 0;
-            padding: 0;
+        body, html {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background: #000; overflow: hidden;
             font-family: 'Courier New', Courier, monospace;
-            background: var(--bg-color);
-            color: var(--glow-color);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
         }
 
-        /* Scanline Effect Overlay */
-        body::before {
-            content: " ";
-            display: block;
-            position: absolute;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                        linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 10;
-            background-size: 100% 2px, 3px 100%;
-            pointer-events: none;
+        /* Matrix Canvas */
+        #matrix-canvas {
+            position: fixed; top: 0; left: 0; z-index: 1;
+        }
+
+        /* Terminal Overlay */
+        #main-wrapper {
+            position: relative; z-index: 2;
+            display: flex; flex-direction: column; align-items: center;
+            height: 100vh; background: rgba(0, 0, 0, 0.7); /* Translucent */
+            backdrop-filter: blur(2px);
         }
 
         header {
-            width: 100%;
-            padding: 20px;
-            text-align: center;
+            width: 100%; padding: 20px; text-align: center;
             border-bottom: 1px solid var(--glow-color);
-            font-size: 24px;
+            color: var(--glow-color); font-size: 24px;
             text-shadow: 0 0 10px var(--glow-color);
-            letter-spacing: 2px;
         }
 
         #ai-container {
-            width: 90%;
-            max-width: 900px;
-            margin-top: 20px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 20px;
+            width: 90%; max-width: 900px; margin-top: 20px;
+            flex: 1; display: flex; flex-direction: column; margin-bottom: 20px;
         }
 
         #output {
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.6);
             border: 1px solid var(--glow-color);
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            white-space: pre-wrap;
+            flex: 1; padding: 20px; overflow-y: auto;
+            white-space: pre-wrap; color: var(--glow-color);
             box-shadow: inset 0 0 15px rgba(168, 85, 247, 0.2);
-            line-height: 1.5;
         }
 
-        #input-container {
-            display: flex;
-            margin-top: 15px;
-            gap: 10px;
-        }
-
+        #input-container { display: flex; margin-top: 15px; gap: 10px; }
         #input-container input {
-            flex: 1;
-            padding: 12px;
-            background: transparent;
-            border: 1px solid var(--glow-color);
-            color: var(--glow-color);
-            outline: none;
-            font-family: inherit;
-            font-size: 16px;
+            flex: 1; padding: 12px; background: rgba(0,0,0,0.5);
+            border: 1px solid var(--glow-color); color: var(--glow-color);
+            outline: none; font-family: inherit;
         }
 
         #input-container button {
-            padding: 0 25px;
-            border: 1px solid var(--glow-color);
-            background: transparent;
-            color: var(--glow-color);
-            cursor: pointer;
-            font-family: inherit;
-            font-weight: bold;
-            transition: 0.3s;
+            padding: 0 25px; border: 1px solid var(--glow-color);
+            background: transparent; color: var(--glow-color);
+            cursor: pointer; font-family: inherit; font-weight: bold;
         }
 
         #input-container button:hover {
-            background: var(--glow-color);
-            color: #000;
-            box-shadow: 0 0 15px var(--glow-color);
+            background: var(--glow-color); color: #000;
         }
-
-        /* Scrollbar Styling */
-        #output::-webkit-scrollbar { width: 6px; }
-        #output::-webkit-scrollbar-thumb { background: var(--glow-color); }
-
-        .user-cmd { color: #fff; font-weight: bold; }
-        .system-msg { color: #4ade80; }
     </style>
 </head>
 <body>
 
-<header>VIRO XYZ // TERMINAL_ACCESS</header>
+<canvas id="matrix-canvas"></canvas>
 
-<div id="ai-container">
-    <div id="output">>> SYSTEM BOOT COMPLETE...
->> WELCOME, DEVELOPER. TYPE 'HELP' FOR COMMANDS.</div>
-    
-    <div id="input-container">
-        <input type="text" id="cmd" placeholder="Execute command..." autocomplete="off" autofocus>
-        <button onclick="sendCommand()">RUN</button>
+<div id="main-wrapper">
+    <header>VIRO XYZ // QUANTUM_CORE_v3</header>
+    <div id="ai-container">
+        <div id="output">>> MATRIX INITIALIZED...
+>> WAITING FOR INPUT...</div>
+        <div id="input-container">
+            <input type="text" id="cmd" placeholder="Ask the AI or run a command..." autocomplete="off" autofocus>
+            <button onclick="sendCommand()">RUN</button>
+        </div>
     </div>
 </div>
 
 <script>
+    // --- MATRIX RAIN EFFECT ---
+    const canvas = document.getElementById('matrix-canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const chars = "ABCDEFGHIJKLMNOPRSTUVWXYZ0123456789$+-*/=%\"'#&_(),.;:?!\\|{}<>[]^~";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function drawMatrix() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#0F0"; // Classic Matrix Green
+        ctx.font = fontSize + "px monospace";
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = chars.charAt(Math.floor(Math.random() * chars.length));
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+            drops[i]++;
+        }
+    }
+    setInterval(drawMatrix, 35);
+
+    // --- TERMINAL LOGIC ---
     const output = document.getElementById("output");
     const input = document.getElementById("cmd");
 
-    let history = [];
-    let historyIndex = -1;
-
-    // Logic Map
-    const responses = {
-        "hello": "Greetings. System core initialized and ready.",
-        "status": "All modules operational. CPU: 12% | RAM: 42% | LATENCY: 14ms",
-        "help": "Commands: hello, status, clear, date, whoami, echo [text], color [hex]",
-        "whoami": "User: Root-Admin | Location: Unknown | Access: Level 5",
-        "date": () => `Local timestamp: ${new Date().toLocaleString()}`,
-    };
-
-    function typeWriter(text, i = 0) {
-        if (i < text.length) {
-            output.innerText += text.charAt(i);
-            output.scrollTop = output.scrollHeight;
-            setTimeout(() => typeWriter(text, i + 1), 15);
-        } else {
-            output.innerText += "\n";
-        }
-    }
-
-    function sendCommand() {
-        const fullCmd = input.value.trim();
-        if (!fullCmd) return;
-
-        const cmdParts = fullCmd.toLowerCase().split(" ");
-        const action = cmdParts[0];
-        const args = cmdParts.slice(1).join(" ");
-
-        // Save to history
-        history.push(fullCmd);
-        historyIndex = -1;
-
-        // Display user input
-        output.innerText += `\n\n> ${fullCmd}\n`;
+    async function sendCommand() {
+        const val = input.value.trim();
+        if (!val) return;
         
-        // Process Logic
-        let response = "";
-        if (action === "clear") {
-            output.innerText = ">> Terminal cleared.";
-        } else if (action === "echo") {
-            response = args ? args : "Usage: echo [message]";
-        } else if (action === "color") {
-            if(args) {
-                document.documentElement.style.setProperty('--glow-color', args);
-                response = `UI Color profile updated to: ${args}`;
-            } else {
-                response = "Usage: color [hex_code]";
-            }
-        } else if (responses[action]) {
-            response = typeof responses[action] === "function" ? responses[action]() : responses[action];
-        } else {
-            response = `CRITICAL ERROR: Command '${action}' not found. Type 'help' for documentation.`;
-        }
-
-        if (response) typeWriter(response);
-        
+        output.innerText += `\n\n> ${val}\n`;
         input.value = "";
+
+        if (val.toLowerCase() === "help") {
+            typeEffect("Commands: ai [question], clear, color [hex], whoami");
+        } else if (val.toLowerCase().startsWith("ai ")) {
+            typeEffect("Connecting to Neural Net... [Requires API Integration]");
+            // callAI(val.substring(3)); 
+        } else if (val.toLowerCase() === "clear") {
+            output.innerText = ">> Terminal Reset.";
+        } else {
+            typeEffect(`Searching local databanks for '${val}'... No match found.`);
+        }
         output.scrollTop = output.scrollHeight;
     }
 
-    // Keyboard Listeners
-    input.addEventListener("keydown", e => {
-        if (e.key === "Enter") sendCommand();
-        
-        if (e.key === "ArrowUp") {
-            if (historyIndex < history.length - 1) {
-                historyIndex++;
-                input.value = history[history.length - 1 - historyIndex];
+    function typeEffect(text) {
+        let i = 0;
+        const interval = setInterval(() => {
+            output.innerText += text[i];
+            i++;
+            if (i >= text.length) {
+                clearInterval(interval);
+                output.innerText += "\n";
             }
-        } else if (e.key === "ArrowDown") {
-            if (historyIndex > 0) {
-                historyIndex--;
-                input.value = history[history.length - 1 - historyIndex];
-            } else {
-                historyIndex = -1;
-                input.value = "";
-            }
-        }
-    });
+            output.scrollTop = output.scrollHeight;
+        }, 20);
+    }
+
+    input.addEventListener("keydown", e => { if (e.key === "Enter") sendCommand(); });
 </script>
 
 </body>
