@@ -1,186 +1,254 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Viro XYZ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Resources</title><style>
+:root{
+    --bg:#000;
+    --text:#8ffcff;
+    --accent:#8ffcff;
+}
 
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:monospace;
+}
 
 body{
-  background:#000;
-  color:#a855f7;
-  font-family:monospace;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-  text-align:center;
+    background:var(--bg);
+    color:var(--text);
 }
 
-/* main container */
-.container{
-  width:400px;
+/* LOGIN */
+#login{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-/* title styling */
-.logo{
-  font-size:80px;
-  margin-bottom:10px;
+.panel{
+    width:320px;
+    padding:25px;
+    border:1px solid var(--accent);
+    background:#000;
+    box-shadow:0 0 25px var(--accent);
 }
 
 .title{
-  font-size:60px;
-  letter-spacing:5px;
+    text-align:center;
+    margin-bottom:15px;
 }
 
-.subtitle{
-  margin-top:10px;
-  font-size:18px;
-}
-
-/* input */
+/* INPUT */
 input{
-  width:100%;
-  margin-top:20px;
-  padding:10px;
-  background:#000;
-  border:1px solid #a855f7;
-  color:#a855f7;
-  text-align:center;
+    width:100%;
+    margin:10px 0;
+    padding:10px;
+    background:#000;
+    border:1px solid var(--accent);
+    color:var(--text);
 }
 
-/* button */
+/* BUTTON */
 button{
-  margin-top:15px;
-  width:100%;
-  padding:10px;
-  background:#000;
-  border:1px solid #a855f7;
-  color:#a855f7;
-  cursor:pointer;
+    width:100%;
+    padding:10px;
+    background:var(--accent);
+    border:none;
+    color:#000;
+    cursor:pointer;
 }
 
-button:hover{
-  background:#a855f7;
-  color:#000;
+/* LOADING */
+#loading{
+    display:none;
+    height:100vh;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
 }
 
-/* status */
-#status{
-  margin-top:15px;
-  height:20px;
+/* DASH */
+#dash{
+    display:none;
+    padding:20px;
 }
 
-/* glitch */
-.glitch{
-  color:red;
-  animation:glitch 0.2s infinite;
+.top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:20px;
 }
 
-@keyframes glitch{
-  0%{transform:translate(0);}
-  25%{transform:translate(-2px,2px);}
-  50%{transform:translate(2px,-2px);}
-  75%{transform:translate(-2px,-2px);}
-  100%{transform:translate(0);}
+.cards{
+    display:flex;
+    gap:10px;
 }
-</style>
-</head>
 
-<body>
+.card{
+    padding:15px;
+    border:1px solid var(--accent);
+    cursor:pointer;
+}
 
-<div class="container">
-  <div class="logo">V</div>
-  <div class="title">VIRO XYZ</div>
-  <div class="subtitle">GET STARTED:</div>
+/* SUPPORT */
+#supportPanel{
+    display:none;
+    padding:20px;
+}
 
-  <input type="text" id="user" placeholder="username">
-  <input type="password" id="pass" placeholder="password">
-
-  <button onclick="login()">ENTER</button>
-
-  <div id="status"></div>
+/* SECRET MENU */
+#secretMenu{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:#000;
+    border:1px solid var(--accent);
+    padding:20px;
+    display:none;
+    z-index:999;
+}
+</style></head><body><!-- LOGIN --><div id="login">
+    <div class="panel">
+        <div class="title">SCHOOL RESOURCE</div>
+        <input id="user" placeholder="USERNAME">
+        <input id="pass" type="password" placeholder="PASSWORD">
+        <button onclick="handleLogin()">LOGIN</button>
+    </div>
+</div><!-- LOADING --><div id="loading">
+    <h2 id="loadingText">Authenticating...</h2>
+</div><!-- DASH --><div id="dash">
+    <div class="top">
+        <div>DASHBOARD</div>
+        <button onclick="openBio()">≡</button>
+    </div><div class="cards">
+    <div class="card" onclick="goOther()">Subjects</div>
+    <div class="card" onclick="goHome()">Home</div>
+    <div class="card" onclick="openSupport()">Help</div>
 </div>
 
-<script>
-// accounts
-const accounts = {
-  "viro":"admin",
-  "guest":"guest",
-  "dev":"xyz"
-};
+</div><!-- SUPPORT --><div id="supportPanel">
+    <h3>ACADEMIC SUPPORT</h3>
+    <p id="status">Awaiting request...</p>
+    <button onclick="simulateSupport()">Request Help</button>
+    <button onclick="closeSupport()">Close</button>
+</div><!-- SECRET MENU --><div id="secretMenu">
+    <h3>THEMES</h3>
+    <button onclick="setTheme('default')">Default</button>
+    <button onclick="setTheme('ixl')">IXL</button>
+    <button onclick="setTheme('iready')">I-Ready</button>
+    <button onclick="setTheme('backpack')">MyBackpack</button>
+    <button onclick="closeSecret()">Close</button>
+</div><script>
+const user=document.getElementById("user");
+const pass=document.getElementById("pass");
 
-let attempts = 0;
+const login=document.getElementById("login");
+const loading=document.getElementById("loading");
+const dash=document.getElementById("dash");
+const supportPanel=document.getElementById("supportPanel");
+const secretMenu=document.getElementById("secretMenu");
 
-function typeText(text, el, speed=25){
-  el.innerHTML="";
-  let i=0;
-  let interval=setInterval(()=>{
-    el.innerHTML += text[i];
-    i++;
-    if(i>=text.length) clearInterval(interval);
-  }, speed);
+/* LOGIN */
+function handleLogin(){
+    login.style.display="none";
+    loading.style.display="flex";
+
+    const messages=[
+        "Authenticating...",
+        "Verifying credentials...",
+        "Accessing student node...",
+        "Loading system..."
+    ];
+
+    let i=0;
+    const text=document.getElementById("loadingText");
+
+    const interval=setInterval(()=>{
+        text.innerText=messages[i % messages.length];
+        i++;
+    },400);
+
+    setTimeout(()=>{
+        clearInterval(interval);
+
+        const u=user.value.trim();
+        const p=pass.value.trim();
+
+        if(u==="" && p===""){ location.href="home.html"; return; }
+        if(u==="Viro" && p==="xyz"){ location.href="browser.html"; return; }
+        if(u==="dev" && p==="zyx"){ location.href="dev.html"; return; }
+
+        // fallback: show dashboard instead of reload
+        loading.style.display="none";
+        dash.style.display="block";
+
+    },1200);
 }
 
-function login(){
-  const user = document.getElementById("user").value.toLowerCase();
-  const pass = document.getElementById("pass").value.toLowerCase();
-  const status = document.getElementById("status");
+/* NAV */
+function goHome(){ location.href="home.html"; }
+function goOther(){ location.href="other.html"; }
+function openBio(){ location.href="bio.html"; }
 
-  status.classList.remove("glitch");
+/* SUPPORT */
+function openSupport(){
+    dash.style.display="none";
+    supportPanel.style.display="block";
+}
 
-  // lockout
-  if(attempts >= 3){
-    status.classList.add("glitch");
-    typeText("SYSTEM LOCKED", status);
-    return;
-  }
+function closeSupport(){
+    supportPanel.style.display="none";
+    dash.style.display="block";
+}
 
-  typeText("AUTHENTICATING...", status);
+function simulateSupport(){
+    const s=document.getElementById("status");
 
-  setTimeout(()=>{
-    if(accounts[user] && accounts[user] === pass){
+    s.innerText="Connecting...";
+    setTimeout(()=>{s.innerText="Assistant reviewing...";},1500);
+    setTimeout(()=>{s.innerText="Continue coursework.";},3000);
+    setTimeout(()=>{s.innerText="Session ended.";},4500);
+}
 
-      typeText("ACCESS GRANTED", status);
-
-      setTimeout(()=>{
-        if(user === "viro"){
-          window.location.href = "VIRO.html"; // admin
-        } else {
-          window.location.href = "home.html"; // others
-        }
-      },800);
-
-    } else {
-      attempts++;
-
-      status.classList.add("glitch");
-      typeText("ACCESS DENIED", status);
-
-      setTimeout(()=>{
-        typeText("ATTEMPTS: " + attempts + "/3", status);
-
-        if(attempts >= 3){
-          setTimeout(()=>{
-            status.classList.add("glitch");
-            typeText("LOCKED OUT", status);
-          },800);
-        } else {
-          setTimeout(()=>{
-            window.location.href = "home.html";
-          },800);
-        }
-      },800);
+/* SECRET KEY ($ OR SHIFT+4 fallback) */
+document.addEventListener("keydown",(e)=>{
+    if(e.key==="$" || (e.shiftKey && e.key==="4")){
+        secretMenu.style.display="block";
     }
-  },800);
+});
+
+function closeSecret(){
+    secretMenu.style.display="none";
 }
 
-// enter key
-document.addEventListener("keydown", e=>{
-  if(e.key==="Enter") login();
-});
-</script>
+/* THEMES */
+function setTheme(t){
+    if(t==="default"){
+        document.documentElement.style.cssText="--bg:#000;--text:#8ffcff;--accent:#8ffcff;";
+    }
+    if(t==="ixl"){
+        document.documentElement.style.cssText="--bg:#f5f7fb;--text:#000;--accent:#0057ff;";
+    }
+    if(t==="iready"){
+        document.documentElement.style.cssText="--bg:#fff;--text:#000;--accent:#ff6a00;";
+    }
+    if(t==="backpack"){
+        document.documentElement.style.cssText="--bg:#eef2f5;--text:#000;--accent:#2a7fff;";
+    }
+}
 
-</body>
+/* ENTER KEY */
+document.addEventListener("keydown",(e)=>{
+    if(e.key==="Enter"){handleLogin();}
+});
+
+/* MOBILE FIX */
+user.setAttribute("autocapitalize","off");
+pass.setAttribute("autocapitalize","off");
+</script></body>
 </html>
