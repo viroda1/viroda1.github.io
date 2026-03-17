@@ -3,44 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interstellar | Viro Edition</title>
+<title>Viro XYZ; learning platform</title>
 <link href="https://fonts.googleapis.com" rel="stylesheet">
 <style>
-:root { --accent: #9d4edd; --bg: #0a0a0c; --glass: rgba(255, 255, 255, 0.05); }
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Outfit', sans-serif; transition: 0.3s; }
-body { background: var(--bg); color: #fff; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
+:root { --accent: #9d4edd; --bg: #050507; --glass: rgba(255, 255, 255, 0.03); --border: rgba(157, 78, 221, 0.15); }
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Outfit', sans-serif; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
 
-/* Background Nebula */
-.nebula { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #1a0b2e 0%, #0a0a0c 70%); z-index: -1; }
+body { 
+    background: var(--bg); 
+    color: #fff; 
+    height: 100vh; 
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column; 
+}
 
-/* Interstellar Navbar */
-.nav-bar { display: flex; align-items: center; padding: 15px 30px; background: rgba(0,0,0,0.4); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(157, 78, 221, 0.2); gap: 20px; }
-.logo { font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; color: var(--accent); }
+.nebula {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% -20%, #1a0b2e 0%, #050507 80%);
+    z-index: -1;
+}
 
-.search-container { flex-grow: 1; position: relative; }
-#urlInp { width: 100%; background: var(--glass); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; padding: 10px 25px; color: #fff; outline: none; }
-#urlInp:focus { border-color: var(--accent); box-shadow: 0 0 15px rgba(157, 78, 221, 0.3); }
+/* Navbar */
+.nav-bar { 
+    display: flex; 
+    align-items: center; 
+    padding: 15px 40px; 
+    background: rgba(0,0,0,0.3); 
+    backdrop-filter: blur(25px); 
+    border-bottom: 1px solid var(--border); 
+    justify-content: space-between;
+}
 
-/* Control Group */
-.controls { display: flex; gap: 15px; }
-.icon-btn { background: none; border: none; color: #888; font-size: 1.1rem; cursor: pointer; }
-.icon-btn:hover { color: var(--accent); transform: translateY(-2px); }
+.logo { font-weight: 700; font-size: 1rem; letter-spacing: 2px; color: var(--accent); }
 
-/* Main Hub */
-.hub { flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; text-align: center; }
-.hero-title { font-size: 4rem; font-weight: 700; margin-bottom: 10px; background: linear-gradient(to right, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-.hero-sub { color: #888; margin-bottom: 40px; letter-spacing: 4px; }
+.nav-actions { display: flex; gap: 25px; align-items: center; }
+.action-btn { background: none; border: none; color: #555; font-size: 1.1rem; cursor: pointer; }
+.action-btn:hover { color: var(--accent); }
 
-/* Feature Cards (Edpuzzle-style) */
-.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; width: 100%; }
-.card { background: var(--glass); border: 1px solid rgba(255,255,255,0.05); padding: 25px; border-radius: 20px; text-align: left; }
-.card:hover { border-color: var(--accent); background: rgba(157, 78, 221, 0.05); cursor: pointer; }
-.card h3 { font-size: 0.9rem; margin-bottom: 10px; color: var(--accent); }
-.card p { font-size: 0.8rem; color: #666; }
+/* Main Content */
+.hub-content { 
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 20px; 
+}
 
-/* Custom Inspect Window */
-#inspector { position: fixed; bottom: 0; right: 0; width: 350px; height: 100%; background: #0f0f12; border-left: 1px solid var(--accent); display: none; padding: 20px; z-index: 1000; box-shadow: -10px 0 30px rgba(0,0,0,0.5); }
-.code { font-family: 'Fira Mono', monospace; font-size: 0.7rem; color: #0f0; margin-top: 20px; }
+.hero-group { text-align: center; margin-bottom: 40px; }
+.hero-title { font-size: 4.5rem; font-weight: 700; letter-spacing: -1px; margin-bottom: 0px; }
+.hero-sub { color: #555; letter-spacing: 5px; font-size: 0.75rem; font-weight: 500; text-transform: uppercase; }
+
+/* Search Area */
+.search-wrapper { width: 100%; max-width: 650px; margin-bottom: 50px; text-align: center; }
+#urlInp { 
+    width: 100%; 
+    background: var(--glass); 
+    border: 1px solid var(--border); 
+    border-radius: 14px; 
+    padding: 14px 25px; 
+    color: #fff; 
+    outline: none; 
+    font-size: 1rem;
+    text-align: center;
+}
+#urlInp:focus { border-color: var(--accent); background: rgba(157, 78, 221, 0.04); }
+
+.quick-links { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
+.q-link { 
+    font-size: 0.75rem; color: #666; text-decoration: none; 
+    padding: 5px 12px; border-radius: 20px; border: 1px solid transparent;
+}
+.q-link:hover { color: var(--accent); border-color: var(--border); background: var(--glass); }
+
+/* Cards */
+.card-container { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+    max-width: 900px; 
+    width: 100%; 
+}
+
+.card { 
+    background: var(--glass); 
+    border: 1px solid var(--border); 
+    padding: 25px; 
+    border-radius: 20px; 
+    cursor: pointer;
+}
+.card:hover { border-color: var(--accent); transform: translateY(-4px); background: rgba(157, 78, 221, 0.05); }
+.card h3 { font-size: 0.9rem; margin-bottom: 8px; color: #fff; }
+.card p { font-size: 0.8rem; color: #666; line-height: 1.4; }
+
+/* Side Inspector */
+#inspectPanel {
+    position: fixed; top: 0; right: -400px; width: 380px; height: 100%;
+    background: #08080a; border-left: 1px solid var(--border);
+    z-index: 1000; padding: 30px;
+}
+#inspectPanel.open { right: 0; }
+.code-block { font-family: 'Fira Mono', monospace; font-size: 0.75rem; color: var(--accent); opacity: 0.5; margin-top: 20px; }
 
 </style>
 </head>
@@ -48,80 +113,76 @@ body { background: var(--bg); color: #fff; height: 100vh; overflow: hidden; disp
 
 <div class="nebula"></div>
 
-<div class="nav-bar">
-    <div class="logo">INTERSTELLAR</div>
-    <div class="search-container">
-        <input type="text" id="urlInp" placeholder="Explore the galaxy..." autocomplete="off">
+<nav class="nav-bar">
+    <div class="logo">VIRO XYZ</div>
+    <div class="nav-actions">
+        <button class="action-btn" onclick="toggleInspect()">🛠️</button>
+        <button class="action-btn">⚙️</button>
     </div>
-    <div class="controls">
-        <button class="icon-btn" title="Home" onclick="location.reload()">🏠</button>
-        <button class="icon-btn" title="Settings" onclick="togglePane('settings')">⚙️</button>
-        <button class="icon-btn" title="Inspect" onclick="toggleInspect()">🛠️</button>
+</nav>
+
+<main class="hub-content">
+    <div class="hero-group">
+        <h1 class="hero-title">Viro XYZ</h1>
+        <p class="hero-sub">learning platform</p>
     </div>
-</div>
 
-<div class="hub">
-    <h1 class="hero-title">VIRO XYZ</h1>
-    <p class="hero-sub">ADVANCED WEB PROXY V2</p>
-
-    <div class="card-grid">
-        <div class="card" onclick="alert('Stealth Mode Engaged')">
-            <h3>🛡️ Cloaking</h3>
-            <p>Automatically launches in about:blank to bypass SeCURLY history logs.</p>
-        </div>
-        <div class="card">
-            <h3>🚀 Ad-Blocker</h3>
-            <p>Advanced script injection to strip ads and trackers from destination sites.</p>
-        </div>
-        <div class="card" onclick="togglePane('settings')">
-            <h3>🛰️ Proxy Nodes</h3>
-            <p>Current: <span style="color:#0f0">US-EAST-1</span>. Encrypted traffic via AES-256.</p>
+    <div class="search-wrapper">
+        <input type="text" id="urlInp" placeholder="Search resources or enter a URL..." autocomplete="off">
+        <div class="quick-links">
+            <a href="https://google.com" class="q-link">Google</a>
+            <a href="https://youtube.com" class="q-link">YouTube</a>
+            <a href="https://github.com" class="q-link">GitHub</a>
+            <a href="https://discord.com" class="q-link">Discord</a>
         </div>
     </div>
-</div>
 
-<div id="inspector">
-    <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span style="font-weight:700; color:var(--accent);">GHOST_INSPECT</span>
+    <div class="card-container">
+        <div class="card" onclick="window.location.href='downloads.html'">
+            <h3>Study Materials</h3>
+            <p>Access the vault for all academic resources and downloads.</p>
+        </div>
+        <div class="card" onclick="window.location.href='https://guns.lol'">
+            <h3>Social Registry</h3>
+            <p>Connect with the community and view student profiles.</p>
+        </div>
+        <div class="card" onclick="window.location.href='bio.html'">
+            <h3>Documentation</h3>
+            <p>Detailed project logs and system development history.</p>
+        </div>
+    </div>
+</main>
+
+<aside id="inspectPanel">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-weight:700; color:var(--accent); font-size: 0.8rem;">VIRO_DEBUG_CONSOLE</span>
         <span onclick="toggleInspect()" style="cursor:pointer">✕</span>
     </div>
-    <div class="code">
-        &lt;!-- Proxy Injection Active --&gt;<br>
-        &lt;script src="adblocker.js"&gt;&lt;/script&gt;<br>
-        &lt;div class="viewport"&gt;<br>
-        &nbsp;&nbsp;[CONTENT_MASKED]<br>
-        &lt;/div&gt;
+    <div class="code-block">
+        [SYS] Initializing learning_platform.exe...<br>
+        [SYS] Connection: Secure<br>
+        [SYS] History Cloak: Enabled<br><br>
+        &lt;main&gt;<br>
+        &nbsp;&nbsp;&lt;section id="learning-hub"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;[DYNAMIC_CONTENT]<br>
+        &nbsp;&nbsp;&lt;/section&gt;<br>
+        &lt;/main&gt;
     </div>
-</div>
+</aside>
 
 <script>
-// Search/Proxy Logic
 const urlInp = document.getElementById('urlInp');
 urlInp.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         let val = urlInp.value.trim();
         if(!val) return;
-        // Interstellar style "About:Blank" launch
-        let win = window.open();
-        win.document.body.style.margin = '0';
-        win.document.body.style.height = '100vh';
-        let iframe = win.document.createElement('iframe');
-        iframe.style.border = 'none';
-        iframe.style.width = '100%';
-        iframe.style.height = '100%';
-        // Note: Real proxies use a server-side script here (like Ultraviolet)
-        iframe.src = val.includes('.') ? (val.startsWith('http') ? val : 'https://' + val) : 'https://www.google.com' + encodeURIComponent(val);
-        win.document.body.appendChild(iframe);
+        const isUrl = val.includes('.') && !val.includes(' ');
+        window.location.href = isUrl ? (val.startsWith('http') ? val : 'https://' + val) : 'https://www.google.com' + encodeURIComponent(val);
     }
 });
 
 function toggleInspect() {
-    let insp = document.getElementById('inspector');
-    insp.style.display = insp.style.display === 'block' ? 'none' : 'block';
-}
-
-function togglePane(type) {
-    alert(`System Message: ${type.toUpperCase()} module is currently running stealth protocols.`);
+    document.getElementById('inspectPanel').classList.toggle('open');
 }
 </script>
 
