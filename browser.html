@@ -3,74 +3,98 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Viro XYZ; learning platform</title>
-<link href="https://fonts.googleapis.com" rel="stylesheet">
-<!-- This script helps bypass some iframe blocks for specific sites -->
-<script src="https://unpkg.com"></script>
-<script type="module" src="https://unpkg.com"></script>
+<title>Viro XYZ | Interstellar</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
 
 <style>
-:root { --accent: #9d4edd; --bg: #050507; --glass: rgba(255, 255, 255, 0.03); --border: rgba(157, 78, 221, 0.15); }
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Outfit', sans-serif; transition: 0.3s; }
+:root {
+    --accent: #ff4aff;
+    --accent2: #46f0f0;
+    --bg: #0a0a15;
+    --glass: rgba(255, 255, 255, 0.04);
+    --border: rgba(70, 240, 240, 0.2);
+}
 
-body { background: var(--bg); color: #fff; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Outfit', sans-serif; }
+
+body {
+    background: radial-gradient(circle at center, #0a0a15, #050507);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* floating stars background */
+body::before {
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:100%; height:100%;
+    background: url('https://i.ibb.co/2nLRMzT/stars.png') repeat;
+    opacity:0.2;
+    z-index:-1;
+    animation: starMove 100s linear infinite;
+}
+
+@keyframes starMove {
+    0% {background-position:0 0;}
+    100% {background-position:10000px 10000px;}
+}
 
 /* Navbar */
 .nav-bar { 
-    display: flex; align-items: center; padding: 10px 20px; 
-    background: rgba(0,0,0,0.5); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); 
+    display: flex; align-items: center; padding: 12px 25px;
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(25px); border-bottom: 1px solid var(--border);
 }
-.logo { font-weight: 700; color: var(--accent); margin-right: 20px; font-size: 0.9rem; }
+
+.logo { font-weight: 700; color: var(--accent); font-size: 1.1rem; cursor:pointer; letter-spacing: 1px; }
 
 .search-area { flex-grow: 1; position: relative; }
-#urlInp { 
-    width: 100%; background: var(--glass); border: 1px solid var(--border); 
-    border-radius: 8px; padding: 8px 15px; color: #fff; outline: none; font-size: 0.85rem;
-}
 
-/* Viewport Window */
-#contentFrame {
-    flex-grow: 1;
-    width: 100%;
-    border: none;
-    background: #fff; /* Most sites expect a white background */
-    display: none; /* Hidden until a search is made */
-}
+#urlInp { width:100%; background: var(--glass); border:1px solid var(--border); border-radius:12px; padding:10px 15px; color:#fff; font-size:0.9rem; outline:none; }
+#urlInp:focus { border-color: var(--accent2); box-shadow: 0 0 15px rgba(70,240,240,0.4); }
 
-/* Home State */
-.home-ui { 
-    flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; 
-    text-align: center; padding: 20px;
-}
-.hero-title { font-size: 4rem; font-weight: 700; margin-bottom: 0; }
-.hero-sub { color: #555; letter-spacing: 5px; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 40px; }
+/* Loading Bar */
+.loading { position:absolute; bottom:-2px; left:0; height:2px; width:0%; background: var(--accent); transition: width 0.4s ease; }
 
-.card-grid { display: flex; gap: 20px; max-width: 800px; }
-.card { background: var(--glass); border: 1px solid var(--border); padding: 20px; border-radius: 15px; flex: 1; cursor: pointer; }
-.card:hover { border-color: var(--accent); background: rgba(157, 78, 221, 0.05); }
+/* Content Frame */
+#contentFrame { flex-grow:1; width:100%; border:none; display:none; animation: fadeIn 0.5s ease; background:#111; }
 
+/* Home UI */
+.home-ui { flex-grow:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:20px; animation: fadeIn 0.5s ease; }
+
+.hero-title { font-size:4rem; font-weight:700; background: linear-gradient(90deg, #ff4aff, #46f0f0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-sub { color:#777; letter-spacing:6px; font-size:0.8rem; margin-bottom:40px; text-transform:uppercase; }
+
+/* Cards */
+.card-grid { display:flex; gap:20px; max-width:800px; flex-wrap:wrap; justify-content:center; }
+.card { background: var(--glass); border:1px solid var(--border); padding:20px; border-radius:18px; flex:1; min-width:180px; cursor:pointer; transition:0.25s; text-align:center; }
+.card:hover { border-color: var(--accent2); background: rgba(70,240,240,0.05); transform: translateY(-6px); box-shadow: 0 15px 40px rgba(70,240,240,0.25); }
+
+/* Animations */
+@keyframes fadeIn { from{opacity:0; transform:scale(0.98);} to{opacity:1; transform:scale(1);} }
 </style>
 </head>
 <body>
 
 <nav class="nav-bar">
-    <div class="logo" onclick="goHome()" style="cursor:pointer">VIRO XYZ</div>
+    <div class="logo" onclick="goHome()">Viro XYZ</div>
     <div class="search-area">
-        <input type="text" id="urlInp" placeholder="Enter URL or search term..." autocomplete="off">
+        <input type="text" id="urlInp" placeholder="Enter URL or search..." autocomplete="off">
+        <div class="loading" id="loadingBar"></div>
     </div>
 </nav>
 
-<!-- The Internal Viewer -->
-<iframe is="x-frame-bypass" id="contentFrame"></iframe>
+<iframe id="contentFrame"></iframe>
 
-<!-- The Home UI -->
 <div class="home-ui" id="homeUI">
     <h1 class="hero-title">Viro XYZ</h1>
-    <p class="hero-sub">learning platform</p>
-    
+    <p class="hero-sub">Interstellar Proxy Mode</p>
     <div class="card-grid">
-        <div class="card" onclick="loadSite('https://www.wikipedia.org')"><h3>Wikipedia</h3><p>Research Library</p></div>
-        <div class="card" onclick="loadSite('https://poki.com')"><h3>Games</h3><p>Activity Hub</p></div>
+        <div class="card" onclick="loadSite('https://www.wikipedia.org')"><h3>Wikipedia</h3><p>Research Hub</p></div>
+        <div class="card" onclick="loadSite('https://poki.com')"><h3>Games</h3><p>Activity Portal</p></div>
         <div class="card" onclick="loadSite('bio.html')"><h3>Bio</h3><p>System Logs</p></div>
     </div>
 </div>
@@ -79,34 +103,42 @@ body { background: var(--bg); color: #fff; height: 100vh; display: flex; flex-di
 const urlInp = document.getElementById('urlInp');
 const frame = document.getElementById('contentFrame');
 const homeUI = document.getElementById('homeUI');
+const loadingBar = document.getElementById('loadingBar');
 
-function loadSite(url) {
-    homeUI.style.display = 'none';
-    frame.style.display = 'block';
-    frame.src = url;
+function loadSite(url){
+    homeUI.style.display='none';
+    frame.style.display='block';
+    loadingBar.style.width="30%";
+    setTimeout(()=>loadingBar.style.width="70%",200);
+    frame.src=url;
+    frame.onload=()=>{loadingBar.style.width="100%"; setTimeout(()=>loadingBar.style.width="0%",300);}
 }
 
-function goHome() {
-    frame.style.display = 'none';
-    homeUI.style.display = 'flex';
-    frame.src = "";
+function goHome(){
+    frame.style.display='none';
+    homeUI.style.display='flex';
+    frame.src="";
 }
 
-urlInp.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        let val = urlInp.value.trim();
+urlInp.addEventListener('keypress',(e)=>{
+    if(e.key==='Enter'){
+        let val=urlInp.value.trim();
         if(!val) return;
-
         let finalUrl;
-        if (val.includes('.') && !val.includes(' ')) {
-            finalUrl = val.startsWith('http') ? val : 'https://' + val;
+        if(val.includes('.') && !val.includes(' ')){
+            finalUrl=val.startsWith('http')?val:'https://'+val;
         } else {
-            // Search via DuckDuckGo (often more iframe-friendly than Google)
-            finalUrl = 'https://duckduckgo.com' + encodeURIComponent(val);
+            finalUrl='https://duckduckgo.com/?q='+encodeURIComponent(val);
         }
         loadSite(finalUrl);
     }
 });
+
+document.addEventListener('keydown',(e)=>{
+    if(e.key==='Escape'){ goHome(); }
+});
+
+window.onload=()=>{ urlInp.focus(); };
 </script>
 
 </body>
