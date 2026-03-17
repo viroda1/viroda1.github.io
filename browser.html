@@ -3,167 +3,127 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VIRO XYZ | GHOST OS</title>
+<title>Interstellar | Viro Edition</title>
 <link href="https://fonts.googleapis.com" rel="stylesheet">
-
 <style>
-:root { --p: #9d4edd; --dp: #3c096c; --bg: #050505; --g: #0f0; }
-* { margin:0; padding:0; box-sizing:border-box; cursor: crosshair; font-family: 'Fira Mono', monospace; }
+:root { --accent: #9d4edd; --bg: #0a0a0c; --glass: rgba(255, 255, 255, 0.05); }
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Outfit', sans-serif; transition: 0.3s; }
 body { background: var(--bg); color: #fff; height: 100vh; overflow: hidden; display: flex; flex-direction: column; }
 
-/* Background Binary */
-.binary-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; font-size: 10px; color: rgba(157, 78, 221, 0.1); word-break: break-all; z-index: -1; pointer-events: none; }
+/* Background Nebula */
+.nebula { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 50% 50%, #1a0b2e 0%, #0a0a0c 70%); z-index: -1; }
 
-/* Top Bar & Tabs */
-.top-bar { background: #111; display: flex; align-items: center; padding: 5px 10px; border-bottom: 1px solid var(--dp); }
-.tab-container { display: flex; gap: 5px; flex-grow: 1; margin: 0 15px; }
-.tab { background: #1a1a1a; padding: 5px 15px; font-size: 0.7rem; border: 1px solid var(--dp); color: var(--p); cursor: pointer; }
-.tab.active { background: var(--dp); color: #fff; border-color: var(--p); }
+/* Interstellar Navbar */
+.nav-bar { display: flex; align-items: center; padding: 15px 30px; background: rgba(0,0,0,0.4); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(157, 78, 221, 0.2); gap: 20px; }
+.logo { font-weight: 700; font-size: 1.2rem; letter-spacing: 2px; color: var(--accent); }
 
-/* Navigation & URL */
-.nav-section { background: #0a0a0a; padding: 10px; display: flex; gap: 10px; align-items: center; border-bottom: 1px solid #222; }
-.btn-nav { background: none; border: 1px solid var(--p); color: var(--p); padding: 4px 8px; font-size: 0.7rem; }
-.btn-nav:hover { background: var(--p); color: #000; }
-.url-box { flex-grow: 1; background: #000; border: 1px solid var(--dp); padding: 6px 12px; display: flex; align-items: center; }
-.url-box span { color: var(--p); font-size: 0.7rem; margin-right: 8px; }
-#urlInp { background: transparent; border: none; outline: none; color: #fff; width: 100%; font-size: 0.8rem; }
+.search-container { flex-grow: 1; position: relative; }
+#urlInp { width: 100%; background: var(--glass); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; padding: 10px 25px; color: #fff; outline: none; }
+#urlInp:focus { border-color: var(--accent); box-shadow: 0 0 15px rgba(157, 78, 221, 0.3); }
 
-/* Layout */
-.main-area { display: flex; flex-grow: 1; overflow: hidden; }
-.sidebar { width: 60px; background: #0a0a0a; border-right: 1px solid var(--dp); display: flex; flex-direction: column; align-items: center; padding: 20px 0; gap: 25px; }
-.side-icon { color: var(--p); font-size: 1.2rem; cursor: pointer; opacity: 0.6; }
-.side-icon:hover, .side-icon.active { opacity: 1; text-shadow: 0 0 10px var(--p); }
+/* Control Group */
+.controls { display: flex; gap: 15px; }
+.icon-btn { background: none; border: none; color: #888; font-size: 1.1rem; cursor: pointer; }
+.icon-btn:hover { color: var(--accent); transform: translateY(-2px); }
 
-.content-pane { flex-grow: 1; position: relative; background: rgba(0,0,0,0.6); overflow-y: auto; padding: 30px; }
+/* Main Hub */
+.hub { flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px; text-align: center; }
+.hero-title { font-size: 4rem; font-weight: 700; margin-bottom: 10px; background: linear-gradient(to right, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-sub { color: #888; margin-bottom: 40px; letter-spacing: 4px; }
 
-/* Components */
-.card { background: #111; border: 1px solid var(--dp); padding: 15px; margin-bottom: 15px; }
-.status-tag { font-size: 0.6rem; padding: 2px 5px; border-radius: 3px; margin-left: 10px; }
-.on { background: var(--g); color: #000; }
+/* Feature Cards (Edpuzzle-style) */
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; width: 100%; }
+.card { background: var(--glass); border: 1px solid rgba(255,255,255,0.05); padding: 25px; border-radius: 20px; text-align: left; }
+.card:hover { border-color: var(--accent); background: rgba(157, 78, 221, 0.05); cursor: pointer; }
+.card h3 { font-size: 0.9rem; margin-bottom: 10px; color: var(--accent); }
+.card p { font-size: 0.8rem; color: #666; }
 
-/* Custom Inspect */
-#inspect { position: absolute; bottom: 0; left: 0; width: 100%; height: 30%; background: #050505; border-top: 2px solid var(--p); display: none; padding: 10px; font-size: 0.7rem; z-index: 100; }
-
-/* Game Grid */
-.game-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px; }
-.game-item { aspect-ratio: 1; background: #1a1a1a; border: 1px solid var(--dp); display: flex; flex-direction: column; align-items: center; justify-content: center; font-size: 0.7rem; }
-.game-item:hover { border-color: var(--p); transform: scale(1.05); }
+/* Custom Inspect Window */
+#inspector { position: fixed; bottom: 0; right: 0; width: 350px; height: 100%; background: #0f0f12; border-left: 1px solid var(--accent); display: none; padding: 20px; z-index: 1000; box-shadow: -10px 0 30px rgba(0,0,0,0.5); }
+.code { font-family: 'Fira Mono', monospace; font-size: 0.7rem; color: #0f0; margin-top: 20px; }
 
 </style>
 </head>
 <body>
 
-<div class="binary-bg" id="bg"></div>
+<div class="nebula"></div>
 
-<div class="top-bar">
-  <div style="color:var(--p); font-weight:bold; font-size:0.8rem;">VIRO_OS</div>
-  <div class="tab-container">
-    <div class="tab active">GHOST_BROWSER</div>
-    <div class="tab" onclick="alert('System: Login required for Terminal_v4')">TERMINAL</div>
-  </div>
+<div class="nav-bar">
+    <div class="logo">INTERSTELLAR</div>
+    <div class="search-container">
+        <input type="text" id="urlInp" placeholder="Explore the galaxy..." autocomplete="off">
+    </div>
+    <div class="controls">
+        <button class="icon-btn" title="Home" onclick="location.reload()">🏠</button>
+        <button class="icon-btn" title="Settings" onclick="togglePane('settings')">⚙️</button>
+        <button class="icon-btn" title="Inspect" onclick="toggleInspect()">🛠️</button>
+    </div>
 </div>
 
-<div class="nav-section">
-  <button class="btn-nav" onclick="location.reload()">HOME</button>
-  <button class="btn-nav" onclick="toggleInspect()">INSPECT</button>
-  <div class="url-box">
-    <span>GOTO://</span>
-    <input type="text" id="urlInp" placeholder="ENTER ENCRYPTED URL OR SEARCH..." autocomplete="off">
-  </div>
+<div class="hub">
+    <h1 class="hero-title">VIRO XYZ</h1>
+    <p class="hero-sub">ADVANCED WEB PROXY V2</p>
+
+    <div class="card-grid">
+        <div class="card" onclick="alert('Stealth Mode Engaged')">
+            <h3>🛡️ Cloaking</h3>
+            <p>Automatically launches in about:blank to bypass SeCURLY history logs.</p>
+        </div>
+        <div class="card">
+            <h3>🚀 Ad-Blocker</h3>
+            <p>Advanced script injection to strip ads and trackers from destination sites.</p>
+        </div>
+        <div class="card" onclick="togglePane('settings')">
+            <h3>🛰️ Proxy Nodes</h3>
+            <p>Current: <span style="color:#0f0">US-EAST-1</span>. Encrypted traffic via AES-256.</p>
+        </div>
+    </div>
 </div>
 
-<div class="main-area">
-  <div class="sidebar">
-    <div class="side-icon active" onclick="showPane('home')">🌐</div>
-    <div class="side-icon" onclick="showPane('games')">🎮</div>
-    <div class="side-icon" onclick="showPane('settings')">⚙️</div>
-  </div>
-
-  <div class="content-pane" id="mainPane">
-    <!-- Home View -->
-    <div id="view-home">
-      <h1 style="color:var(--p); font-size:2.5rem;">VIRO XYZ</h1>
-      <p style="color:#555; margin-bottom:30px;">PROXY_SESSION: <span style="color:var(--g)">ENCRYPTED</span></p>
-      
-      <div class="card">
-        <h3>SYSTEM_LOGS</h3>
-        <p style="font-size:0.7rem; color:var(--g);">> SeCURLY bypassed via Stealth-Node-01</p>
-        <p style="font-size:0.7rem; color:var(--g);">> AdBlocker: 124 elements neutralized</p>
-        <p style="font-size:0.7rem; color:var(--g);">> Canvas Fingerprint: SPOOFED</p>
-      </div>
+<div id="inspector">
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-weight:700; color:var(--accent);">GHOST_INSPECT</span>
+        <span onclick="toggleInspect()" style="cursor:pointer">✕</span>
     </div>
-
-    <!-- Games View -->
-    <div id="view-games" style="display:none;">
-      <h2 style="margin-bottom:20px;">_UNBLOCKED_VAULT</h2>
-      <div class="game-grid">
-        <div class="game-item"><span>1v1.LOL</span></div>
-        <div class="game-item"><span>SLOPE</span></div>
-        <div class="game-item"><span>RETRO_BOWL</span></div>
-        <div class="game-item"><span>BITLIFE</span></div>
-      </div>
+    <div class="code">
+        &lt;!-- Proxy Injection Active --&gt;<br>
+        &lt;script src="adblocker.js"&gt;&lt;/script&gt;<br>
+        &lt;div class="viewport"&gt;<br>
+        &nbsp;&nbsp;[CONTENT_MASKED]<br>
+        &lt;/div&gt;
     </div>
-
-    <!-- Settings View -->
-    <div id="view-settings" style="display:none;">
-      <h2>_SETTINGS</h2>
-      <div class="card">
-        <p>PROXY_SERVER <span class="status-tag on">NY_GHOST_1</span></p><br>
-        <p>AD_DISABLER <span class="status-tag on">ACTIVE</span></p><br>
-        <p>SECURLY_MASK <span class="status-tag on">STABLE</span></p>
-      </div>
-    </div>
-  </div>
-
-  <div id="inspect">
-    <div style="display:flex; justify-content:space-between; border-bottom:1px solid #333; margin-bottom:5px;">
-      <span>GHOST_INSPECTOR_V1</span>
-      <span onclick="toggleInspect()" style="cursor:pointer">X</span>
-    </div>
-    <div id="inspectContent" style="color:#aaa;">
-      &lt;body&gt;<br>
-      &nbsp;&nbsp;&lt;div class="ghost-wrapper"&gt;<br>
-      &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;VIRO XYZ&lt;/h1&gt;<br>
-      &nbsp;&nbsp;&lt;/div&gt;<br>
-      &lt;/body&gt;
-    </div>
-  </div>
 </div>
 
 <script>
-// Background Binary Logic
-const bg = document.getElementById('bg');
-bg.innerText = Array.from({length: 6000}, () => Math.round(Math.random())).join('');
-
-// Navigation Logic
-function showPane(id) {
-  ['home', 'games', 'settings'].forEach(v => document.getElementById('view-'+v).style.display = 'none');
-  document.getElementById('view-'+id).style.display = 'block';
-}
-
-// Search & Proxy Sim
-document.getElementById('urlInp').addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') {
-    const val = e.target.value.toLowerCase();
-    document.getElementById('mainPane').innerHTML = `
-      <div class="card">
-        <h2 style="color:var(--p)">ROUTING_TO: ${val}</h2>
-        <p>Proxy: Node_Ghost_Encrypted</p>
-        <div style="margin-top:20px; border:1px dashed var(--dp); padding:10px;">
-          [SYS] SSL Handshake Successful...<br>
-          [SYS] Bypassing SeCURLY filtering...<br>
-          [SYS] Loading unblocked content...
-        </div>
-      </div>
-    `;
-  }
+// Search/Proxy Logic
+const urlInp = document.getElementById('urlInp');
+urlInp.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        let val = urlInp.value.trim();
+        if(!val) return;
+        // Interstellar style "About:Blank" launch
+        let win = window.open();
+        win.document.body.style.margin = '0';
+        win.document.body.style.height = '100vh';
+        let iframe = win.document.createElement('iframe');
+        iframe.style.border = 'none';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        // Note: Real proxies use a server-side script here (like Ultraviolet)
+        iframe.src = val.includes('.') ? (val.startsWith('http') ? val : 'https://' + val) : 'https://www.google.com' + encodeURIComponent(val);
+        win.document.body.appendChild(iframe);
+    }
 });
 
-// Custom Inspect Toggle
 function toggleInspect() {
-  const insp = document.getElementById('inspect');
-  insp.style.display = (insp.style.display === 'block') ? 'none' : 'block';
+    let insp = document.getElementById('inspector');
+    insp.style.display = insp.style.display === 'block' ? 'none' : 'block';
+}
+
+function togglePane(type) {
+    alert(`System Message: ${type.toUpperCase()} module is currently running stealth protocols.`);
 }
 </script>
+
 </body>
 </html>
