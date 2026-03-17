@@ -1,36 +1,81 @@
-# Viro Xyz
+Viro Xyz System
 
-Welcome to **Viro Xyz**! 🖤  
-This is a terminal-style personal website and hub for my projects, experiments, downloads, and other hosted sites. All pages are styled with black & white terminal aesthetics, rain effects, CRT flicker, cracked screen overlays, and a playful “XD” ASCII branding.
+🏫 Overview
 
----
+Viro Xyz is a multi-page web platform developed for educational interface simulation, front-end experimentation, and internal navigation testing.
 
-## Pages
-
-- **[Home](index.html)** – Main page with welcome message and intro.  
-- **[Bio](bio.html)** – Learn more about me (aka Viro, Isaac, admin/administrator).  
-- **[Downloads](downloads.html)** – My downloads page (buttons removed for clean terminal style).  
-- **[Other](other.html)** – Hosted projects and other sites like gn-math, ghost.cv, etc. (buttons removed).  
+The system is designed to present a standard, district-style informational website while supporting additional internal tools and environments accessible through controlled entry points.
 
 ---
 
-## Features
+🧩 System Structure
 
-- Black & white **terminal aesthetic**  
-- CRT flicker and **old TV effect**  
-- **Rain and cracked screen overlays**  
-- Playful **XD ASCII branding**  
-- Clean, minimal design with retro vibes  
+The platform consists of the following primary components:
+
+- Home ("index.html")
+  Public-facing landing page styled as a standard school website.
+
+- Staff Portal ("login.html")
+  Authentication interface used to route users to different internal environments.
+
+- Student/Info Pages
+  
+  - "bio.html"
+  - "downloads.html"
+  - "other.html"
+
+- Internal Environments
+  
+  - "browser.html" – Main internal navigation hub
+  - "dev.html" – Development and testing interface
 
 ---
 
-## Disclaimer
+🔐 Authentication Routing
 
-> **Educational purposes only.**  
-> We do not condone any malicious use of this website. Everything is intended for learning, experimentation, and fun.  
+The system includes a multi-route authentication handler within the Staff Portal.
+Access behavior is determined by credential input:
+
+Username| Password| Destination
+(empty)| (empty)| "home.html"
+Viro| xyz| "browser.html"
+dev| zyx| "dev.html"
+
+This structure allows for controlled navigation between public and internal environments without exposing system functionality on the main interface.
 
 ---
 
-## License
+⚙️ Core Features
 
-This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
+- Standardized educational portal UI design
+- Modular multi-page architecture
+- Credential-based routing system
+- Hidden configuration and theme controls
+- Responsive layout for desktop and mobile devices
+- Separation of public interface and internal tools
+
+---
+
+🎯 Intended Use
+
+This project is intended for:
+
+- UI/UX prototyping
+- Web development practice
+- Interface simulation and testing
+- Demonstration of multi-layer navigation systems
+
+---
+
+⚠️ Disclaimer
+
+«This system is a development and demonstration project.
+It is not affiliated with any real school, district, or institution.
+Any resemblance to real systems is for simulation purposes only.»
+
+---
+
+📄 License
+
+This project is licensed under the MIT License.
+Refer to the LICENSE file for full terms.
