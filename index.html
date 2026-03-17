@@ -1,254 +1,207 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>School Resources</title><style>
+<title>Jean Childs Young Middle School</title>
+<style>
+/* COLORS & FONTS */
 :root{
-    --bg:#000;
-    --text:#8ffcff;
-    --accent:#8ffcff;
+    --primary:#1a73e8;
+    --bg:#ffffff;
+    --text:#333333;
+    --border:#d0d0d0;
 }
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:monospace;
-}
-
 body{
+    margin:0;
+    font-family:'Segoe UI', Arial, sans-serif;
     background:var(--bg);
     color:var(--text);
+    line-height:1.6;
 }
-
-/* LOGIN */
-#login{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.panel{
-    width:320px;
-    padding:25px;
-    border:1px solid var(--accent);
-    background:#000;
-    box-shadow:0 0 25px var(--accent);
-}
-
-.title{
-    text-align:center;
-    margin-bottom:15px;
-}
-
-/* INPUT */
-input{
-    width:100%;
-    margin:10px 0;
-    padding:10px;
-    background:#000;
-    border:1px solid var(--accent);
-    color:var(--text);
-}
-
-/* BUTTON */
-button{
-    width:100%;
-    padding:10px;
-    background:var(--accent);
-    border:none;
-    color:#000;
-    cursor:pointer;
-}
-
-/* LOADING */
-#loading{
-    display:none;
-    height:100vh;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-}
-
-/* DASH */
-#dash{
-    display:none;
-    padding:20px;
-}
-
-.top{
+a{text-decoration:none; color:var(--primary);}
+header{
+    background:var(--primary);
+    color:#fff;
+    padding:15px 20px;
     display:flex;
     justify-content:space-between;
-    margin-bottom:20px;
+    align-items:center;
 }
-
-.cards{
-    display:flex;
-    gap:10px;
+header .logo{
+    font-weight:bold;
+    font-size:1.3rem;
 }
-
-.card{
-    padding:15px;
-    border:1px solid var(--accent);
+nav a{
+    margin-left:20px;
+    color:#fff;
+    font-weight:500;
+}
+main{
+    padding:20px;
+    max-width:900px;
+    margin:auto;
+}
+section{
+    margin-bottom:40px;
+}
+h2{
+    color:var(--primary);
+    margin-bottom:10px;
+}
+ul{
+    list-style:disc;
+    margin-left:20px;
+}
+footer{
+    background:#f1f1f1;
+    padding:20px;
+    text-align:center;
+    position:relative;
+    border-top:1px solid var(--border);
+}
+.footer-login{
+    display:inline-block;
+    margin-top:10px;
+    font-weight:bold;
+    color:var(--primary);
     cursor:pointer;
 }
-
-/* SUPPORT */
-#supportPanel{
-    display:none;
-    padding:20px;
-}
-
-/* SECRET MENU */
+.footer-login:hover{text-decoration:underline;}
+/* HIDDEN THEME MENU (double-click footer icon) */
 #secretMenu{
+    display:none;
     position:fixed;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    background:#000;
-    border:1px solid var(--accent);
+    background:#fff;
+    border:1px solid var(--border);
     padding:20px;
-    display:none;
     z-index:999;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
-</style></head><body><!-- LOGIN --><div id="login">
-    <div class="panel">
-        <div class="title">SCHOOL RESOURCE</div>
-        <input id="user" placeholder="USERNAME">
-        <input id="pass" type="password" placeholder="PASSWORD">
-        <button onclick="handleLogin()">LOGIN</button>
-    </div>
-</div><!-- LOADING --><div id="loading">
-    <h2 id="loadingText">Authenticating...</h2>
-</div><!-- DASH --><div id="dash">
-    <div class="top">
-        <div>DASHBOARD</div>
-        <button onclick="openBio()">≡</button>
-    </div><div class="cards">
-    <div class="card" onclick="goOther()">Subjects</div>
-    <div class="card" onclick="goHome()">Home</div>
-    <div class="card" onclick="openSupport()">Help</div>
+#secretMenu h3{
+    margin-top:0;
+    color:var(--primary);
+}
+#secretMenu button{
+    margin:5px;
+    padding:8px 12px;
+    background:var(--primary);
+    color:#fff;
+    border:none;
+    cursor:pointer;
+    border-radius:4px;
+}
+#secretMenu button:hover{opacity:0.9;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">Jean Childs Young Middle School</div>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Academics</a>
+        <a href="#">Calendar</a>
+    </nav>
+</header>
+
+<!-- MAIN CONTENT -->
+<main>
+    <section>
+        <h2>Message from the Principal</h2>
+        <p>
+        Welcome to Jean Childs Young Middle School, where we are committed to fostering academic excellence, personal growth, and community engagement for all students.
+        At JCYMS, our mission is to provide a safe, supportive, and challenging learning environment that prepares students for success in high school and beyond. Our dedicated staff works collaboratively to ensure that each student is encouraged to reach their full potential.
+        </p>
+        <p>
+        We believe that education extends beyond the classroom. Through extracurricular activities, leadership opportunities, and community partnerships, our students develop the skills necessary to become responsible and productive citizens.
+        </p>
+        <p>
+        We appreciate your continued support and partnership in making Jean Childs Young Middle School a place where every student can thrive.
+        <br>Sincerely, <br>Principal
+        </p>
+    </section>
+
+    <section>
+        <h2>Brief History of Jean Childs Young</h2>
+        <p>
+        Jean Childs Young Middle School is named in honor of Jean Childs Young, a distinguished educator, civil rights activist, and advocate for children and families. Mrs. Young was widely recognized for her work in education and her dedication to improving opportunities for young people. 
+        She was also the wife of Andrew Young, former Mayor of Atlanta and United States Ambassador to the United Nations, whose legacy of public service continues to inspire the Atlanta community.
+        </p>
+        <p>
+        The school reflects her commitment to academic achievement, equity, and community involvement. Since its founding, Jean Childs Young Middle School has served as a cornerstone of education in Atlanta Public Schools, emphasizing both academic rigor and character development. Today, the school continues to uphold her legacy by empowering students to become lifelong learners and leaders in their communities.
+        </p>
+    </section>
+
+    <section>
+        <h2>Upcoming School Dates</h2>
+        <ul>
+            <li>March 25 – Parent-Teacher Conferences</li>
+            <li>March 28 – Early Release Day</li>
+            <li>April 1 – Spring Break Begins</li>
+            <li>April 8 – Students Return from Break</li>
+            <li>April 15 – State Testing Window Opens</li>
+        </ul>
+    </section>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Jean Childs Young Middle School, Atlanta Public Schools</p>
+    <div class="footer-login" id="footerLogin">SIGN IN / REGISTER NOW!</div>
+</footer>
+
+<!-- SECRET THEME MENU -->
+<div id="secretMenu">
+    <h3>Theme Switcher</h3>
+    <button onclick="setTheme('default')">Default</button>
+    <button onclick="setTheme('light')">Light Blue</button>
+    <button onclick="setTheme('grey')">Grey</button>
+    <button onclick="closeSecret()">Close</button>
 </div>
 
-</div><!-- SUPPORT --><div id="supportPanel">
-    <h3>ACADEMIC SUPPORT</h3>
-    <p id="status">Awaiting request...</p>
-    <button onclick="simulateSupport()">Request Help</button>
-    <button onclick="closeSupport()">Close</button>
-</div><!-- SECRET MENU --><div id="secretMenu">
-    <h3>THEMES</h3>
-    <button onclick="setTheme('default')">Default</button>
-    <button onclick="setTheme('ixl')">IXL</button>
-    <button onclick="setTheme('iready')">I-Ready</button>
-    <button onclick="setTheme('backpack')">MyBackpack</button>
-    <button onclick="closeSecret()">Close</button>
-</div><script>
-const user=document.getElementById("user");
-const pass=document.getElementById("pass");
-
-const login=document.getElementById("login");
-const loading=document.getElementById("loading");
-const dash=document.getElementById("dash");
-const supportPanel=document.getElementById("supportPanel");
-const secretMenu=document.getElementById("secretMenu");
-
-/* LOGIN */
-function handleLogin(){
-    login.style.display="none";
-    loading.style.display="flex";
-
-    const messages=[
-        "Authenticating...",
-        "Verifying credentials...",
-        "Accessing student node...",
-        "Loading system..."
-    ];
-
-    let i=0;
-    const text=document.getElementById("loadingText");
-
-    const interval=setInterval(()=>{
-        text.innerText=messages[i % messages.length];
-        i++;
-    },400);
-
-    setTimeout(()=>{
-        clearInterval(interval);
-
-        const u=user.value.trim();
-        const p=pass.value.trim();
-
-        if(u==="" && p===""){ location.href="home.html"; return; }
-        if(u==="Viro" && p==="xyz"){ location.href="browser.html"; return; }
-        if(u==="dev" && p==="zyx"){ location.href="dev.html"; return; }
-
-        // fallback: show dashboard instead of reload
-        loading.style.display="none";
-        dash.style.display="block";
-
-    },1200);
-}
-
-/* NAV */
-function goHome(){ location.href="home.html"; }
-function goOther(){ location.href="other.html"; }
-function openBio(){ location.href="bio.html"; }
-
-/* SUPPORT */
-function openSupport(){
-    dash.style.display="none";
-    supportPanel.style.display="block";
-}
-
-function closeSupport(){
-    supportPanel.style.display="none";
-    dash.style.display="block";
-}
-
-function simulateSupport(){
-    const s=document.getElementById("status");
-
-    s.innerText="Connecting...";
-    setTimeout(()=>{s.innerText="Assistant reviewing...";},1500);
-    setTimeout(()=>{s.innerText="Continue coursework.";},3000);
-    setTimeout(()=>{s.innerText="Session ended.";},4500);
-}
-
-/* SECRET KEY ($ OR SHIFT+4 fallback) */
-document.addEventListener("keydown",(e)=>{
-    if(e.key==="$" || (e.shiftKey && e.key==="4")){
-        secretMenu.style.display="block";
-    }
+<script>
+/* FOOTER LOGIN CLICK */
+document.getElementById("footerLogin").addEventListener("click",()=>{
+    window.location.href="login.html";
 });
 
+/* SECRET THEME MENU TRIGGER (double click footer login) */
+let dblClickCount=0;
+document.getElementById("footerLogin").addEventListener("dblclick",()=>{
+    document.getElementById("secretMenu").style.display="block";
+});
+
+/* CLOSE SECRET MENU */
 function closeSecret(){
-    secretMenu.style.display="none";
+    document.getElementById("secretMenu").style.display="none";
 }
 
 /* THEMES */
-function setTheme(t){
-    if(t==="default"){
-        document.documentElement.style.cssText="--bg:#000;--text:#8ffcff;--accent:#8ffcff;";
+function setTheme(theme){
+    if(theme==="default"){
+        document.documentElement.style.setProperty('--bg','#ffffff');
+        document.documentElement.style.setProperty('--text','#333333');
+        document.documentElement.style.setProperty('--border','#d0d0d0');
+        document.documentElement.style.setProperty('--primary','#1a73e8');
     }
-    if(t==="ixl"){
-        document.documentElement.style.cssText="--bg:#f5f7fb;--text:#000;--accent:#0057ff;";
+    if(theme==="light"){
+        document.documentElement.style.setProperty('--bg','#e8f0fe');
+        document.documentElement.style.setProperty('--text','#222');
+        document.documentElement.style.setProperty('--border','#c0c0c0');
+        document.documentElement.style.setProperty('--primary','#1a73e8');
     }
-    if(t==="iready"){
-        document.documentElement.style.cssText="--bg:#fff;--text:#000;--accent:#ff6a00;";
-    }
-    if(t==="backpack"){
-        document.documentElement.style.cssText="--bg:#eef2f5;--text:#000;--accent:#2a7fff;";
+    if(theme==="grey"){
+        document.documentElement.style.setProperty('--bg','#f7f7f7');
+        document.documentElement.style.setProperty('--text','#333');
+        document.documentElement.style.setProperty('--border','#cccccc');
+        document.documentElement.style.setProperty('--primary','#1a73e8');
     }
 }
-
-/* ENTER KEY */
-document.addEventListener("keydown",(e)=>{
-    if(e.key==="Enter"){handleLogin();}
-});
-
-/* MOBILE FIX */
-user.setAttribute("autocapitalize","off");
-pass.setAttribute("autocapitalize","off");
-</script></body>
+</script>
+</body>
 </html>
