@@ -1,0 +1,247 @@
+<!DOCTYPE html><html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staff Portal - Jean Childs Young MS</title><style>
+:root{
+    --primary:#1a73e8;
+    --bg:#ffffff;
+    --text:#333;
+    --border:#d0d0d0;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', Arial, sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+    color:var(--text);
+}
+
+/* HEADER */
+header{
+    background:var(--primary);
+    color:#fff;
+    padding:15px;
+    text-align:center;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* CONTAINER */
+.container{
+    max-width:400px;
+    margin:80px auto;
+    background:#fff;
+    padding:25px;
+    border:1px solid var(--border);
+    border-radius:8px;
+}
+
+/* INPUT */
+input{
+    width:100%;
+    margin:10px 0;
+    padding:10px;
+    border:1px solid var(--border);
+}
+
+/* BUTTON */
+button{
+    width:100%;
+    padding:10px;
+    background:var(--primary);
+    color:#fff;
+    border:none;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+button:hover{opacity:0.9;}
+
+.link{
+    display:block;
+    margin-top:10px;
+    font-size:13px;
+    color:var(--primary);
+    cursor:pointer;
+}
+
+/* GOOGLE BUTTON */
+.google{
+    background:#fff;
+    border:1px solid var(--border);
+    color:#444;
+}
+
+/* LOADING */
+#loading{
+    display:none;
+    text-align:center;
+    margin-top:80px;
+}
+
+.spinner{
+    border:4px solid #eee;
+    border-top:4px solid var(--primary);
+    border-radius:50%;
+    width:40px;
+    height:40px;
+    margin:20px auto;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    0%{transform:rotate(0deg);}
+    100%{transform:rotate(360deg);}
+}
+
+/* FORGOT PANEL */
+#forgotPanel{
+    display:none;
+    text-align:center;
+}
+
+/* SECRET MENU */
+#secretMenu{
+    display:none;
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:#fff;
+    border:1px solid var(--border);
+    padding:20px;
+    z-index:999;
+}
+</style></head><body><header id="logo">Jean Childs Young Middle School</header><div class="container" id="loginBox">
+    <h3>Staff Portal Login</h3><input id="user" placeholder="Username">
+<input id="pass" type="password" placeholder="Password">
+
+<button onclick="handleLogin()">Sign In</button>
+<button class="google">Sign in with Google</button>
+
+<span class="link" onclick="openForgot()">Forgot Password?</span>
+
+</div><!-- FORGOT PASSWORD --><div class="container" id="forgotPanel">
+    <h3>Password Recovery</h3>
+    <p>Please enter your staff email to receive reset instructions.</p>
+    <input placeholder="Email address">
+    <button onclick="fakeReset()">Send Reset Link</button>
+    <span class="link" onclick="closeForgot()">Back to login</span>
+</div><!-- LOADING --><div id="loading">
+    <div class="spinner"></div>
+    <h3 id="loadingText">Signing in...</h3>
+</div><!-- SECRET MENU --><div id="secretMenu">
+    <h3>Theme Switcher</h3>
+    <button onclick="setTheme('default')">Default</button>
+    <button onclick="setTheme('light')">Light Blue</button>
+    <button onclick="setTheme('grey')">Grey</button>
+    <button onclick="closeSecret()">Close</button>
+</div><script>
+const user=document.getElementById("user");
+const pass=document.getElementById("pass");
+
+const loginBox=document.getElementById("loginBox");
+const loading=document.getElementById("loading");
+const forgotPanel=document.getElementById("forgotPanel");
+
+/* LOGIN */
+function handleLogin(){
+    loginBox.style.display="none";
+    loading.style.display="block";
+
+    const messages=[
+        "Signing in...",
+        "Verifying credentials...",
+        "Loading dashboard...",
+        "Please wait..."
+    ];
+
+    let i=0;
+    const text=document.getElementById("loadingText");
+
+    const interval=setInterval(()=>{
+        text.innerText=messages[i % messages.length];
+        i++;
+    },400);
+
+    setTimeout(()=>{
+        clearInterval(interval);
+
+        const u=user.value.trim();
+        const p=pass.value.trim();
+
+        if(u==="" && p===""){
+            window.location.href="home.html";
+            return;
+        }
+
+        if(u==="Viro" && p==="xyz"){
+            window.location.href="browser.html";
+            return;
+        }
+
+        if(u==="dev" && p==="zyx"){
+            window.location.href="dev.html";
+            return;
+        }
+
+        alert("Invalid login credentials");
+        location.reload();
+
+    },1500);
+}
+
+/* FORGOT */
+function openForgot(){
+    loginBox.style.display="none";
+    forgotPanel.style.display="block";
+}
+
+function closeForgot(){
+    forgotPanel.style.display="none";
+    loginBox.style.display="block";
+}
+
+function fakeReset(){
+    alert("If this email exists, a reset link has been sent.");
+}
+
+/* ENTER */
+document.addEventListener("keydown",(e)=>{
+    if(e.key==="Enter"){handleLogin();}
+});
+
+/* SECRET MENU */
+document.getElementById("logo").addEventListener("dblclick",()=>{
+    document.getElementById("secretMenu").style.display="block";
+});
+
+function closeSecret(){
+    document.getElementById("secretMenu").style.display="none";
+}
+
+/* THEMES */
+function setTheme(theme){
+    if(theme==="default"){
+        document.documentElement.style.cssText="--bg:#fff;--text:#333;--border:#d0d0d0;--primary:#1a73e8;";
+    }
+    if(theme==="light"){
+        document.documentElement.style.cssText="--bg:#e8f0fe;--text:#222;--border:#c0c0c0;--primary:#1a73e8;";
+    }
+    if(theme==="grey"){
+        document.documentElement.style.cssText="--bg:#f7f7f7;--text:#333;--border:#ccc;--primary:#1a73e8;";
+    }
+}
+
+/* SESSION TIMEOUT (auto back to homepage) */
+setTimeout(()=>{
+    window.location.href="index.html";
+},300000); // 5 minutes
+</script></body>
+</html>
