@@ -2,91 +2,184 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
+<title>Viro XYZ</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   background:#000;
-  color:#fff;
+  color:#a855f7;
   font-family:monospace;
   display:flex;
   justify-content:center;
   align-items:center;
   height:100vh;
+  text-align:center;
 }
 
-/* login box */
-.login-box{
-  border:1px solid #fff;
-  padding:20px;
-  width:300px;
+/* main container */
+.container{
+  width:400px;
 }
 
-/* inputs */
+/* title styling */
+.logo{
+  font-size:80px;
+  margin-bottom:10px;
+}
+
+.title{
+  font-size:60px;
+  letter-spacing:5px;
+}
+
+.subtitle{
+  margin-top:10px;
+  font-size:18px;
+}
+
+/* input */
 input{
   width:100%;
-  margin:10px 0;
-  padding:8px;
+  margin-top:20px;
+  padding:10px;
   background:#000;
-  color:#fff;
-  border:1px solid #fff;
-  font-family:monospace;
+  border:1px solid #a855f7;
+  color:#a855f7;
+  text-align:center;
 }
 
 /* button */
 button{
+  margin-top:15px;
   width:100%;
   padding:10px;
   background:#000;
-  color:#fff;
-  border:1px solid #fff;
+  border:1px solid #a855f7;
+  color:#a855f7;
   cursor:pointer;
 }
 
 button:hover{
-  background:#fff;
+  background:#a855f7;
   color:#000;
 }
 
-/* fake terminal text */
-h2::after{
-  content:"_";
-  animation:blink 1s infinite;
+/* status */
+#status{
+  margin-top:15px;
+  height:20px;
 }
 
-@keyframes blink{
-  0%,50%,100%{opacity:1;}
-  25%,75%{opacity:0;}
+/* glitch */
+.glitch{
+  color:red;
+  animation:glitch 0.2s infinite;
+}
+
+@keyframes glitch{
+  0%{transform:translate(0);}
+  25%{transform:translate(-2px,2px);}
+  50%{transform:translate(2px,-2px);}
+  75%{transform:translate(-2px,-2px);}
+  100%{transform:translate(0);}
 }
 </style>
 </head>
 
 <body>
 
-<div class="login-box">
-  <h2>> login</h2>
+<div class="container">
+  <div class="logo">V</div>
+  <div class="title">VIRO XYZ</div>
+  <div class="subtitle">GET STARTED:</div>
 
   <input type="text" id="user" placeholder="username">
   <input type="password" id="pass" placeholder="password">
 
-  <button onclick="login()">> authenticate</button>
+  <button onclick="login()">ENTER</button>
+
+  <div id="status"></div>
 </div>
 
 <script>
+// accounts
+const accounts = {
+  "viro":"admin",
+  "guest":"guest",
+  "dev":"xyz"
+};
+
+let attempts = 0;
+
+function typeText(text, el, speed=25){
+  el.innerHTML="";
+  let i=0;
+  let interval=setInterval(()=>{
+    el.innerHTML += text[i];
+    i++;
+    if(i>=text.length) clearInterval(interval);
+  }, speed);
+}
+
 function login(){
   const user = document.getElementById("user").value.toLowerCase();
   const pass = document.getElementById("pass").value.toLowerCase();
+  const status = document.getElementById("status");
 
-  // 👑 SECRET ADMIN LOGIN
-  if(user === "viro" && pass === "admin"){
-    window.location.href = "VIRO.html";
-  } else {
-    // normal login (anything works)
-    window.location.href = "home.html";
+  status.classList.remove("glitch");
+
+  // lockout
+  if(attempts >= 3){
+    status.classList.add("glitch");
+    typeText("SYSTEM LOCKED", status);
+    return;
   }
+
+  typeText("AUTHENTICATING...", status);
+
+  setTimeout(()=>{
+    if(accounts[user] && accounts[user] === pass){
+
+      typeText("ACCESS GRANTED", status);
+
+      setTimeout(()=>{
+        if(user === "viro"){
+          window.location.href = "VIRO.html"; // admin
+        } else {
+          window.location.href = "home.html"; // others
+        }
+      },800);
+
+    } else {
+      attempts++;
+
+      status.classList.add("glitch");
+      typeText("ACCESS DENIED", status);
+
+      setTimeout(()=>{
+        typeText("ATTEMPTS: " + attempts + "/3", status);
+
+        if(attempts >= 3){
+          setTimeout(()=>{
+            status.classList.add("glitch");
+            typeText("LOCKED OUT", status);
+          },800);
+        } else {
+          setTimeout(()=>{
+            window.location.href = "home.html";
+          },800);
+        }
+      },800);
+    }
+  },800);
 }
+
+// enter key
+document.addEventListener("keydown", e=>{
+  if(e.key==="Enter") login();
+});
 </script>
 
 </body>
