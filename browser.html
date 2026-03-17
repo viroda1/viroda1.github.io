@@ -5,185 +5,108 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Viro XYZ; learning platform</title>
 <link href="https://fonts.googleapis.com" rel="stylesheet">
+<!-- This script helps bypass some iframe blocks for specific sites -->
+<script src="https://unpkg.com"></script>
+<script type="module" src="https://unpkg.com"></script>
+
 <style>
 :root { --accent: #9d4edd; --bg: #050507; --glass: rgba(255, 255, 255, 0.03); --border: rgba(157, 78, 221, 0.15); }
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Outfit', sans-serif; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Outfit', sans-serif; transition: 0.3s; }
 
-body { 
-    background: var(--bg); 
-    color: #fff; 
-    height: 100vh; 
-    overflow: hidden; 
-    display: flex; 
-    flex-direction: column; 
-}
-
-.nebula {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at 50% -20%, #1a0b2e 0%, #050507 80%);
-    z-index: -1;
-}
+body { background: var(--bg); color: #fff; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
 
 /* Navbar */
 .nav-bar { 
-    display: flex; 
-    align-items: center; 
-    padding: 15px 40px; 
-    background: rgba(0,0,0,0.3); 
-    backdrop-filter: blur(25px); 
-    border-bottom: 1px solid var(--border); 
-    justify-content: space-between;
+    display: flex; align-items: center; padding: 10px 20px; 
+    background: rgba(0,0,0,0.5); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); 
 }
+.logo { font-weight: 700; color: var(--accent); margin-right: 20px; font-size: 0.9rem; }
 
-.logo { font-weight: 700; font-size: 1rem; letter-spacing: 2px; color: var(--accent); }
-
-.nav-actions { display: flex; gap: 25px; align-items: center; }
-.action-btn { background: none; border: none; color: #555; font-size: 1.1rem; cursor: pointer; }
-.action-btn:hover { color: var(--accent); }
-
-/* Main Content */
-.hub-content { 
-    flex-grow: 1; 
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    justify-content: center; 
-    padding: 20px; 
-}
-
-.hero-group { text-align: center; margin-bottom: 40px; }
-.hero-title { font-size: 4.5rem; font-weight: 700; letter-spacing: -1px; margin-bottom: 0px; }
-.hero-sub { color: #555; letter-spacing: 5px; font-size: 0.75rem; font-weight: 500; text-transform: uppercase; }
-
-/* Search Area */
-.search-wrapper { width: 100%; max-width: 650px; margin-bottom: 50px; text-align: center; }
+.search-area { flex-grow: 1; position: relative; }
 #urlInp { 
-    width: 100%; 
-    background: var(--glass); 
-    border: 1px solid var(--border); 
-    border-radius: 14px; 
-    padding: 14px 25px; 
-    color: #fff; 
-    outline: none; 
-    font-size: 1rem;
-    text-align: center;
-}
-#urlInp:focus { border-color: var(--accent); background: rgba(157, 78, 221, 0.04); }
-
-.quick-links { display: flex; gap: 15px; justify-content: center; margin-top: 20px; }
-.q-link { 
-    font-size: 0.75rem; color: #666; text-decoration: none; 
-    padding: 5px 12px; border-radius: 20px; border: 1px solid transparent;
-}
-.q-link:hover { color: var(--accent); border-color: var(--border); background: var(--glass); }
-
-/* Cards */
-.card-container { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 20px; 
-    max-width: 900px; 
-    width: 100%; 
+    width: 100%; background: var(--glass); border: 1px solid var(--border); 
+    border-radius: 8px; padding: 8px 15px; color: #fff; outline: none; font-size: 0.85rem;
 }
 
-.card { 
-    background: var(--glass); 
-    border: 1px solid var(--border); 
-    padding: 25px; 
-    border-radius: 20px; 
-    cursor: pointer;
+/* Viewport Window */
+#contentFrame {
+    flex-grow: 1;
+    width: 100%;
+    border: none;
+    background: #fff; /* Most sites expect a white background */
+    display: none; /* Hidden until a search is made */
 }
-.card:hover { border-color: var(--accent); transform: translateY(-4px); background: rgba(157, 78, 221, 0.05); }
-.card h3 { font-size: 0.9rem; margin-bottom: 8px; color: #fff; }
-.card p { font-size: 0.8rem; color: #666; line-height: 1.4; }
 
-/* Side Inspector */
-#inspectPanel {
-    position: fixed; top: 0; right: -400px; width: 380px; height: 100%;
-    background: #08080a; border-left: 1px solid var(--border);
-    z-index: 1000; padding: 30px;
+/* Home State */
+.home-ui { 
+    flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; 
+    text-align: center; padding: 20px;
 }
-#inspectPanel.open { right: 0; }
-.code-block { font-family: 'Fira Mono', monospace; font-size: 0.75rem; color: var(--accent); opacity: 0.5; margin-top: 20px; }
+.hero-title { font-size: 4rem; font-weight: 700; margin-bottom: 0; }
+.hero-sub { color: #555; letter-spacing: 5px; font-size: 0.7rem; text-transform: uppercase; margin-bottom: 40px; }
+
+.card-grid { display: flex; gap: 20px; max-width: 800px; }
+.card { background: var(--glass); border: 1px solid var(--border); padding: 20px; border-radius: 15px; flex: 1; cursor: pointer; }
+.card:hover { border-color: var(--accent); background: rgba(157, 78, 221, 0.05); }
 
 </style>
 </head>
 <body>
 
-<div class="nebula"></div>
-
 <nav class="nav-bar">
-    <div class="logo">VIRO XYZ</div>
-    <div class="nav-actions">
-        <button class="action-btn" onclick="toggleInspect()">🛠️</button>
-        <button class="action-btn">⚙️</button>
+    <div class="logo" onclick="goHome()" style="cursor:pointer">VIRO XYZ</div>
+    <div class="search-area">
+        <input type="text" id="urlInp" placeholder="Enter URL or search term..." autocomplete="off">
     </div>
 </nav>
 
-<main class="hub-content">
-    <div class="hero-group">
-        <h1 class="hero-title">Viro XYZ</h1>
-        <p class="hero-sub">learning platform</p>
-    </div>
+<!-- The Internal Viewer -->
+<iframe is="x-frame-bypass" id="contentFrame"></iframe>
 
-    <div class="search-wrapper">
-        <input type="text" id="urlInp" placeholder="Search resources or enter a URL..." autocomplete="off">
-        <div class="quick-links">
-            <a href="https://google.com" class="q-link">Google</a>
-            <a href="https://youtube.com" class="q-link">YouTube</a>
-            <a href="https://github.com" class="q-link">GitHub</a>
-            <a href="https://discord.com" class="q-link">Discord</a>
-        </div>
+<!-- The Home UI -->
+<div class="home-ui" id="homeUI">
+    <h1 class="hero-title">Viro XYZ</h1>
+    <p class="hero-sub">learning platform</p>
+    
+    <div class="card-grid">
+        <div class="card" onclick="loadSite('https://www.wikipedia.org')"><h3>Wikipedia</h3><p>Research Library</p></div>
+        <div class="card" onclick="loadSite('https://poki.com')"><h3>Games</h3><p>Activity Hub</p></div>
+        <div class="card" onclick="loadSite('bio.html')"><h3>Bio</h3><p>System Logs</p></div>
     </div>
-
-    <div class="card-container">
-        <div class="card" onclick="window.location.href='downloads.html'">
-            <h3>Study Materials</h3>
-            <p>Access the vault for all academic resources and downloads.</p>
-        </div>
-        <div class="card" onclick="window.location.href='https://guns.lol'">
-            <h3>Social Registry</h3>
-            <p>Connect with the community and view student profiles.</p>
-        </div>
-        <div class="card" onclick="window.location.href='bio.html'">
-            <h3>Documentation</h3>
-            <p>Detailed project logs and system development history.</p>
-        </div>
-    </div>
-</main>
-
-<aside id="inspectPanel">
-    <div style="display: flex; justify-content: space-between; align-items: center;">
-        <span style="font-weight:700; color:var(--accent); font-size: 0.8rem;">VIRO_DEBUG_CONSOLE</span>
-        <span onclick="toggleInspect()" style="cursor:pointer">✕</span>
-    </div>
-    <div class="code-block">
-        [SYS] Initializing learning_platform.exe...<br>
-        [SYS] Connection: Secure<br>
-        [SYS] History Cloak: Enabled<br><br>
-        &lt;main&gt;<br>
-        &nbsp;&nbsp;&lt;section id="learning-hub"&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;[DYNAMIC_CONTENT]<br>
-        &nbsp;&nbsp;&lt;/section&gt;<br>
-        &lt;/main&gt;
-    </div>
-</aside>
+</div>
 
 <script>
 const urlInp = document.getElementById('urlInp');
+const frame = document.getElementById('contentFrame');
+const homeUI = document.getElementById('homeUI');
+
+function loadSite(url) {
+    homeUI.style.display = 'none';
+    frame.style.display = 'block';
+    frame.src = url;
+}
+
+function goHome() {
+    frame.style.display = 'none';
+    homeUI.style.display = 'flex';
+    frame.src = "";
+}
+
 urlInp.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         let val = urlInp.value.trim();
         if(!val) return;
-        const isUrl = val.includes('.') && !val.includes(' ');
-        window.location.href = isUrl ? (val.startsWith('http') ? val : 'https://' + val) : 'https://www.google.com' + encodeURIComponent(val);
+
+        let finalUrl;
+        if (val.includes('.') && !val.includes(' ')) {
+            finalUrl = val.startsWith('http') ? val : 'https://' + val;
+        } else {
+            // Search via DuckDuckGo (often more iframe-friendly than Google)
+            finalUrl = 'https://duckduckgo.com' + encodeURIComponent(val);
+        }
+        loadSite(finalUrl);
     }
 });
-
-function toggleInspect() {
-    document.getElementById('inspectPanel').classList.toggle('open');
-}
 </script>
 
 </body>
