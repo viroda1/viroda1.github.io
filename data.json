@@ -1,103 +1,532 @@
 [
-  { "id": "monkey-mart", "name": "Monkey Mart", "url": "https://monkeymart.org", "tag": "IDLE" },
-  { "id": "monkey-mart-cdn", "name": "Monkey Mart (CDN)", "url": "https://d3v9df1z2p9r.cloudfront.net", "tag": "CDN" },
-  { "id": "retro-bowl", "name": "Retro Bowl", "url": "https://viroda1.github.io", "tag": "SPORTS" },
-  { "id": "retro-bowl-netlify", "name": "Retro Bowl Unblocked", "url": "https://retro-bowl-unblocked.netlify.app", "tag": "STEALTH" },
-  { "id": "1v1-lol", "name": "1v1.LOL", "url": "https://docs-opensocial.googleusercontent.com", "tag": "ACTION" },
-  { "id": "1v1-lol-vercel", "name": "1v1.LOL Vercel", "url": "https://1v1-lol-official.vercel.app", "tag": "STEALTH" },
-  { "id": "slope", "name": "Slope", "url": "https://kdata1.com", "tag": "SKILL" },
-  { "id": "slope-cdn", "name": "Slope (Mirror)", "url": "https://dnrweqffuwjtx.cloudfront.net", "tag": "CDN" },
-  { "id": "slope-2", "name": "Slope 2", "url": "https://slope-2.io", "tag": "SKILL" },
-  { "id": "ovo", "name": "OvO", "url": "https://pureav.github.io", "tag": "PARKOUR" },
-  { "id": "ovo-netlify", "name": "OvO 1.4.5", "url": "https://ovo-145.netlify.app", "tag": "PARKOUR" },
-  { "id": "drift-hunters", "name": "Drift Hunters", "url": "https://drifthunters2.io", "tag": "DRIVING" },
-  { "id": "drift-hunters-vercel", "name": "Drift Hunters Pro", "url": "https://drift-hunters.vercel.app", "tag": "DRIVING" },
-  { "id": "basketball-stars", "name": "Basketball Stars", "url": "https://basketballstars.io", "tag": "SPORTS" },
-  { "id": "basket-stars-vercel", "name": "Basketball Stars v2", "url": "https://basketball-stars.vercel.app", "tag": "SPORTS" },
-  { "id": "run-3", "name": "Run 3", "url": "https://run3.io", "tag": "ENDLESS" },
-  { "id": "tunnel-rush", "name": "Tunnel Rush", "url": "https://tunnelrush.io", "tag": "SKILL" },
-  { "id": "tunnel-rush-2", "name": "Tunnel Rush 2", "url": "https://tunnelrush2.netlify.app", "tag": "SKILL" },
-  { "id": "stickman-hook", "name": "Stickman Hook", "url": "https://stickmanhook.io", "tag": "ARCADE" },
-  { "id": "snow-rider-3d", "name": "Snow Rider 3D", "url": "https://snowrider3d.io", "tag": "WINTER" },
-  { "id": "snow-rider-cdn", "name": "Snow Rider Mirror", "url": "https://d1asdfg2p9r.cloudfront.net", "tag": "CDN" },
-  { "id": "shell-shockers", "name": "Shell Shockers", "url": "https://shellshock.io", "tag": "FPS" },
-  { "id": "shell-shockers-vercel", "name": "Shell Shockers Pro", "url": "https://shell-shockers.vercel.app", "tag": "FPS" },
-  { "id": "smash-karts", "name": "Smash Karts", "url": "https://smashkarts.io", "tag": "MULTIPLAYER" },
-  { "id": "smash-karts-mirror", "name": "Smash Karts CDN", "url": "https://d2jlkjsf82.cloudfront.net", "tag": "MULTIPLAYER" },
-  { "id": "bitlife", "name": "BitLife", "url": "https://bitlifeonline.io", "tag": "SIM" },
-  { "id": "bitlife-azure", "name": "BitLife Mirror", "url": "https://bitlife-online.azurewebsites.net", "tag": "STEALTH" },
-  { "id": "temple-run-2", "name": "Temple Run 2", "url": "https://templerun2.io", "tag": "ENDLESS" },
-  { "id": "temple-run-mirror", "name": "Temple Run v2", "url": "https://temple-run-v2.vercel.app", "tag": "ENDLESS" },
-  { "id": "subway-surfers", "name": "Subway Surfers", "url": "https://subwaysurfersgame.io", "tag": "ENDLESS" },
-  { "id": "subway-surfers-netlify", "name": "Subway Surfers NYC", "url": "https://subway-surfers-web.netlify.app", "tag": "ENDLESS" },
-  { "id": "paper-io-2", "name": "Paper.io 2", "url": "https://paper-io.com", "tag": "MULTIPLAYER" },
-  { "id": "paper-io-vercel", "name": "Paper.io 3D", "url": "https://paper-io-3d.vercel.app", "tag": "MULTIPLAYER" },
-  { "id": "krunker", "name": "Krunker.io", "url": "https://krunker.io", "tag": "FPS" },
-  { "id": "zombs-royale", "name": "Zombs Royale", "url": "https://zombsroyale.io", "tag": "BATTLE ROYALE" },
-  { "id": "diep-io", "name": "Diep.io", "url": "https://diep.io", "tag": "ACTION" },
-  { "id": "agar-io", "name": "Agar.io", "url": "https://agar.io", "tag": "MULTIPLAYER" },
-  { "id": "cookie-clicker", "name": "Cookie Clicker", "url": "https://orteil.dashnet.org", "tag": "IDLE" },
-  { "id": "cookie-clicker-gh", "name": "Cookie Clicker GH", "url": "https://orteil.github.io", "tag": "IDLE" },
-  { "id": "geometry-dash-lite", "name": "Geometry Dash Lite", "url": "https://geometrydash.io", "tag": "SKILL" },
-  { "id": "geometry-dash-netlify", "name": "GD Full Version", "url": "https://geometry-dash-full.netlify.app", "tag": "SKILL" },
-  { "id": "geometry-jump", "name": "Geometry Jump", "url": "https://geometry-jump.github.io", "tag": "SKILL" },
-  { "id": "happy-wheels", "name": "Happy Wheels", "url": "https://totaljerkface.com", "tag": "RAGDOLL" },
-  { "id": "fireboy-watergirl", "name": "Fireboy & Watergirl", "url": "https://fireboyandwatergirl.io", "tag": "CO-OP" },
-  { "id": "motox3m", "name": "Moto X3M", "url": "https://motox3m.io", "tag": "BIKE" },
-  { "id": "motox3m-mirror", "name": "Moto X3M CDN", "url": "https://d555666777.cloudfront.net", "tag": "BIKE" },
-  { "id": "idle-breakout", "name": "Idle Breakout", "url": "https://idlebreakout.github.io", "tag": "IDLE" },
-  { "id": "idle-breakout-gh", "name": "Idle Breakout 2", "url": "https://idle-breakout.github.io", "tag": "IDLE" },
-  { "id": "tiny-fishing", "name": "Tiny Fishing", "url": "https://tinyfishing.io", "tag": "CASUAL" },
-  { "id": "stack", "name": "Stack", "url": "https://stackgame.app", "tag": "ARCADE" },
-  { "id": "color-switch", "name": "Color Switch", "url": "https://colorswitch.io", "tag": "SKILL" },
-  { "id": "crossy-road", "name": "Crossy Road", "url": "https://crossyroad.io", "tag": "ENDLESS" },
-  { "id": "bloons-td-5", "name": "Bloons TD 5", "url": "https://bloonstd5.io", "tag": "TOWER DEFENSE" },
-  { "id": "raft-wars", "name": "Raft Wars", "url": "https://raftwars.io", "tag": "STRATEGY" },
-  { "id": "gun-mayhem", "name": "Gun Mayhem", "url": "https://gunmayhem.io", "tag": "ACTION" },
-  { "id": "super-smash-flash-2", "name": "Super Smash Flash 2", "url": "https://supersmashflash2.io", "tag": "FIGHTING" },
-  { "id": "bloxorz", "name": "Bloxorz", "url": "https://bloxorz.io", "tag": "PUZZLE" },
-  { "id": "worlds-hardest-game", "name": "World’s Hardest Game", "url": "https://worldshardestgame.io", "tag": "SKILL" },
-  { "id": "learn-to-fly-2", "name": "Learn to Fly 2", "url": "https://learntofly2.io", "tag": "UPGRADE" },
-  { "id": "duck-life-4", "name": "Duck Life 4", "url": "https://ducklife4.io", "tag": "SIM" },
-  { "id": "age-of-war", "name": "Age of War", "url": "https://ageofwar.io", "tag": "STRATEGY" },
-  { "id": "tank-trouble", "name": "Tank Trouble", "url": "https://tanktrouble.io", "tag": "MULTIPLAYER" },
-  { "id": "strike-force-heroes-2", "name": "Strike Force Heroes 2", "url": "https://strikeforceheroes2.io", "tag": "SHOOTER" },
-  { "id": "eggy-car", "name": "Eggy Car", "url": "https://eggycar.io", "tag": "DRIVING" },
-  { "id": "getaway-shootout", "name": "Getaway Shootout", "url": "https://getawayshootout.io", "tag": "ACTION" },
-  { "id": "rooftop-snipers", "name": "Rooftop Snipers", "url": "https://rooftopsnipers.io", "tag": "FIGHTING" },
-  { "id": "drive-mad", "name": "Drive Mad", "url": "https://drivemad.io", "tag": "DRIVING" },
-  { "id": "papas-pizzeria", "name": "Papa's Pizzeria", "url": "https://papas-pizzeria.io", "tag": "SIM" },
-  { "id": "papas-pizzeria-netlify", "name": "Papa's Pizzeria HTML5", "url": "https://papas-pizzeria-h5.netlify.app", "tag": "SIM" },
-  { "id": "papas-freezeria", "name": "Papa's Freezeria", "url": "https://papas-freezeria.io", "tag": "SIM" },
-  { "id": "vex-7", "name": "Vex 7", "url": "https://vex7.io", "tag": "PARKOUR" },
-  { "id": "bob-the-robber", "name": "Bob the Robber", "url": "https://bobtherobber.io", "tag": "PUZZLE" },
-  { "id": "sugar-sugar", "name": "Sugar, Sugar", "url": "https://sugarsugar.io", "tag": "PUZZLE" },
-  { "id": "bad-ice-cream", "name": "Bad Ice Cream", "url": "https://bad-icecream.io", "tag": "ARCADE" },
-  { "id": "burrito-bison", "name": "Burrito Bison", "url": "https://burritobison.io", "tag": "UPGRADE" },
-  { "id": "territorial-io", "name": "Territorial.io", "url": "https://territorial.io", "tag": "STRATEGY" },
-  { "id": "hole-io", "name": "Hole.io", "url": "https://hole-io.com", "tag": "MULTIPLAYER" },
-  { "id": "hole-io-netlify", "name": "Hole.io Mirror", "url": "https://hole-io-web.netlify.app", "tag": "MULTIPLAYER" },
-  { "id": "minecraft-classic", "name": "Minecraft Classic", "url": "https://classic.minecraft.net", "tag": "SANDBOX" },
-  { "id": "minecraft-web-cdn", "name": "Eaglercraft", "url": "https://eaglercraft.com", "tag": "SANDBOX" },
-  { "id": "friday-night-funkin-mirror", "name": "FNF Full", "url": "https://fnf-online.netlify.app", "tag": "RHYTHM" },
-  { "id": "among-us-online", "name": "Among Us Online", "url": "https://among-us.io", "tag": "SOCIAL" },
-  { "id": "among-us-vercel", "name": "Among Us Singleplayer", "url": "https://among-us-sp.vercel.app", "tag": "ACTION" },
-  { "id": "baldis-basics", "name": "Baldi's Basics", "url": "https://baldis-basics.io", "tag": "HORROR" },
-  { "id": "baldi-vercel", "name": "Baldi's Basics Web", "url": "https://baldi-basics.vercel.app", "tag": "HORROR" },
-  { "id": "five-nights-at-freddys", "name": "FNAF", "url": "https://fnaf-online.io", "tag": "HORROR" },
-  { "id": "fnaf-netlify", "name": "FNAF 1 Mirror", "url": "https://fnaf-web.netlify.app", "tag": "HORROR" },
-  { "id": "google-classroom-proxy", "name": "Classroom Proxy (Games)", "url": "https://sites.google.com/view/classic-retro-games", "tag": "STEALTH" },
-  { "id": "docs-proxy", "name": "Docs Playground", "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS9xkfVq7J4o4m0FXqbO3N0fQ/pubhtml", "tag": "STEALTH" },
-  { "id": "sites-node", "name": "Sites Hub", "url": "https://sites.google.com/view/games-portal-unblocked", "tag": "STEALTH" },
-  { "id": "math-node", "name": "Math Tools", "url": "https://www.desmos.com/geometry", "tag": "STEALTH" },
-  { "id": "archive-node", "name": "Archive System", "url": "https://archive.org/details/classicpcgames", "tag": "STEALTH" },
-  { "id": "cloud-node", "name": "Cloud System", "url": "https://onecompiler.com/html", "tag": "STEALTH" },
-  { "id": "code-node", "name": "Code Lab", "url": "https://replit.com/@replit/HTML-CSS-JS", "tag": "STEALTH" },
-  { "id": "reader-node", "name": "Reader Mode", "url": "https://txti.es/how-to-build-a-website", "tag": "STEALTH" },
-  { "id": "translate-node", "name": "Linguistics Lab", "url": "https://translate.google.com/website", "tag": "STEALTH" },
-  { "id": "github-pages", "name": "Dev Repository", "url": "https://games-archive.github.io", "tag": "STEALTH" },
-  { "id": "firebase-node", "name": "Firebase App", "url": "https://web-games-portal.web.app", "tag": "STEALTH" },
-  { "id": "glitch-node", "name": "Glitch Node", "url": "https://project-games.glitch.me", "tag": "STEALTH" },
-  { "id": "edpuzzle-node", "name": "EdPuzzle Video Hub", "url": "https://edpuzzle.com", "tag": "STEALTH" },
-  { "id": "youtube-proxy", "name": "YouTube Playables", "url": "https://youtube.com/playables", "tag": "STEALTH" }
-]
+  {
+    "id": "elitegaming-stem",
+    "name": "EliteGamingLIVE STEM",
+    "url": "https://elitegaminglive.com",
+    "tag": "APS PARTNER",
+    "type": "esports",
+    "description": "APS official esports partner - STEM learning through gaming [citation:1]"
+  },
+  {
+    "id": "egl-courseware",
+    "name": "EGL STEM Courseware",
+    "url": "https://elitegaminglive.com/academy",
+    "tag": "APS PARTNER",
+    "type": "education",
+    "description": "12 STEM courses including Audio Engineering, Game Artistry, Cloud Engineering [citation:1]"
+  },
+  {
+    "id": "minecraft-education",
+    "name": "Minecraft Education",
+    "url": "https://education.minecraft.net",
+    "tag": "APS PARTNER",
+    "type": "education",
+    "description": "Used in APS Level Up Atlanta build challenge [citation:7]"
+  },
+  {
+    "id": "level-up-atlanta",
+    "name": "Level Up Atlanta",
+    "url": "https://www.atlantapublicschools.us/levelupatlanta",
+    "tag": "APS PARTNER",
+    "type": "education",
+    "description": "APS Minecraft build challenge official site [citation:7]"
+  },
+  {
+    "id": "microsoft-makecode",
+    "name": "Microsoft MakeCode",
+    "url": "https://makecode.com",
+    "tag": "APS PARTNER",
+    "type": "coding",
+    "description": "Used in Atlanta Track Club STEM programs [citation:8]"
+  },
+  {
+    "id": "makecode-arcade-aps",
+    "name": "MakeCode Arcade",
+    "url": "https://arcade.makecode.com",
+    "tag": "CODING",
+    "type": "creative",
+    "description": "Create retro-style games - used in APS STEM initiatives"
+  },
+  {
+    "id": "microbit-org",
+    "name": "micro:bit",
+    "url": "https://microbit.org",
+    "tag": "APS PARTNER",
+    "type": "coding",
+    "description": "Physical computing - used with Atlanta Track Club [citation:8]"
+  },
+  {
+    "id": "mimiostudio-aps",
+    "name": "MimioStudio",
+    "url": "https://www.boxlight.com/mimiostudio",
+    "tag": "APS TOOL",
+    "type": "education",
+    "description": "Instructional software used in all APS schools [citation:2]"
+  },
+  {
+    "id": "boxlight-4cs",
+    "name": "Boxlight 4Cs Resources",
+    "url": "https://www.boxlight.com/4cs",
+    "tag": "APS TOOL",
+    "type": "education",
+    "description": "Critical thinking, creativity, communication, collaboration resources [citation:2]"
+  },
+  {
+    "id": "ga-tech-constellations",
+    "name": "Georgia Tech Constellations",
+    "url": "https://constellations.gatech.edu",
+    "tag": "APS PARTNER",
+    "type": "education",
+    "description": "Computing education equity in Metro Atlanta schools [citation:3]"
+  },
+  {
+    "id": "aps-computing-map",
+    "name": "APS Computing Resource Map",
+    "url": "https://constellations.gatech.edu/computing-community",
+    "tag": "APS PARTNER",
+    "type": "education",
+    "description": "Interactive dashboard of CS resources in APS [citation:3]"
+  },
+  {
+    "id": "rocket-league-egl",
+    "name": "Rocket League (EGL)",
+    "url": "https://www.rocketleague.com",
+    "tag": "ESPORTS",
+    "type": "game",
+    "description": "Used in APS Esports Pathway Tournament [citation:6]"
+  },
+  {
+    "id": "smash-bros-egl",
+    "name": "Super Smash Bros",
+    "url": "https://www.smashbros.com",
+    "tag": "ESPORTS",
+    "type": "game",
+    "description": "Featured in APS esports tournament [citation:6]"
+  },
+  {
+    "id": "nba2k-egl",
+    "name": "NBA2K",
+    "url": "https://nba.2k.com",
+    "tag": "ESPORTS",
+    "type": "game",
+    "description": "Used in APS competitive gaming [citation:6]"
+  },
+  {
+    "id": "scratch-mit-edu",
+    "name": "Scratch - Create Projects",
+    "url": "https://scratch.mit.edu",
+    "tag": "SCRATCH",
+    "type": "creative",
+    "description": "MIT platform for creating interactive stories and games"
+  },
+  {
+    "id": "scratch-search",
+    "name": "Scratch Game Search",
+    "url": "https://scratch.mit.edu/search/projects",
+    "tag": "SCRATCH",
+    "type": "games",
+    "description": "Search thousands of educational Scratch games"
+  },
+  {
+    "id": "scratch-platformers",
+    "name": "Scratch Platformer Games",
+    "url": "https://scratch.mit.edu/search/projects?q=platformer",
+    "tag": "SCRATCH",
+    "type": "games",
+    "description": "Collection of platformer games made in Scratch"
+  },
+  {
+    "id": "scratch-clicker",
+    "name": "Scratch Clicker Games",
+    "url": "https://scratch.mit.edu/search/projects?q=clicker",
+    "tag": "SCRATCH",
+    "type": "games",
+    "description": "Idle and clicker games from the Scratch community"
+  },
+  {
+    "id": "scratch-parkour",
+    "name": "Scratch Parkour Games",
+    "url": "https://scratch.mit.edu/search/projects?q=parkour",
+    "tag": "SCRATCH",
+    "type": "games",
+    "description": "Parkour and obstacle course games"
+  },
+  {
+    "id": "scratch-multiplayer",
+    "name": "Scratch Multiplayer",
+    "url": "https://scratch.mit.edu/search/projects?q=multiplayer",
+    "tag": "SCRATCH",
+    "type": "games",
+    "description": "Games you can play with friends"
+  },
+  {
+    "id": "scratch-google-sites",
+    "name": "Scratch on Google Sites",
+    "url": "https://sites.google.com/view/scratch-games-portal",
+    "tag": "GOOGLE SITES",
+    "type": "portal",
+    "description": "Curated Scratch games collection on Google Sites"
+  },
+  {
+    "id": "aps-scratch-hub",
+    "name": "APS Scratch Hub",
+    "url": "https://sites.google.com/atlanta.k12.ga.us/scratch-hub",
+    "tag": "GOOGLE SITES",
+    "type": "education",
+    "description": "Atlanta Public Schools Scratch resource page"
+  },
+  {
+    "id": "ruffle-main",
+    "name": "Ruffle Flash Emulator",
+    "url": "https://ruffle.rs",
+    "tag": "RUFFLE",
+    "type": "emulator",
+    "description": "Play Flash games safely in your browser"
+  },
+  {
+    "id": "ruffle-demo",
+    "name": "Ruffle Demo Gallery",
+    "url": "https://ruffle.rs/demo",
+    "tag": "RUFFLE",
+    "type": "games",
+    "description": "Test Flash games with Ruffle emulator"
+  },
+  {
+    "id": "ruffle-archive",
+    "name": "Ruffle Flash Archive",
+    "url": "https://archive.org/details/softwarelibrary_flash",
+    "tag": "RUFFLE",
+    "type": "archive",
+    "description": "Internet Archive Flash collection playable with Ruffle"
+  },
+  {
+    "id": "newgrounds-main",
+    "name": "Newgrounds",
+    "url": "https://www.newgrounds.com",
+    "tag": "NEWGROUNDS",
+    "type": "portal",
+    "description": "Games, animations, and art - now HTML5"
+  },
+  {
+    "id": "newgrounds-games",
+    "name": "Newgrounds Games",
+    "url": "https://www.newgrounds.com/games",
+    "tag": "NEWGROUNDS",
+    "type": "games",
+    "description": "Thousands of browser games"
+  },
+  {
+    "id": "newgrounds-web",
+    "name": "Newgrounds Web Games",
+    "url": "https://www.newgrounds.com/games/browse/tech/web",
+    "tag": "NEWGROUNDS",
+    "type": "games",
+    "description": "HTML5 games only"
+  },
+  {
+    "id": "newgrounds-top",
+    "name": "Newgrounds Top Games",
+    "url": "https://www.newgrounds.com/games/top",
+    "tag": "NEWGROUNDS",
+    "type": "games",
+    "description": "Most popular games on Newgrounds"
+  },
+  {
+    "id": "myinstants-main",
+    "name": "Myinstants Soundboard",
+    "url": "https://www.myinstants.com",
+    "tag": "SOUNDBOARD",
+    "type": "audio",
+    "description": "Largest collection of sound buttons"
+  },
+  {
+    "id": "myinstants-trending",
+    "name": "Myinstants Trending",
+    "url": "https://www.myinstants.com/index/trending",
+    "tag": "SOUNDBOARD",
+    "type": "audio",
+    "description": "Trending sound buttons"
+  },
+  {
+    "id": "myinstants-memes",
+    "name": "Myinstants Meme Sounds",
+    "url": "https://www.myinstants.com/category/memes",
+    "tag": "SOUNDBOARD",
+    "type": "audio",
+    "description": "Meme sound effects"
+  },
+  {
+    "id": "voicemod-web",
+    "name": "Voicemod Web Soundboard",
+    "url": "https://www.voicemod.net/web-soundboard",
+    "tag": "SOUNDBOARD",
+    "type": "audio",
+    "description": "Browser-based soundboard"
+  },
+  {
+    "id": "soundboard-com",
+    "name": "Soundboard.com",
+    "url": "https://www.soundboard.com",
+    "tag": "SOUNDBOARD",
+    "type": "audio",
+    "description": "Classic soundboard archive"
+  },
+  {
+    "id": "soundboard-games",
+    "name": "Soundboard Game Sounds",
+    "url": "https://www.soundboard.com/category/gaming",
+    "tag": "SOUNDBOARD",
+    "type": "audio",
+    "description": "Video game sound effects"
+  },
+  {
+    "id": "google-sites-games-1",
+    "name": "Unblocked Games Google Site 1",
+    "url": "https://sites.google.com/view/classic-retro-games",
+    "tag": "GOOGLE SITES",
+    "type": "portal",
+    "description": "Classic retro games collection"
+  },
+  {
+    "id": "google-sites-games-2",
+    "name": "Unblocked Games Google Site 2",
+    "url": "https://sites.google.com/view/games-portal-unblocked",
+    "tag": "GOOGLE SITES",
+    "type": "portal",
+    "description": "Unblocked games portal"
+  },
+  {
+    "id": "google-sites-games-3",
+    "name": "Arcade Classics Hub",
+    "url": "https://sites.google.com/view/arcade-classics-hub",
+    "tag": "GOOGLE SITES",
+    "type": "portal",
+    "description": "Arcade game collection"
+  },
+  {
+    "id": "google-sites-games-4",
+    "name": "Retro Game Collection",
+    "url": "https://sites.google.com/view/retro-game-collection",
+    "tag": "GOOGLE SITES",
+    "type": "portal",
+    "description": "Retro and classic games"
+  },
+  {
+    "id": "google-sites-games-5",
+    "name": "Puzzle Game Zone",
+    "url": "https://sites.google.com/view/puzzle-game-zone",
+    "tag": "GOOGLE SITES",
+    "type": "portal",
+    "description": "Puzzle and brain teaser games"
+  },
+  {
+    "id": "google-sites-games-6",
+    "name": "Sports Game Hub",
+    "url": "https://sites.google.com/view/sports-game-hub",
+    "tag": "GOOGLE SITES",
+    "type": "portal",
+    "description": "Sports games collection"
+  },
+  {
+    "id": "google-sites-games-7",
+    "name": "Racing Game Portal",
+    "url": "https://sites.google.com/view/racing-game-portal",
+    "tag": "GOOGLE SITES",
+    "type": "portal",
+    "description": "Racing and driving games"
+  },
+  {
+    "id": "google-sites-games-8",
+    "name": "Strategy Game Hub",
+    "url": "https://sites.google.com/view/strategy-game-hub",
+    "tag": "GOOGLE SITES",
+    "type": "portal",
+    "description": "Strategy and tower defense games"
+  },
+  {
+    "id": "google-sites-games-9",
+    "name": "Action Game Zone",
+    "url": "https://sites.google.com/view/action-game-zone",
+    "tag": "GOOGLE SITES",
+    "type": "portal",
+    "description": "Action and adventure games"
+  },
+  {
+    "id": "google-sites-games-10",
+    "name": "Multiplayer Games Hub",
+    "url": "https://sites.google.com/view/multiplayer-games-hub",
+    "tag": "GOOGLE SITES",
+    "type": "portal",
+    "description": "Games you can play with friends"
+  },
+  {
+    "id": "aps-games-portal",
+    "name": "APS Games Portal",
+    "url": "https://sites.google.com/atlanta.k12.ga.us/games-portal",
+    "tag": "GOOGLE SITES",
+    "type": "education",
+    "description": "Atlanta Public Schools educational games"
+  },
+  {
+    "id": "aps-math-games",
+    "name": "APS Math Games",
+    "url": "https://sites.google.com/atlanta.k12.ga.us/math-games",
+    "tag": "GOOGLE SITES",
+    "type": "education",
+    "description": "Math-focused games for APS students"
+  },
+  {
+    "id": "aps-reading-games",
+    "name": "APS Reading Games",
+    "url": "https://sites.google.com/atlanta.k12.ga.us/reading-games",
+    "tag": "GOOGLE SITES",
+    "type": "education",
+    "description": "Literacy and reading games"
+  },
+  {
+    "id": "aps-science-games",
+    "name": "APS Science Games",
+    "url": "https://sites.google.com/atlanta.k12.ga.us/science-games",
+    "tag": "GOOGLE SITES",
+    "type": "education",
+    "description": "Science educational games"
+  },
+  {
+    "id": "coolmath-main",
+    "name": "Cool Math Games",
+    "url": "https://www.coolmathgames.com",
+    "tag": "EDUCATIONAL",
+    "type": "games",
+    "description": "Math and logic games"
+  },
+  {
+    "id": "hoodamath-main",
+    "name": "Hooda Math",
+    "url": "https://www.hoodamath.com",
+    "tag": "EDUCATIONAL",
+    "type": "games",
+    "description": "Free math games"
+  },
+  {
+    "id": "abcya-main",
+    "name": "ABCya",
+    "url": "https://www.abcya.com",
+    "tag": "EDUCATIONAL",
+    "type": "games",
+    "description": "Educational games for K-12"
+  },
+  {
+    "id": "pbskids-main",
+    "name": "PBS Kids Games",
+    "url": "https://pbskids.org/games",
+    "tag": "EDUCATIONAL",
+    "type": "games",
+    "description": "Educational games from PBS"
+  },
+  {
+    "id": "funbrain-main",
+    "name": "Funbrain",
+    "url": "https://www.funbrain.com/games",
+    "tag": "EDUCATIONAL",
+    "type": "games",
+    "description": "Educational games for kids"
+  },
+  {
+    "id": "nationalgeographic-kids",
+    "name": "Nat Geo Kids Games",
+    "url": "https://kids.nationalgeographic.com/games",
+    "tag": "EDUCATIONAL",
+    "type": "games",
+    "description": "Geography and science games"
+  },
+  {
+    "id": "roomrecess-main",
+    "name": "Room Recess",
+    "url": "https://www.roomrecess.com",
+    "tag": "EDUCATIONAL",
+    "type": "games",
+    "description": "Educational games for elementary"
+  },
+  {
+    "id": "turtlediary-main",
+    "name": "Turtle Diary",
+    "url": "https://www.turtlediary.com/games",
+    "tag": "EDUCATIONAL",
+    "type": "games",
+    "description": "Educational games and activities"
+  },
+  {
+    "id": "sheppardsoftware",
+    "name": "Sheppard Software",
+    "url": "https://www.sheppardsoftware.com/games",
+    "tag": "EDUCATIONAL",
+    "type": "games",
+    "description": "Hundreds of educational games"
+  },
+  {
+    "id": "primarygames-main",
+    "name": "Primary Games",
+    "url": "https://www.primarygames.com",
+    "tag": "EDUCATIONAL",
+    "type": "games",
+    "description": "Educational games for kids"
+  },
+  {
+    "id": "brainpop-games",
+    "name": "BrainPOP Games",
+    "url": "https://www.brainpop.com/games",
+    "tag": "EDUCATIONAL",
+    "type": "games",
+    "description": "Educational games by subject"
+  },
+  {
+    "id": "poki-main",
+    "name": "Poki",
+    "url": "https://poki.com",
+    "tag": "GAME PORTAL",
+    "type": "games",
+    "description": "Free online games"
+  },
+  {
+    "id": "crazygames-main",
+    "name": "CrazyGames",
+    "url": "https://www.crazygames.com",
+    "tag": "GAME PORTAL",
+    "type": "games",
+    "description": "Browser games collection"
+  },
+  {
+    "id": "kizi-main",
+    "name": "Kizi",
+    "url": "https://kizi.com",
+    "tag": "GAME PORTAL",
+    "type": "games",
+    "description": "Fun online games"
+  },
+  {
+    "id": "friv-main",
+    "name": "Friv",
+    "url": "https://www.friv.com",
+    "tag": "GAME PORTAL",
+    "type": "games",
+    "description": "Classic Friv games"
+  },
+  {
+    "id": "y8-main",
+    "name": "Y8",
+    "url": "https://www.y8.com",
+    "tag": "GAME PORTAL",
+    "type": "games",
+    "description": "Thousands of browser games"
+  },
+  {
+    "id": "miniclip-main",
+    "name": "Miniclip",
+    "url": "https://www.miniclip.com",
+    "tag": "GAME PORTAL",
+    "type": "games",
+    "description": "Online games portal"
+  },
+  {
+    "id": "addictinggames",
+    "name":
