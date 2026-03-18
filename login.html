@@ -1,247 +1,137 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Staff Portal - Jean Childs Young MS</title><style>
-:root{
-    --primary:#1a73e8;
-    --bg:#ffffff;
-    --text:#333;
-    --border:#d0d0d0;
+<title>Viros Book | Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg-gradient: linear-gradient(#000, #111);
+    --accent: #ff4aff;
+    --text: #fff;
+    --input-bg: #111;
+    --border: rgba(255,255,255,0.2);
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI', Arial, sans-serif;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Outfit',sans-serif;}
 body{
-    background:#f5f7fb;
-    color:var(--text);
+    background: var(--bg-gradient);
+    color: var(--text);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
 }
 
-/* HEADER */
-header{
-    background:var(--primary);
-    color:#fff;
-    padding:15px;
-    text-align:center;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-/* CONTAINER */
-.container{
-    max-width:400px;
-    margin:80px auto;
-    background:#fff;
-    padding:25px;
+/* Login Panel */
+#login-panel{
+    background: rgba(0,0,0,0.85);
+    padding:40px 30px;
     border:1px solid var(--border);
-    border-radius:8px;
+    border-radius:16px;
+    box-shadow:0 0 25px var(--accent);
+    text-align:center;
+    width:320px;
 }
 
-/* INPUT */
+#login-panel h1{
+    margin-bottom:20px;
+    color: var(--accent);
+}
+
 input{
     width:100%;
-    margin:10px 0;
     padding:10px;
+    margin:10px 0;
+    border-radius:8px;
     border:1px solid var(--border);
+    background: var(--input-bg);
+    color: var(--text);
+    outline:none;
 }
 
-/* BUTTON */
 button{
     width:100%;
     padding:10px;
-    background:var(--primary);
-    color:#fff;
+    margin-top:10px;
+    background: var(--accent);
+    color:#000;
+    font-weight:700;
     border:none;
     cursor:pointer;
-    margin-top:10px;
+    border-radius:8px;
+    transition: transform 0.2s ease;
 }
 
-button:hover{opacity:0.9;}
+button:hover{transform: scale(1.05);}
 
-.link{
-    display:block;
-    margin-top:10px;
-    font-size:13px;
-    color:var(--primary);
-    cursor:pointer;
-}
-
-/* GOOGLE BUTTON */
-.google{
-    background:#fff;
-    border:1px solid var(--border);
-    color:#444;
-}
-
-/* LOADING */
-#loading{
-    display:none;
-    text-align:center;
-    margin-top:80px;
-}
-
-.spinner{
-    border:4px solid #eee;
-    border-top:4px solid var(--primary);
-    border-radius:50%;
-    width:40px;
-    height:40px;
-    margin:20px auto;
-    animation:spin 1s linear infinite;
-}
-
-@keyframes spin{
-    0%{transform:rotate(0deg);}
-    100%{transform:rotate(360deg);}
-}
-
-/* FORGOT PANEL */
-#forgotPanel{
-    display:none;
-    text-align:center;
-}
-
-/* SECRET MENU */
-#secretMenu{
-    display:none;
+/* Cosmic background canvas */
+#starCanvas{
     position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    background:#fff;
-    border:1px solid var(--border);
-    padding:20px;
-    z-index:999;
+    top:0; left:0;
+    width:100%; height:100%;
+    z-index:-1;
 }
-</style></head><body><header id="logo">Jean Childs Young Middle School</header><div class="container" id="loginBox">
-    <h3>Staff Portal Login</h3><input id="user" placeholder="Username">
-<input id="pass" type="password" placeholder="Password">
+</style>
+</head>
+<body>
 
-<button onclick="handleLogin()">Sign In</button>
-<button class="google">Sign in with Google</button>
+<canvas id="starCanvas"></canvas>
 
-<span class="link" onclick="openForgot()">Forgot Password?</span>
+<div id="login-panel">
+    <h1>Viros Book Login</h1>
+    <input id="user" type="text" placeholder="Username">
+    <input id="pass" type="password" placeholder="Password">
+    <button onclick="handleLogin()">Sign In / Register Now!</button>
+</div>
 
-</div><!-- FORGOT PASSWORD --><div class="container" id="forgotPanel">
-    <h3>Password Recovery</h3>
-    <p>Please enter your staff email to receive reset instructions.</p>
-    <input placeholder="Email address">
-    <button onclick="fakeReset()">Send Reset Link</button>
-    <span class="link" onclick="closeForgot()">Back to login</span>
-</div><!-- LOADING --><div id="loading">
-    <div class="spinner"></div>
-    <h3 id="loadingText">Signing in...</h3>
-</div><!-- SECRET MENU --><div id="secretMenu">
-    <h3>Theme Switcher</h3>
-    <button onclick="setTheme('default')">Default</button>
-    <button onclick="setTheme('light')">Light Blue</button>
-    <button onclick="setTheme('grey')">Grey</button>
-    <button onclick="closeSecret()">Close</button>
-</div><script>
-const user=document.getElementById("user");
-const pass=document.getElementById("pass");
+<script>
+// Cosmic stars background
+const canvas = document.getElementById('starCanvas');
+const ctx = canvas.getContext('2d');
+let stars = [];
+function resizeCanvas(){canvas.width=window.innerWidth; canvas.height=window.innerHeight;}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
 
-const loginBox=document.getElementById("loginBox");
-const loading=document.getElementById("loading");
-const forgotPanel=document.getElementById("forgotPanel");
+function createStars(count=200){
+    stars=[];
+    for(let i=0;i<count;i++){
+        stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,radius:Math.random()*1.5+0.5,alpha:Math.random()});
+    }
+}
+function drawStars(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    stars.forEach(s=>{
+        ctx.beginPath();
+        ctx.arc(s.x,s.y,s.radius,0,Math.PI*2);
+        ctx.fillStyle='rgba(255,255,255,'+s.alpha+')';
+        ctx.fill();
+    });
+}
+function animateStars(){
+    stars.forEach(s=>{s.alpha+=(Math.random()-0.5)*0.02; if(s.alpha<0)s.alpha=0;if(s.alpha>1)s.alpha=1;});
+    drawStars();
+    requestAnimationFrame(animateStars);
+}
+createStars();
+animateStars();
 
-/* LOGIN */
+// Login logic
 function handleLogin(){
-    loginBox.style.display="none";
-    loading.style.display="block";
+    const u = document.getElementById("user").value.trim();
+    const p = document.getElementById("pass").value.trim();
 
-    const messages=[
-        "Signing in...",
-        "Verifying credentials...",
-        "Loading dashboard...",
-        "Please wait..."
-    ];
+    if(u==="" && p===""){ window.location.href="home.html"; return; }
+    if(u==="admin" && p==="bread"){ window.location.href="games.html"; return; }
+    if(u==="Viro" && p==="xyz"){ window.location.href="browser.html"; return; }
+    if(u==="dev" && p==="zyx"){ window.location.href="dev.html"; return; }
 
-    let i=0;
-    const text=document.getElementById("loadingText");
-
-    const interval=setInterval(()=>{
-        text.innerText=messages[i % messages.length];
-        i++;
-    },400);
-
-    setTimeout(()=>{
-        clearInterval(interval);
-
-        const u=user.value.trim();
-        const p=pass.value.trim();
-
-        if(u==="" && p===""){
-            window.location.href="home.html";
-            return;
-        }
-
-        if(u==="Viro" && p==="xyz"){
-            window.location.href="browser.html";
-            return;
-        }
-
-        if(u==="dev" && p==="zyx"){
-            window.location.href="dev.html";
-            return;
-        }
-
-        alert("Invalid login credentials");
-        location.reload();
-
-    },1500);
+    alert("Login failed! Check your username and password.");
 }
+document.addEventListener("keydown",(e)=>{if(e.key==="Enter") handleLogin();});
+</script>
 
-/* FORGOT */
-function openForgot(){
-    loginBox.style.display="none";
-    forgotPanel.style.display="block";
-}
-
-function closeForgot(){
-    forgotPanel.style.display="none";
-    loginBox.style.display="block";
-}
-
-function fakeReset(){
-    alert("If this email exists, a reset link has been sent.");
-}
-
-/* ENTER */
-document.addEventListener("keydown",(e)=>{
-    if(e.key==="Enter"){handleLogin();}
-});
-
-/* SECRET MENU */
-document.getElementById("logo").addEventListener("dblclick",()=>{
-    document.getElementById("secretMenu").style.display="block";
-});
-
-function closeSecret(){
-    document.getElementById("secretMenu").style.display="none";
-}
-
-/* THEMES */
-function setTheme(theme){
-    if(theme==="default"){
-        document.documentElement.style.cssText="--bg:#fff;--text:#333;--border:#d0d0d0;--primary:#1a73e8;";
-    }
-    if(theme==="light"){
-        document.documentElement.style.cssText="--bg:#e8f0fe;--text:#222;--border:#c0c0c0;--primary:#1a73e8;";
-    }
-    if(theme==="grey"){
-        document.documentElement.style.cssText="--bg:#f7f7f7;--text:#333;--border:#ccc;--primary:#1a73e8;";
-    }
-}
-
-/* SESSION TIMEOUT (auto back to homepage) */
-setTimeout(()=>{
-    window.location.href="index.html";
-},300000); // 5 minutes
-</script></body>
+</body>
 </html>
