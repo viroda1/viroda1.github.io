@@ -8,7 +8,7 @@
   {
     "id": "retro-bowl",
     "name": "Retro Bowl",
-    "url": "https://viroda1.github.io", 
+    "url": "https://viroda1.github.io",
     "tag": "SPORTS"
   },
   {
@@ -30,15 +30,15 @@
     "tag": "PARKOUR"
   },
   {
-    "id": "bitlife",
-    "name": "BitLife",
-    "url": "https://webglmath.github.io",
-    "tag": "SIM"
-  },
-  {
-    "id": "edpuzzle-proxy",
-    "name": "Edpuzzle.cv",
+    "id": "edpuzzle-node",
+    "name": "Edpuzzle.cv Proxy",
     "url": "https://edpuzzle.cv",
     "tag": "STEALTH"
+  },
+  {
+    "id": "classroom-center",
+    "name": "Classroom Center",
+    "url": "https://sites.google.com",
+    "tag": "APS NODE"
   }
 ]
