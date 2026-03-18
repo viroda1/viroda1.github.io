@@ -1,20 +1,44 @@
 [
   {
+    "id": "monkey-mart",
+    "name": "Monkey Mart",
+    "url": "https://monkeymart.org",
+    "tag": "IDLE"
+  },
+  {
     "id": "retro-bowl",
     "name": "Retro Bowl",
-    "url": "https://game316024.konggames.com",
+    "url": "https://viroda1.github.io", 
     "tag": "SPORTS"
   },
   {
     "id": "1v1-lol",
     "name": "1v1.LOL",
-    "url": "https://1v1.lol",
+    "url": "https://docs-opensocial.googleusercontent.com",
     "tag": "ACTION"
   },
   {
-    "id": "monkey-mart",
-    "name": "Monkey Mart",
-    "url": "https://monkeymart.org",
-    "tag": "IDLE"
+    "id": "slope",
+    "name": "Slope",
+    "url": "https://kdata1.com",
+    "tag": "SKILL"
+  },
+  {
+    "id": "ovo",
+    "name": "OvO",
+    "url": "https://pureav.github.io",
+    "tag": "PARKOUR"
+  },
+  {
+    "id": "bitlife",
+    "name": "BitLife",
+    "url": "https://webglmath.github.io",
+    "tag": "SIM"
+  },
+  {
+    "id": "edpuzzle-proxy",
+    "name": "Edpuzzle.cv",
+    "url": "https://edpuzzle.cv",
+    "tag": "STEALTH"
   }
 ]
