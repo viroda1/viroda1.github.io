@@ -1,0 +1,20 @@
+[
+  {
+    "id": "retro-bowl",
+    "name": "Retro Bowl",
+    "url": "https://game316024.konggames.com",
+    "tag": "SPORTS"
+  },
+  {
+    "id": "1v1-lol",
+    "name": "1v1.LOL",
+    "url": "https://1v1.lol",
+    "tag": "ACTION"
+  },
+  {
+    "id": "monkey-mart",
+    "name": "Monkey Mart",
+    "url": "https://monkeymart.org",
+    "tag": "IDLE"
+  }
+]
