@@ -1,44 +1,44 @@
 [
   {
-    "id": "monkey-mart",
-    "name": "Monkey Mart",
-    "url": "https://monkeymart.org",
-    "tag": "IDLE"
+    "id": "duck-math",
+    "name": "DuckMath",
+    "url": "https://duckmath.org",
+    "tag": "STEALTH",
+    "disguise": "Math Practice"
   },
   {
-    "id": "retro-bowl",
-    "name": "Retro Bowl",
-    "url": "https://viroda1.github.io",
-    "tag": "SPORTS"
+    "id": "snow-rider-3d",
+    "name": "Snow Rider 3D",
+    "url": "https://www.hoodamath.com",
+    "tag": "SKILL",
+    "disguise": "Hooda Math Lesson"
   },
   {
-    "id": "1v1-lol",
-    "name": "1v1.LOL",
-    "url": "https://docs-opensocial.googleusercontent.com",
-    "tag": "ACTION"
+    "id": "cookie-clicker",
+    "name": "Cookie Clicker",
+    "url": "https://unblockedgames64.github.io",
+    "tag": "IDLE",
+    "disguise": "GitHub Code Sample"
   },
   {
-    "id": "slope",
-    "name": "Slope",
-    "url": "https://kdata1.com",
-    "tag": "SKILL"
+    "id": "bitlife-hidden",
+    "name": "BitLife Mirror",
+    "url": "https://bitlifeonline.io",
+    "tag": "SIM",
+    "disguise": "Life Simulator"
   },
   {
-    "id": "ovo",
-    "name": "OvO",
-    "url": "https://pureav.github.io",
-    "tag": "PARKOUR"
+    "id": "geometry-dash-lite",
+    "name": "Geometry Dash",
+    "url": "https://reyd.github.io",
+    "tag": "RHYTHM",
+    "disguise": "JS Project"
   },
   {
-    "id": "edpuzzle-node",
-    "name": "Edpuzzle.cv Proxy",
-    "url": "https://edpuzzle.cv",
-    "tag": "STEALTH"
-  },
-  {
-    "id": "classroom-center",
-    "name": "Classroom Center",
-    "url": "https://sites.google.com",
-    "tag": "APS NODE"
+    "id": "fogon-top",
+    "name": "Fogon Proxy",
+    "url": "https://fogon.top",
+    "tag": "NODE",
+    "disguise": "Development Environment"
   }
 ]
