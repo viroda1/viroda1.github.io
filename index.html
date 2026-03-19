@@ -1,207 +1,542 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jean Childs Young Middle School</title>
-<style>
-/* COLORS & FONTS */
-:root{
-    --primary:#1a73e8;
-    --bg:#ffffff;
-    --text:#333333;
-    --border:#d0d0d0;
-}
-body{
-    margin:0;
-    font-family:'Segoe UI', Arial, sans-serif;
-    background:var(--bg);
-    color:var(--text);
-    line-height:1.6;
-}
-a{text-decoration:none; color:var(--primary);}
-header{
-    background:var(--primary);
-    color:#fff;
-    padding:15px 20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-header .logo{
-    font-weight:bold;
-    font-size:1.3rem;
-}
-nav a{
-    margin-left:20px;
-    color:#fff;
-    font-weight:500;
-}
-main{
-    padding:20px;
-    max-width:900px;
-    margin:auto;
-}
-section{
-    margin-bottom:40px;
-}
-h2{
-    color:var(--primary);
-    margin-bottom:10px;
-}
-ul{
-    list-style:disc;
-    margin-left:20px;
-}
-footer{
-    background:#f1f1f1;
-    padding:20px;
-    text-align:center;
-    position:relative;
-    border-top:1px solid var(--border);
-}
-.footer-login{
-    display:inline-block;
-    margin-top:10px;
-    font-weight:bold;
-    color:var(--primary);
-    cursor:pointer;
-}
-.footer-login:hover{text-decoration:underline;}
-/* HIDDEN THEME MENU (double-click footer icon) */
-#secretMenu{
-    display:none;
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    background:#fff;
-    border:1px solid var(--border);
-    padding:20px;
-    z-index:999;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-#secretMenu h3{
-    margin-top:0;
-    color:var(--primary);
-}
-#secretMenu button{
-    margin:5px;
-    padding:8px 12px;
-    background:var(--primary);
-    color:#fff;
-    border:none;
-    cursor:pointer;
-    border-radius:4px;
-}
-#secretMenu button:hover{opacity:0.9;}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIRO HUB · educational toolkit collection</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b0a0f;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            position: relative;
+            color: #f2eaff;
+        }
+
+        /* halftone overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(circle at 30% 40%, rgba(160, 120, 255, 0.08) 1px, transparent 1px),
+                radial-gradient(circle at 70% 85%, rgba(200, 140, 255, 0.08) 1px, transparent 1px),
+                radial-gradient(circle at 15% 90%, rgba(140, 100, 255, 0.06) 2px, transparent 2px),
+                radial-gradient(circle at 85% 20%, rgba(180, 130, 255, 0.06) 2px, transparent 2px);
+            background-size: 60px 60px, 90px 90px, 120px 120px, 150px 150px;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: radial-gradient(circle at 50% 50%, rgba(180, 130, 255, 0.15) 0px, transparent 3px);
+            background-size: 48px 48px;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .main-container {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        /* header */
+        .hero {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 12vw, 5.5rem);
+            font-weight: 700;
+            background: linear-gradient(145deg, #d4c0ff 0%, #b47aff 40%, #9f5eff 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+            filter: drop-shadow(0 0 20px #ae7aff66);
+            display: inline-block;
+            padding: 0 0.5rem;
+        }
+
+        .hero h1 span {
+            font-size: 2rem;
+            background: linear-gradient(145deg, #b47aff, #8f4aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-left: 0.5rem;
+        }
+
+        .halftone-underline {
+            height: 6px;
+            width: 300px;
+            max-width: 70%;
+            margin: 0.8rem auto 0;
+            background: linear-gradient(90deg, transparent, #c68eff, #a158ff, #c68eff, transparent);
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .halftone-underline::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 24px;
+            background: radial-gradient(circle at 20% 0%, #b47aff40 2px, transparent 3px);
+            background-size: 24px 12px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #bcb0da;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            background: rgba(20, 10, 30, 0.5);
+            backdrop-filter: blur(8px);
+            padding: 0.75rem 2rem;
+            border-radius: 60px;
+            border: 1px solid #4a2c7333;
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.7);
+        }
+
+        .github-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #1a1430;
+            border: 1px solid #624b8b;
+            border-radius: 60px;
+            padding: 0.5rem 1.5rem;
+            margin-top: 1rem;
+            color: #dac5ff;
+            font-size: 0.9rem;
+        }
+
+        .github-badge i {
+            color: #b47aff;
+        }
+
+        /* tool grid */
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3.5rem 0 2rem;
+        }
+
+        .tool-card {
+            background: rgba(18, 14, 28, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid #3b2a55;
+            border-radius: 2rem;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 25px 40px -15px #000000dd;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: #f2eaff;
+            cursor: pointer;
+        }
+
+        .tool-card:hover {
+            border-color: #aa7eff;
+            box-shadow: 0 30px 50px -20px #b47aff, 0 0 0 1.5px #b47aff66 inset;
+            transform: translateY(-6px);
+            background: rgba(22, 16, 34, 0.8);
+        }
+
+        .tool-card.coming-soon {
+            opacity: 0.7;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        .tool-card.coming-soon:hover {
+            transform: none;
+            border-color: #3b2a55;
+            box-shadow: 0 25px 40px -15px #000000dd;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 30% 70%, #c7a6ff10 1px, transparent 1px);
+            background-size: 36px 36px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(145deg, #b37aff, #8f4aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: linear-gradient(145deg, #f0eaff, #dbbdff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-description {
+            color: #bcb0da;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-status {
+            display: inline-block;
+            background: #2d2347;
+            border: 1px solid #5c3f8c;
+            border-radius: 60px;
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            color: #dac5ff;
+            align-self: flex-start;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-status.soon {
+            background: #382b57;
+            border-color: #9f5eff;
+            color: #b47aff;
+        }
+
+        .card-link {
+            margin-top: 1rem;
+            color: #b47aff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .featured-section {
+            margin: 4rem 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            background: linear-gradient(145deg, #f0eaff, #dbbdff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: rgba(18, 14, 28, 0.5);
+            backdrop-filter: blur(4px);
+            border: 1px solid #3b2a55;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #b47aff;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: #bcb0da;
+            margin-top: 0.5rem;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            text-align: center;
+            color: #62558b;
+            font-size: 0.95rem;
+            padding: 1.5rem 0.5rem;
+            border-top: 1px dashed #6d4d9a55;
+        }
+
+        .footer a {
+            color: #b47aff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .tool-grid { gap: 1.5rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
 </head>
 <body>
+    <div class="main-container">
+        <!-- hero section -->
+        <div class="hero">
+            <h1>VIRO HUB <span>⚡</span></h1>
+            <div class="halftone-underline"></div>
+            <div class="subhead">
+                <i class="fas fa-graduation-cap" style="margin-right: 8px;"></i> 
+                a complete educational toolkit · purple black halftone collection
+            </div>
+            <div class="github-badge">
+                <i class="fab fa-github"></i> viroda1.github.io
+            </div>
+        </div>
 
-<!-- HEADER -->
-<header>
-    <div class="logo">Jean Childs Young Middle School</div>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Academics</a>
-        <a href="#">Calendar</a>
-    </nav>
-</header>
+        <!-- stats section -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">6</div>
+                <div class="stat-label">active tools</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">coming soon</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">calculators</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">free</div>
+            </div>
+        </div>
 
-<!-- MAIN CONTENT -->
-<main>
-    <section>
-        <h2>Message from the Principal</h2>
-        <p>
-        Welcome to Jean Childs Young Middle School, where we are committed to fostering academic excellence, personal growth, and community engagement for all students.
-        At JCYMS, our mission is to provide a safe, supportive, and challenging learning environment that prepares students for success in high school and beyond. Our dedicated staff works collaboratively to ensure that each student is encouraged to reach their full potential.
-        </p>
-        <p>
-        We believe that education extends beyond the classroom. Through extracurricular activities, leadership opportunities, and community partnerships, our students develop the skills necessary to become responsible and productive citizens.
-        </p>
-        <p>
-        We appreciate your continued support and partnership in making Jean Childs Young Middle School a place where every student can thrive.
-        <br>Sincerely, <br>Principal
-        </p>
-    </section>
+        <!-- featured tools section -->
+        <div class="featured-section">
+            <div class="section-title">
+                <i class="fas fa-star" style="color: #b47aff; margin-right: 0.5rem;"></i>
+                featured tools
+            </div>
+            <div class="tool-grid">
+                <!-- VIRO CALCULATOR -->
+                <a href="viro-calculator.html" class="tool-card">
+                    <div class="card-icon"><i class="fas fa-calculator"></i></div>
+                    <div class="card-title">VIRO CALCULATOR</div>
+                    <div class="card-description">Basic calculator, ruler, geometry tools, and measurement demos</div>
+                    <div class="card-status"><i class="fas fa-check-circle"></i> live</div>
+                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
+                </a>
 
-    <section>
-        <h2>Brief History of Jean Childs Young</h2>
-        <p>
-        Jean Childs Young Middle School is named in honor of Jean Childs Young, a distinguished educator, civil rights activist, and advocate for children and families. Mrs. Young was widely recognized for her work in education and her dedication to improving opportunities for young people. 
-        She was also the wife of Andrew Young, former Mayor of Atlanta and United States Ambassador to the United Nations, whose legacy of public service continues to inspire the Atlanta community.
-        </p>
-        <p>
-        The school reflects her commitment to academic achievement, equity, and community involvement. Since its founding, Jean Childs Young Middle School has served as a cornerstone of education in Atlanta Public Schools, emphasizing both academic rigor and character development. Today, the school continues to uphold her legacy by empowering students to become lifelong learners and leaders in their communities.
-        </p>
-    </section>
+                <!-- VIRO SCI -->
+                <a href="viro-sci.html" class="tool-card">
+                    <div class="card-icon"><i class="fas fa-flask"></i></div>
+                    <div class="card-title">VIRO SCI</div>
+                    <div class="card-description">Thermometer, pH scale, unit converter, lab equipment</div>
+                    <div class="card-status"><i class="fas fa-check-circle"></i> live</div>
+                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
+                </a>
 
-    <section>
-        <h2>Upcoming School Dates</h2>
-        <ul>
-            <li>March 25 – Parent-Teacher Conferences</li>
-            <li>March 28 – Early Release Day</li>
-            <li>April 1 – Spring Break Begins</li>
-            <li>April 8 – Students Return from Break</li>
-            <li>April 15 – State Testing Window Opens</li>
-        </ul>
-    </section>
-</main>
+                <!-- VIRO PHYSICS -->
+                <a href="viro-physics.html" class="tool-card">
+                    <div class="card-icon"><i class="fas fa-atom"></i></div>
+                    <div class="card-title">VIRO PHYSICS</div>
+                    <div class="card-description">Motion, force, energy, waves, circuits calculators</div>
+                    <div class="card-status"><i class="fas fa-check-circle"></i> live</div>
+                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
+                </a>
 
-<!-- FOOTER -->
-<footer>
-    <p>© 2026 Jean Childs Young Middle School, Atlanta Public Schools</p>
-    <div class="footer-login" id="footerLogin">SIGN IN / REGISTER NOW!</div>
-</footer>
+                <!-- VIRO GRAPH -->
+                <a href="viro-graph.html" class="tool-card">
+                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="card-title">VIRO GRAPH</div>
+                    <div class="card-description">Function plotter, derivatives, integrals, statistics</div>
+                    <div class="card-status"><i class="fas fa-check-circle"></i> live</div>
+                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
+                </a>
 
-<!-- SECRET THEME MENU -->
-<div id="secretMenu">
-    <h3>Theme Switcher</h3>
-    <button onclick="setTheme('default')">Default</button>
-    <button onclick="setTheme('light')">Light Blue</button>
-    <button onclick="setTheme('grey')">Grey</button>
-    <button onclick="closeSecret()">Close</button>
-</div>
+                <!-- VIRO CHEM -->
+                <a href="viro-chem.html" class="tool-card">
+                    <div class="card-icon"><i class="fas fa-flask"></i></div>
+                    <div class="card-title">VIRO CHEM</div>
+                    <div class="card-description">Periodic table, equation balancer, molar mass, pH, gas laws</div>
+                    <div class="card-status"><i class="fas fa-check-circle"></i> live</div>
+                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+        </div>
 
-<script>
-/* FOOTER LOGIN CLICK */
-document.getElementById("footerLogin").addEventListener("click",()=>{
-    window.location.href="login.html";
-});
+        <!-- coming soon section -->
+        <div class="featured-section">
+            <div class="section-title">
+                <i class="fas fa-clock" style="color: #b47aff; margin-right: 0.5rem;"></i>
+                coming soon
+            </div>
+            <div class="tool-grid">
+                <!-- VIRO LIBRARY -->
+                <div class="tool-card coming-soon">
+                    <div class="card-icon"><i class="fas fa-book"></i></div>
+                    <div class="card-title">VIRO LIBRARY</div>
+                    <div class="card-description">Flashcards, study timer, note-taking, citation generator</div>
+                    <div class="card-status soon"><i class="fas fa-hourglass-half"></i> coming soon</div>
+                </div>
 
-/* SECRET THEME MENU TRIGGER (double click footer login) */
-let dblClickCount=0;
-document.getElementById("footerLogin").addEventListener("dblclick",()=>{
-    document.getElementById("secretMenu").style.display="block";
-});
+                <!-- VIRO BRAIN -->
+                <div class="tool-card coming-soon">
+                    <div class="card-icon"><i class="fas fa-brain"></i></div>
+                    <div class="card-title">VIRO BRAIN</div>
+                    <div class="card-description">Mind maps, memory palace, concept maps, active recall</div>
+                    <div class="card-status soon"><i class="fas fa-hourglass-half"></i> coming soon</div>
+                </div>
 
-/* CLOSE SECRET MENU */
-function closeSecret(){
-    document.getElementById("secretMenu").style.display="none";
-}
+                <!-- VIRO GEO -->
+                <div class="tool-card coming-soon">
+                    <div class="card-icon"><i class="fas fa-draw-polygon"></i></div>
+                    <div class="card-title">VIRO GEO</div>
+                    <div class="card-description">Geometry solver, area, volume, angles, Pythagorean theorem</div>
+                    <div class="card-status soon"><i class="fas fa-hourglass-half"></i> coming soon</div>
+                </div>
 
-/* THEMES */
-function setTheme(theme){
-    if(theme==="default"){
-        document.documentElement.style.setProperty('--bg','#ffffff');
-        document.documentElement.style.setProperty('--text','#333333');
-        document.documentElement.style.setProperty('--border','#d0d0d0');
-        document.documentElement.style.setProperty('--primary','#1a73e8');
-    }
-    if(theme==="light"){
-        document.documentElement.style.setProperty('--bg','#e8f0fe');
-        document.documentElement.style.setProperty('--text','#222');
-        document.documentElement.style.setProperty('--border','#c0c0c0');
-        document.documentElement.style.setProperty('--primary','#1a73e8');
-    }
-    if(theme==="grey"){
-        document.documentElement.style.setProperty('--bg','#f7f7f7');
-        document.documentElement.style.setProperty('--text','#333');
-        document.documentElement.style.setProperty('--border','#cccccc');
-        document.documentElement.style.setProperty('--primary','#1a73e8');
-    }
-}
-</script>
+                <!-- VIRO STATS -->
+                <div class="tool-card coming-soon">
+                    <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
+                    <div class="card-title">VIRO STATS</div>
+                    <div class="card-description">Statistics calculator, distributions, hypothesis tests</div>
+                    <div class="card-status soon"><i class="fas fa-hourglass-half"></i> coming soon</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- all tools section -->
+        <div class="featured-section">
+            <div class="section-title">
+                <i class="fas fa-th-large" style="color: #b47aff; margin-right: 0.5rem;"></i>
+                complete collection
+            </div>
+            <div style="background: rgba(18, 14, 28, 0.5); border-radius: 2rem; padding: 2rem; border: 1px solid #3b2a55;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: #bcb0da;">
+                        <i class="fas fa-check-circle" style="color: #4aff9e;"></i> VIRO CALCULATOR
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: #bcb0da;">
+                        <i class="fas fa-check-circle" style="color: #4aff9e;"></i> VIRO SCI
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: #bcb0da;">
+                        <i class="fas fa-check-circle" style="color: #4aff9e;"></i> VIRO PHYSICS
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: #bcb0da;">
+                        <i class="fas fa-check-circle" style="color: #4aff9e;"></i> VIRO GRAPH
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: #bcb0da;">
+                        <i class="fas fa-check-circle" style="color: #4aff9e;"></i> VIRO CHEM
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: #bcb0da;">
+                        <i class="fas fa-hourglass-half" style="color: #ff9f4a;"></i> VIRO LIBRARY
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: #bcb0da;">
+                        <i class="fas fa-hourglass-half" style="color: #ff9f4a;"></i> VIRO BRAIN
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: #bcb0da;">
+                        <i class="fas fa-hourglass-half" style="color: #ff9f4a;"></i> VIRO GEO
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: #bcb0da;">
+                        <i class="fas fa-hourglass-half" style="color: #ff9f4a;"></i> VIRO STATS
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- about section -->
+        <div style="margin: 4rem 0; text-align: center;">
+            <div style="background: linear-gradient(145deg, #1a1430, #0f0b1a); border-radius: 3rem; padding: 2rem; border: 1px solid #624b8b;">
+                <i class="fas fa-quote-right" style="font-size: 3rem; color: #b47aff; opacity: 0.5; margin-bottom: 1rem;"></i>
+                <p style="font-size: 1.2rem; color: #dac5ff; max-width: 600px; margin: 0 auto;">
+                    A collection of beautiful, functional educational tools designed with a distinctive purple and black halftone aesthetic. Free for everyone, forever.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
+                    <span style="background: #2d2347; padding: 0.5rem 1.2rem; border-radius: 60px; border: 1px solid #5c3f8c;">
+                        <i class="fas fa-calculator"></i> 5 live tools
+                    </span>
+                    <span style="background: #2d2347; padding: 0.5rem 1.2rem; border-radius: 60px; border: 1px solid #5c3f8c;">
+                        <i class="fas fa-code"></i> pure HTML/CSS/JS
+                    </span>
+                    <span style="background: #2d2347; padding: 0.5rem 1.2rem; border-radius: 60px; border: 1px solid #5c3f8c;">
+                        <i class="fas fa-mobile-alt"></i> fully responsive
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="footer">
+            <p>
+                <i class="fas fa-atom"></i> <strong>VIRO TOOLS</strong> · purple black halftone collection · 
+                <a href="https://github.com/viroda1">github.com/viroda1</a>
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.8rem;">
+                © 2024 · free educational tools for everyone · built with 💜
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // smooth scroll and any future interactivity
+        console.log('VIRO HUB loaded · viroda1.github.io');
+    </script>
 </body>
 </html>
