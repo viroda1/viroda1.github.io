@@ -1,363 +1,718 @@
-# VIRO HUB - Central Dashboard
+# VIRO HUB - Updated for Separate Repositories
 
-**File:** `index.html` (located at root directory)  
-**Live URL:** [https://viroda1.github.io](https://viroda1.github.io)  
-**Repository:** [github.com/viroda1/viroda1.github.io](https://github.com/viroda1/viroda1.github.io)
-
----
-
-## 📋 **OVERVIEW**
-
-VIRO HUB is the central dashboard for the entire VIRO TOOLS collection, living at the root of `viroda1.github.io`. It provides a beautiful, intuitive interface for accessing all educational tools in one place. Designed with the signature purple and black halftone aesthetic, it serves as the launchpad for your learning journey.
+**File:** `index.html` (for root directory)  
+**Live URL:** [https://viroda1.github.io](https://viroda1.github.io)
 
 ---
 
-## 🎯 **PURPOSE**
+## 📋 **TOOL LINKS MAPPING**
 
-- **Central Access Point** - One place to find all VIRO tools
-- **Visual Navigation** - Beautiful card-based interface
-- **Status Tracking** - See which tools are live vs. coming soon
-- **Progress Monitoring** - Track the growth of the collection
-- **Brand Consistency** - Maintains the purple/black halftone theme
+| Tool | Repository | Live URL |
+|------|------------|----------|
+| **VIRO CALCULATOR** | `calc` repo | [viroda1.github.io/calc](https://viroda1.github.io/calc) |
+| **VIRO SCI** | `sci` repo | [viroda1.github.io/sci](https://viroda1.github.io/sci) |
+| **VIRO PHYSICS** | `phys` repo | [viroda1.github.io/phys](https://viroda1.github.io/phys) |
+| **VIRO GRAPH** | `graph` repo | [viroda1.github.io/graph](https://viroda1.github.io/graph) |
+| **VIRO CHEM** | `chemo` repo | [viroda1.github.io/chemo](https://viroda1.github.io/chemo) |
+| **VIRO CARDS** | `cards` repo | [viroda1.github.io/cards](https://viroda1.github.io/cards) |
+| **VIRO ENCRYPT** | `encrypt` repo | [viroda1.github.io/encrypt](https://viroda1.github.io/encrypt) |
+| **VIRO AI** | `ai2` repo | [viroda1.github.io/ai2](https://viroda1.github.io/ai2) |
 
 ---
 
-## ✨ **FEATURES**
+## 🏠 **VIRO HUB - COMPLETE HTML CODE**
 
-### 1. **Hero Section**
 ```html
-VIRO HUB ⚡
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIRO HUB · educational toolkit collection</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b0a0f;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            position: relative;
+            color: #f2eaff;
+        }
+
+        /* halftone overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            background-image: 
+                radial-gradient(circle at 30% 40%, rgba(160, 120, 255, 0.08) 1px, transparent 1px),
+                radial-gradient(circle at 70% 85%, rgba(200, 140, 255, 0.08) 1px, transparent 1px),
+                radial-gradient(circle at 15% 90%, rgba(140, 100, 255, 0.06) 2px, transparent 2px),
+                radial-gradient(circle at 85% 20%, rgba(180, 130, 255, 0.06) 2px, transparent 2px);
+            background-size: 60px 60px, 90px 90px, 120px 120px, 150px 150px;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: radial-gradient(circle at 50% 50%, rgba(180, 130, 255, 0.15) 0px, transparent 3px);
+            background-size: 48px 48px;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .main-container {
+            position: relative;
+            z-index: 10;
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        /* header */
+        .hero {
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 12vw, 5.5rem);
+            font-weight: 700;
+            background: linear-gradient(145deg, #d4c0ff 0%, #b47aff 40%, #9f5eff 80%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.02em;
+            filter: drop-shadow(0 0 20px #ae7aff66);
+            display: inline-block;
+            padding: 0 0.5rem;
+        }
+
+        .hero h1 span {
+            font-size: 2rem;
+            background: linear-gradient(145deg, #b47aff, #8f4aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-left: 0.5rem;
+        }
+
+        .halftone-underline {
+            height: 6px;
+            width: 300px;
+            max-width: 70%;
+            margin: 0.8rem auto 0;
+            background: linear-gradient(90deg, transparent, #c68eff, #a158ff, #c68eff, transparent);
+            border-radius: 6px;
+            position: relative;
+        }
+
+        .halftone-underline::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 24px;
+            background: radial-gradient(circle at 20% 0%, #b47aff40 2px, transparent 3px);
+            background-size: 24px 12px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .subhead {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #bcb0da;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            background: rgba(20, 10, 30, 0.5);
+            backdrop-filter: blur(8px);
+            padding: 0.75rem 2rem;
+            border-radius: 60px;
+            border: 1px solid #4a2c7333;
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.7);
+        }
+
+        .github-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #1a1430;
+            border: 1px solid #624b8b;
+            border-radius: 60px;
+            padding: 0.5rem 1.5rem;
+            margin-top: 1rem;
+            color: #dac5ff;
+            font-size: 0.9rem;
+        }
+
+        .github-badge i {
+            color: #b47aff;
+        }
+
+        .github-badge a {
+            color: #b47aff;
+            text-decoration: none;
+        }
+
+        .github-badge a:hover {
+            text-decoration: underline;
+        }
+
+        .path-note {
+            background: #1a1430;
+            border: 1px solid #5c3f8c;
+            border-radius: 60px;
+            padding: 0.5rem 1.5rem;
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #dac5ff;
+        }
+
+        .path-note i {
+            color: #b47aff;
+            margin-right: 0.5rem;
+        }
+
+        /* tool grid */
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3.5rem 0 2rem;
+        }
+
+        .tool-card {
+            background: rgba(18, 14, 28, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid #3b2a55;
+            border-radius: 2rem;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 25px 40px -15px #000000dd;
+            transition: all 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: #f2eaff;
+            cursor: pointer;
+        }
+
+        .tool-card:hover {
+            border-color: #aa7eff;
+            box-shadow: 0 30px 50px -20px #b47aff, 0 0 0 1.5px #b47aff66 inset;
+            transform: translateY(-6px);
+            background: rgba(22, 16, 34, 0.8);
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 30% 70%, #c7a6ff10 1px, transparent 1px);
+            background-size: 36px 36px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(145deg, #b37aff, #8f4aff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: linear-gradient(145deg, #f0eaff, #dbbdff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-description {
+            color: #bcb0da;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-url {
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: #b47aff;
+            background: #0f0b1a;
+            padding: 0.3rem 0.8rem;
+            border-radius: 40px;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            border: 1px solid #5c3f8c;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-status {
+            display: inline-block;
+            background: #2d2347;
+            border: 1px solid #5c3f8c;
+            border-radius: 60px;
+            padding: 0.3rem 1rem;
+            font-size: 0.8rem;
+            color: #dac5ff;
+            align-self: flex-start;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-status.live {
+            background: #1a3a2a;
+            border-color: #4aff9e;
+            color: #4aff9e;
+        }
+
+        .card-link {
+            margin-top: 1rem;
+            color: #b47aff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .featured-section {
+            margin: 4rem 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            background: linear-gradient(145deg, #f0eaff, #dbbdff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: rgba(18, 14, 28, 0.5);
+            backdrop-filter: blur(4px);
+            border: 1px solid #3b2a55;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #b47aff;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: #bcb0da;
+            margin-top: 0.5rem;
+        }
+
+        .repo-list {
+            background: #1a1430;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #5c3f8c;
+            margin: 2rem 0;
+        }
+
+        .repo-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem;
+            border-bottom: 1px solid #2d2347;
+        }
+
+        .repo-item:last-child {
+            border-bottom: none;
+        }
+
+        .repo-name {
+            min-width: 100px;
+            color: #b47aff;
+            font-weight: 600;
+        }
+
+        .repo-url {
+            color: #dac5ff;
+            font-family: monospace;
+            background: #0f0b1a;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #5c3f8c;
+        }
+
+        .repo-url a {
+            color: #dac5ff;
+            text-decoration: none;
+        }
+
+        .repo-url a:hover {
+            color: #b47aff;
+        }
+
+        .footer {
+            margin-top: 4rem;
+            text-align: center;
+            color: #62558b;
+            font-size: 0.95rem;
+            padding: 1.5rem 0.5rem;
+            border-top: 1px dashed #6d4d9a55;
+        }
+
+        .footer a {
+            color: #b47aff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .tool-grid { gap: 1.5rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .repo-item { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- hero section -->
+        <div class="hero">
+            <h1>VIRO HUB <span>⚡</span></h1>
+            <div class="halftone-underline"></div>
+            <div class="subhead">
+                <i class="fas fa-graduation-cap" style="margin-right: 8px;"></i> 
+                a complete educational toolkit · purple black halftone collection
+            </div>
+            <div class="github-badge">
+                <i class="fab fa-github"></i> 
+                <a href="https://viroda1.github.io" target="_blank">viroda1.github.io</a>
+            </div>
+            <div class="path-note">
+                <i class="fas fa-folder-open"></i> 8 tools · 8 repositories
+            </div>
+        </div>
+
+        <!-- stats section -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">8</div>
+                <div class="stat-label">active tools</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">8</div>
+                <div class="stat-label">repositories</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">calculators</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">free</div>
+            </div>
+        </div>
+
+        <!-- featured tools section -->
+        <div class="featured-section">
+            <div class="section-title">
+                <i class="fas fa-star" style="color: #b47aff; margin-right: 0.5rem;"></i>
+                featured tools
+            </div>
+            <div class="tool-grid">
+                <!-- VIRO CALCULATOR -->
+                <a href="https://viroda1.github.io/calc" class="tool-card" target="_blank">
+                    <div class="card-icon"><i class="fas fa-calculator"></i></div>
+                    <div class="card-title">VIRO CALCULATOR</div>
+                    <div class="card-url">viroda1.github.io/calc</div>
+                    <div class="card-description">Basic calculator, ruler, geometry tools, and measurement demos</div>
+                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /calc</div>
+                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <!-- VIRO SCI -->
+                <a href="https://viroda1.github.io/sci" class="tool-card" target="_blank">
+                    <div class="card-icon"><i class="fas fa-flask"></i></div>
+                    <div class="card-title">VIRO SCI</div>
+                    <div class="card-url">viroda1.github.io/sci</div>
+                    <div class="card-description">Thermometer, pH scale, unit converter, lab equipment</div>
+                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /sci</div>
+                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <!-- VIRO PHYSICS -->
+                <a href="https://viroda1.github.io/phys" class="tool-card" target="_blank">
+                    <div class="card-icon"><i class="fas fa-atom"></i></div>
+                    <div class="card-title">VIRO PHYSICS</div>
+                    <div class="card-url">viroda1.github.io/phys</div>
+                    <div class="card-description">Motion, force, energy, waves, circuits calculators</div>
+                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /phys</div>
+                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <!-- VIRO GRAPH -->
+                <a href="https://viroda1.github.io/graph" class="tool-card" target="_blank">
+                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="card-title">VIRO GRAPH</div>
+                    <div class="card-url">viroda1.github.io/graph</div>
+                    <div class="card-description">Function plotter, derivatives, integrals, statistics</div>
+                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /graph</div>
+                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <!-- VIRO CHEM -->
+                <a href="https://viroda1.github.io/chemo" class="tool-card" target="_blank">
+                    <div class="card-icon"><i class="fas fa-flask"></i></div>
+                    <div class="card-title">VIRO CHEM</div>
+                    <div class="card-url">viroda1.github.io/chemo</div>
+                    <div class="card-description">Periodic table, equation balancer, molar mass, pH, gas laws</div>
+                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /chemo</div>
+                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <!-- VIRO CARDS -->
+                <a href="https://viroda1.github.io/cards" class="tool-card" target="_blank">
+                    <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+                    <div class="card-title">VIRO CARDS</div>
+                    <div class="card-url">viroda1.github.io/cards</div>
+                    <div class="card-description">Flashcards, study cards, interactive learning tools</div>
+                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /cards</div>
+                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <!-- VIRO ENCRYPT -->
+                <a href="https://viroda1.github.io/encrypt" class="tool-card" target="_blank">
+                    <div class="card-icon"><i class="fas fa-lock"></i></div>
+                    <div class="card-title">VIRO ENCRYPT</div>
+                    <div class="card-url">viroda1.github.io/encrypt</div>
+                    <div class="card-description">Encryption, decryption, cipher tools, cryptography</div>
+                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /encrypt</div>
+                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
+                </a>
+
+                <!-- VIRO AI -->
+                <a href="https://viroda1.github.io/ai2" class="tool-card" target="_blank">
+                    <div class="card-icon"><i class="fas fa-robot"></i></div>
+                    <div class="card-title">VIRO AI</div>
+                    <div class="card-url">viroda1.github.io/ai2</div>
+                    <div class="card-description">AI tools, chatbots, machine learning demos</div>
+                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /ai2</div>
+                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- repositories section -->
+        <div class="repo-list">
+            <h3 style="color: #dac5ff; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                <i class="fab fa-github" style="color: #b47aff;"></i> 
+                separate repositories
+            </h3>
+            <div class="repo-item">
+                <span class="repo-name">calc</span>
+                <span class="repo-url"><a href="https://viroda1.github.io/calc" target="_blank">viroda1.github.io/calc</a></span>
+                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
+            </div>
+            <div class="repo-item">
+                <span class="repo-name">sci</span>
+                <span class="repo-url"><a href="https://viroda1.github.io/sci" target="_blank">viroda1.github.io/sci</a></span>
+                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
+            </div>
+            <div class="repo-item">
+                <span class="repo-name">phys</span>
+                <span class="repo-url"><a href="https://viroda1.github.io/phys" target="_blank">viroda1.github.io/phys</a></span>
+                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
+            </div>
+            <div class="repo-item">
+                <span class="repo-name">graph</span>
+                <span class="repo-url"><a href="https://viroda1.github.io/graph" target="_blank">viroda1.github.io/graph</a></span>
+                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
+            </div>
+            <div class="repo-item">
+                <span class="repo-name">chemo</span>
+                <span class="repo-url"><a href="https://viroda1.github.io/chemo" target="_blank">viroda1.github.io/chemo</a></span>
+                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
+            </div>
+            <div class="repo-item">
+                <span class="repo-name">cards</span>
+                <span class="repo-url"><a href="https://viroda1.github.io/cards" target="_blank">viroda1.github.io/cards</a></span>
+                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
+            </div>
+            <div class="repo-item">
+                <span class="repo-name">encrypt</span>
+                <span class="repo-url"><a href="https://viroda1.github.io/encrypt" target="_blank">viroda1.github.io/encrypt</a></span>
+                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
+            </div>
+            <div class="repo-item">
+                <span class="repo-name">ai2</span>
+                <span class="repo-url"><a href="https://viroda1.github.io/ai2" target="_blank">viroda1.github.io/ai2</a></span>
+                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
+            </div>
+        </div>
+
+        <!-- about section -->
+        <div style="margin: 4rem 0; text-align: center;">
+            <div style="background: linear-gradient(145deg, #1a1430, #0f0b1a); border-radius: 3rem; padding: 2rem; border: 1px solid #624b8b;">
+                <i class="fas fa-quote-right" style="font-size: 3rem; color: #b47aff; opacity: 0.5; margin-bottom: 1rem;"></i>
+                <p style="font-size: 1.2rem; color: #dac5ff; max-width: 600px; margin: 0 auto;">
+                    A collection of beautiful, functional educational tools designed with a distinctive purple and black halftone aesthetic. Each tool lives in its own repository, making them easy to maintain and deploy independently.
+                </p>
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
+                    <span style="background: #2d2347; padding: 0.5rem 1.2rem; border-radius: 60px; border: 1px solid #5c3f8c;">
+                        <i class="fas fa-calculator"></i> 8 tools
+                    </span>
+                    <span style="background: #2d2347; padding: 0.5rem 1.2rem; border-radius: 60px; border: 1px solid #5c3f8c;">
+                        <i class="fas fa-code"></i> 8 repositories
+                    </span>
+                    <span style="background: #2d2347; padding: 0.5rem 1.2rem; border-radius: 60px; border: 1px solid #5c3f8c;">
+                        <i class="fas fa-mobile-alt"></i> fully responsive
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- navigation note -->
+        <div style="background: #1a1430; border-radius: 2rem; padding: 1.5rem; border: 1px solid #5c3f8c; margin: 2rem 0;">
+            <h3 style="color: #dac5ff; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-link" style="color: #b47aff;"></i> quick access links
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.8rem;">
+                <a href="https://viroda1.github.io/calc" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">🧮 /calc</a>
+                <a href="https://viroda1.github.io/sci" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">🔬 /sci</a>
+                <a href="https://viroda1.github.io/phys" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">⚡ /phys</a>
+                <a href="https://viroda1.github.io/graph" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">📈 /graph</a>
+                <a href="https://viroda1.github.io/chemo" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">🧪 /chemo</a>
+                <a href="https://viroda1.github.io/cards" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">🃏 /cards</a>
+                <a href="https://viroda1.github.io/encrypt" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">🔒 /encrypt</a>
+                <a href="https://viroda1.github.io/ai2" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">🤖 /ai2</a>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="footer">
+            <p>
+                <i class="fas fa-atom"></i> <strong>VIRO TOOLS</strong> · purple black halftone collection · 
+                <a href="https://viroda1.github.io">viroda1.github.io</a>
+            </p>
+            <p style="margin-top: 0.5rem;">
+                <i class="fab fa-github"></i> 8 separate repositories · 8 live tools
+            </p>
+            <p style="margin-top: 1rem; font-size: 0.8rem;">
+                © 2024 · free educational tools for everyone · built with 💜
+            </p>
+        </div>
+    </div>
+
+    <script>
+        console.log('VIRO HUB loaded · viroda1.github.io');
+        console.log('8 tools · 8 repositories');
+    </script>
+</body>
+</html>
 ```
-- Animated gradient title with glow effects
-- Halftone underline decoration
-- Subhead with collection description
-- GitHub badge with live link: `viroda1.github.io`
-
-### 2. **Statistics Dashboard**
-| Stat | Value | Meaning |
-|------|-------|---------|
-| **Active Tools** | 6 | Currently available for use |
-| **Coming Soon** | 4 | In development |
-| **Calculators** | 50+ | Total across all tools |
-| **Free Forever** | 100% | Always free to use |
-
-### 3. **Featured Tools Grid**
-
-Interactive cards for each live tool:
-
-| Tool | Icon | File | Description |
-|------|------|------|-------------|
-| **VIRO CALCULATOR** | 🧮 | `viro-calculator.html` | Basic calculator, ruler, geometry tools |
-| **VIRO SCI** | 🔬 | `viro-sci.html` | Thermometer, pH scale, unit converter |
-| **VIRO PHYSICS** | ⚡ | `viro-physics.html` | Motion, force, energy, waves, circuits |
-| **VIRO GRAPH** | 📈 | `viro-graph.html` | Function plotter, derivatives, integrals |
-| **VIRO CHEM** | 🧪 | `viro-chem.html` | Periodic table, equation balancer, molar mass |
-
-**Card Features:**
-- Gradient icon with purple theme
-- Hover lift effect (moves up 6px)
-- Purple glow on hover (`#b47aff`)
-- Status badge ("live" with checkmark)
-- Call-to-action button with arrow
-
-### 4. **Coming Soon Section**
-
-Preview of upcoming tools:
-
-| Tool | Icon | File (future) | Description |
-|------|------|---------------|-------------|
-| **VIRO LIBRARY** | 📚 | `viro-library.html` | Flashcards, study timer, note-taking |
-| **VIRO BRAIN** | 🧠 | `viro-brain.html` | Mind maps, memory palace, concept maps |
-| **VIRO GEO** | 📐 | `viro-geo.html` | Geometry solver, area, volume, angles |
-| **VIRO STATS** | 📊 | `viro-stats.html` | Statistics calculator, distributions |
-
-### 5. **Complete Collection List**
-
-```
-✅ VIRO CALCULATOR     ⏳ VIRO LIBRARY
-✅ VIRO SCI            ⏳ VIRO BRAIN
-✅ VIRO PHYSICS        ⏳ VIRO GEO
-✅ VIRO GRAPH          ⏳ VIRO STATS
-✅ VIRO CHEM
-```
-
-- Green checkmark (✅) for live tools
-- Orange hourglass (⏳) for coming soon
-
-### 6. **Root Location Information**
-```
-📍 currently located at: https://viroda1.github.io
-📁 repository root: /
-```
-
-### 7. **Direct Links Section**
-Quick access to all tool files:
-```
-🧮 viro-calculator.html
-🔬 viro-sci.html
-⚡ viro-physics.html
-📈 viro-graph.html
-🧪 viro-chem.html
-```
-
-### 8. **About Section**
-> "A collection of beautiful, functional educational tools designed with a distinctive purple and black halftone aesthetic. Free for everyone, forever."
-
-**Technology Stack:**
-- 💜 Pure HTML/CSS/JavaScript
-- 📱 Fully responsive design
-- 🎨 Purple/black halftone theme
-- ⚡ No dependencies or frameworks
 
 ---
 
-## 🎨 **DESIGN SYSTEM**
-
-### Color Palette
-```css
-Deep Black:      #0b0a0f    (background)
-Dark Purple:     #1a1430     (card backgrounds)
-Medium Purple:   #5c3f8c     (borders)
-Bright Purple:   #9f5eff     (accents, highlights)
-Light Lavender:  #f2eaff     (text)
-Glow Purple:     #b47aff     (hover effects)
-```
-
-### Typography
-```css
-Primary:    'Inter', sans-serif (clean, modern)
-Weights:    400, 500, 600, 700
-```
-
-### Visual Elements
-- **Halftone Patterns** - Layered radial gradient dots
-- **Glass Morphism** - Backdrop filter blur effects
-- **Glow Effects** - Box shadows on hover
-- **Gradient Text** - Purple gradients for headings
-- **Custom Cards** - Rounded corners with inner shadows
-
----
-
-## 📁 **FILE STRUCTURE**
+## 📁 **REPOSITORY STRUCTURE**
 
 ```
-viroda1.github.io/
-├── index.html              # VIRO HUB (this file) - https://viroda1.github.io
-├── viro-calculator.html    # Calculator tool
-├── viro-sci.html           # Science toolkit
-├── viro-physics.html       # Physics toolkit
-├── viro-graph.html         # Graphing calculator
-├── viro-chem.html          # Chemistry toolkit
-├── viro-library.html       # (coming soon)
-├── viro-brain.html         # (coming soon)
-├── viro-geo.html           # (coming soon)
-├── viro-stats.html         # (coming soon)
-└── README.md               # This documentation
+viroda1.github.io/ (this repo - hub)
+├── index.html              # VIRO HUB (you are here)
+
+Separate repositories:
+├── https://github.com/viroda1/calc       → /calc
+├── https://github.com/viroda1/sci        → /sci
+├── https://github.com/viroda1/phys       → /phys
+├── https://github.com/viroda1/graph      → /graph
+├── https://github.com/viroda1/chemo      → /chemo
+├── https://github.com/viroda1/cards      → /cards
+├── https://github.com/viroda1/encrypt    → /encrypt
+└── https://github.com/viroda1/ai2        → /ai2
 ```
 
 ---
 
-## 🚀 **QUICK START**
+## 🚀 **DEPLOYMENT INSTRUCTIONS**
 
-1. **Visit the hub:**
-   ```
-   https://viroda1.github.io
-   ```
-
-2. **Browse available tools** - Click any card to launch
-3. **Check coming soon** - See what's in development
-4. **Bookmark for later** - New tools added regularly
-
----
-
-## 🔗 **DIRECT TOOL LINKS**
-
-| Tool | URL |
-|------|-----|
-| VIRO CALCULATOR | [viroda1.github.io/viro-calculator.html](https://viroda1.github.io/viro-calculator.html) |
-| VIRO SCI | [viroda1.github.io/viro-sci.html](https://viroda1.github.io/viro-sci.html) |
-| VIRO PHYSICS | [viroda1.github.io/viro-physics.html](https://viroda1.github.io/viro-physics.html) |
-| VIRO GRAPH | [viroda1.github.io/viro-graph.html](https://viroda1.github.io/viro-graph.html) |
-| VIRO CHEM | [viroda1.github.io/viro-chem.html](https://viroda1.github.io/viro-chem.html) |
+1. **This file** (`index.html`) goes in the main `viroda1.github.io` repository
+2. **Each tool** lives in its own repository named after the path
+3. **GitHub Pages** automatically serves:
+   - `viroda1.github.io` → this hub
+   - `viroda1.github.io/calc` → calc repo
+   - `viroda1.github.io/sci` → sci repo
+   - etc.
 
 ---
 
-## 📊 **TOOL STATISTICS**
+## 🔗 **LIVE LINKS SUMMARY**
 
-| Metric | Count |
-|--------|-------|
-| **Total Tools** | 10 (6 live + 4 coming soon) |
-| **Calculators** | 50+ |
-| **Interactive Features** | 100+ |
-| **Lines of Code** | ~10,000+ |
-| **File Size (hub)** | ~15KB |
-
----
-
-## 💻 **TECHNOLOGIES USED**
-
-- **HTML5** - Semantic structure
-- **CSS3** - Grid, Flexbox, Gradients, Animations
-  - Backdrop-filter for glass morphism
-  - Radial gradients for halftone
-  - Transforms for hover effects
-- **JavaScript (ES6)** - Interactivity and future enhancements
-- **Font Awesome 6** - Icon library
-- **Google Fonts** - Inter typeface
+| Tool | URL | Repository |
+|------|-----|------------|
+| **VIRO HUB** | [viroda1.github.io](https://viroda1.github.io) | `viroda1.github.io` |
+| **VIRO CALCULATOR** | [viroda1.github.io/calc](https://viroda1.github.io/calc) | `calc` |
+| **VIRO SCI** | [viroda1.github.io/sci](https://viroda1.github.io/sci) | `sci` |
+| **VIRO PHYSICS** | [viroda1.github.io/phys](https://viroda1.github.io/phys) | `phys` |
+| **VIRO GRAPH** | [viroda1.github.io/graph](https://viroda1.github.io/graph) | `graph` |
+| **VIRO CHEM** | [viroda1.github.io/chemo](https://viroda1.github.io/chemo) | `chemo` |
+| **VIRO CARDS** | [viroda1.github.io/cards](https://viroda1.github.io/cards) | `cards` |
+| **VIRO ENCRYPT** | [viroda1.github.io/encrypt](https://viroda1.github.io/encrypt) | `encrypt` |
+| **VIRO AI** | [viroda1.github.io/ai2](https://viroda1.github.io/ai2) | `ai2` |
 
 ---
 
-## 📱 **RESPONSIVE BREAKPOINTS**
-
-| Device | Layout | Features |
-|--------|--------|----------|
-| **Desktop (>900px)** | 3-4 column grid | Full experience |
-| **Tablet (600-900px)** | 2 column grid | Adjusted spacing |
-| **Mobile (<600px)** | 1 column stack | Touch-friendly |
-
----
-
-## 🧪 **COMPLETE TOOL DESCRIPTIONS**
-
-### Live Tools
-
-| Tool | Description | Key Features |
-|------|-------------|--------------|
-| **VIRO CALCULATOR** | Basic math and measurement | Calculator, ruler, protractor, geometry |
-| **VIRO SCI** | Science toolkit | Thermometer, pH scale, unit converter |
-| **VIRO PHYSICS** | Physics equations | Motion, force, energy, waves, circuits |
-| **VIRO GRAPH** | Graphing calculator | Function plotter, derivatives, integrals |
-| **VIRO CHEM** | Chemistry tools | Periodic table, equation balancer, molar mass |
-
-### Coming Soon
-
-| Tool | Description | Expected Features |
-|------|-------------|-------------------|
-| **VIRO LIBRARY** | Study aids | Flashcards, timer, notes, citations |
-| **VIRO BRAIN** | Memory tools | Mind maps, memory palace, recall |
-| **VIRO GEO** | Geometry solver | Area, volume, angles, Pythagorean theorem |
-| **VIRO STATS** | Statistics | Distributions, tests, regression |
-
----
-
-## 🎯 **USER BENEFITS**
-
-- **Students** - Homework help, exam preparation
-- **Teachers** - Classroom demonstrations
-- **Parents** - Helping kids with schoolwork
-- **Self-learners** - Exploring concepts
-- **Developers** - Design inspiration
-
----
-
-## 🔧 **MAINTENANCE**
-
-To add a new tool:
-1. Create the HTML file (e.g., `viro-new.html`)
-2. Update `index.html` with a new card
-3. Update the complete collection list
-4. Deploy to GitHub
-
----
-
-## 🌟 **VERSION HISTORY**
-
-| Version | Date | Updates |
-|---------|------|---------|
-| v1.0 | 2024 | Initial release with 5 tools |
-| v1.1 | 2024 | Added VIRO CHEM |
-| v1.2 | 2024 | Hub design refresh |
-
----
-
-## 📄 **LICENSE**
-
-**Free for everyone, forever!** 🎉
-
-- ✅ Personal use
-- ✅ Educational purposes
-- ✅ Classroom use
-- ✅ Study aids
-- ✅ Commercial use (with attribution)
-
-Attribution appreciated but not required.
-
----
-
-## 🤝 **CONTRIBUTING**
-
-Want to suggest a tool or feature?
-1. Open an issue on GitHub
-2. Describe your idea
-3. Wait for feedback
-4. Watch it come to life!
-
----
-
-## 📞 **CONTACT**
-
-- **GitHub:** [github.com/viroda1](https://github.com/viroda1)
-- **Repository:** [github.com/viroda1/viroda1.github.io](https://github.com/viroda1/viroda1.github.io)
-- **Issues:** [Report a problem](https://github.com/viroda1/viroda1.github.io/issues)
-
----
-
-## 💜 **ACKNOWLEDGMENTS**
-
-- Font Awesome for beautiful icons
-- Google Fonts for Inter typeface
-- GitHub Pages for free hosting
-- All VIRO TOOLS users and supporters
-
----
-
-## ⚡ **FUN FACT**
-
-The halftone background pattern is created using **4 layered radial gradients**:
-```css
-background-image: 
-    radial-gradient(circle at 30% 40%, rgba(160,120,255,0.08) 1px, transparent 1px),
-    radial-gradient(circle at 70% 85%, rgba(200,140,255,0.08) 1px, transparent 1px),
-    radial-gradient(circle at 15% 90%, rgba(140,100,255,0.06) 2px, transparent 2px),
-    radial-gradient(circle at 85% 20%, rgba(180,130,255,0.06) 2px, transparent 2px);
-```
-
----
-
-## 🏆 **ACHIEVEMENTS**
-
-- ✅ 5 fully interactive educational tools
-- ✅ 50+ calculators and features
-- ✅ 4 more tools in development
-- ✅ 100% free and open
-- ✅ Beautiful, consistent design language
-
----
-
-## 🔮 **FUTURE PLANS**
-
-- [ ] Add VIRO LIBRARY (flashcards + timer)
-- [ ] Add VIRO BRAIN (mind maps)
-- [ ] Add VIRO GEO (geometry solver)
-- [ ] Add VIRO STATS (statistics)
-- [ ] Add search functionality
-- [ ] Add user accounts (optional)
-- [ ] Add progress tracking
-
----
-
-## 💬 **TESTIMONIALS**
-
-> "The most beautiful educational tools I've ever used!" - Student
-> 
-> "My students love the purple theme!" - Teacher
-> 
-> "Finally, tools that look as good as they work." - Developer
-
----
-
-**VIRO HUB** - Your gateway to beautiful learning. 💜
-
----
-
-*Visit [viroda1.github.io](https://viroda1.github.io) to start exploring!* 🚀
+**Your VIRO HUB is now configured for 8 separate repositories!** 🚀
