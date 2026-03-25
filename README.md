@@ -3,7 +3,8 @@
 **Two original games. Infinite replay. No paywalls.**
 
 [![PLAY HUB](https://img.shields.io/badge/🎮_PLAY_HUB-viroda1.github.io-purple?style=for-the-badge&logo=github)](https://viroda1.github.io)
-
+[![Play Infinite Mayhem](https://img.shields.io/badge/Play_Infinite_Mayhem-🚀-8A2BE2?style=flat-square&logo=game)](https://viroda1.github.io/infmayhem/)
+[![Play Block Crash](https://img.shields.io/badge/Play_Block_Crash-💥-4aff9e?style=flat-square&logo=game)](https://viroda1.github.io/bl0ckbl-st/)
 ---
 
 ## 🕹️ CURRENT CARTRIDGES
