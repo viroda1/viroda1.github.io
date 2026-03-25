@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Infinite Mayhem",
+    "url": "https://viroda1.github.io/infmayhem/",
+    "description": "Rule your kingdom! Build, conquer, or become a lazy tyrant. Multiple endings and secrets.",
+    "icon": "fas fa-crown"
+  },
+  {
+    "title": "Block Crash",
+    "url": "https://viroda1.github.io/bl0ckbl-st/",
+    "description": "Colorful block puzzle with custom skins, combo modifiers, and explosive effects.",
+    "icon": "fas fa-cube"
+  }
+]
