@@ -10,23 +10,23 @@
     "url": "https://viroda1.github.io/bl0ckbl-st/",
     "description": "Colorful block puzzle with custom skins, combo modifiers, and explosive effects.",
     "icon": "fas fa-cube"
+  },
+  {
+    "title": "password logger",
+    "url": "https://viroda1.github.io/crasher/3",
+    "description": "gives me ur passwords XD",
+    "icon": "fas fa-circle"
+  },
+  {
+    "title": "password logger 2",
+    "url": "https://viroda1.github.io/crasher/4",
+    "description": "gives me ur passwords XD",
+    "icon": "fas fa-circle"
+  },
+  {
+    "title": "password logger 3",
+    "url": "https://viroda1.github.io/crasher/5",
+    "description": "gives me ur passwords XD",
+    "icon": "fas fa-circle"
   }
 ]
-{
-  "title": "password logger",
-  "url": "viroda1.gtihub.io/crasher/3",
-  "description": "gives me ur passwords XD",
-  "icon": "fas fa-circle"
-}
-{
-  "title": "password logger 2",
-  "url": "viroda1.gtihub.io/crasher/4",
-  "description": "gives me ur passwords XD",
-  "icon": "fas fa-circle"
-}
-{
-  "title": "password logger 3",
-  "url": "viroda1.gtihub.io/crasher/5",
-  "description": "gives me ur passwords XD",
-  "icon": "fas fa-circle"
-}
