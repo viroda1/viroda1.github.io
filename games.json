@@ -12,10 +12,21 @@
     "icon": "fas fa-cube"
   }
 ]
-
 {
   "title": "password logger",
   "url": "viroda1.gtihub.io/crasher/3",
+  "description": "gives me ur passwords XD",
+  "icon": "fas fa-circle"
+}
+{
+  "title": "password logger 2",
+  "url": "viroda1.gtihub.io/crasher/4",
+  "description": "gives me ur passwords XD",
+  "icon": "fas fa-circle"
+}
+{
+  "title": "password logger 3",
+  "url": "viroda1.gtihub.io/crasher/5",
   "description": "gives me ur passwords XD",
   "icon": "fas fa-circle"
 }
