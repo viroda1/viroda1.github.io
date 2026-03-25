@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIRO HUB · complete educational toolkit collection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Viro & Isaac's Unblocked Games</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -175,15 +175,15 @@
             margin-right: 0.5rem;
         }
 
-        /* tool grid */
-        .tool-grid {
+        /* game grid */
+        .game-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin: 3.5rem 0 2rem;
         }
 
-        .tool-card {
+        .game-card {
             background: rgba(18, 14, 28, 0.7);
             backdrop-filter: blur(8px);
             border: 1px solid #3b2a55;
@@ -200,14 +200,14 @@
             cursor: pointer;
         }
 
-        .tool-card:hover {
+        .game-card:hover {
             border-color: #aa7eff;
             box-shadow: 0 30px 50px -20px #b47aff, 0 0 0 1.5px #b47aff66 inset;
             transform: translateY(-6px);
             background: rgba(22, 16, 34, 0.8);
         }
 
-        .tool-card::before {
+        .game-card::before {
             content: '';
             position: absolute;
             inset: 0;
@@ -335,50 +335,6 @@
             margin-top: 0.5rem;
         }
 
-        .repo-list {
-            background: #1a1430;
-            border-radius: 2rem;
-            padding: 1.5rem;
-            border: 1px solid #5c3f8c;
-            margin: 2rem 0;
-        }
-
-        .repo-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 0.8rem;
-            border-bottom: 1px solid #2d2347;
-        }
-
-        .repo-item:last-child {
-            border-bottom: none;
-        }
-
-        .repo-name {
-            min-width: 100px;
-            color: #b47aff;
-            font-weight: 600;
-        }
-
-        .repo-url {
-            color: #dac5ff;
-            font-family: monospace;
-            background: #0f0b1a;
-            padding: 0.3rem 1rem;
-            border-radius: 40px;
-            border: 1px solid #5c3f8c;
-        }
-
-        .repo-url a {
-            color: #dac5ff;
-            text-decoration: none;
-        }
-
-        .repo-url a:hover {
-            color: #b47aff;
-        }
-
         .footer {
             margin-top: 4rem;
             text-align: center;
@@ -397,293 +353,147 @@
             text-decoration: underline;
         }
 
+        .loading {
+            text-align: center;
+            padding: 3rem;
+            color: #bcb0da;
+        }
+
         @media (max-width: 600px) {
-            .tool-grid { gap: 1.5rem; }
+            .game-grid { gap: 1.5rem; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .repo-item { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <!-- hero section -->
-        <div class="hero">
-            <h1>VIRO HUB <span>⚡</span></h1>
-            <div class="halftone-underline"></div>
-            <div class="subhead">
-                <i class="fas fa-graduation-cap" style="margin-right: 8px;"></i> 
-                complete educational toolkit · 11 tools · purple black halftone collection
-            </div>
-            <div class="github-badge">
-                <i class="fab fa-github"></i> 
-                <a href="https://viroda1.github.io" target="_blank">viroda1.github.io</a>
-            </div>
-            <div class="path-note">
-                <i class="fas fa-folder-open"></i> 11 tools · 11 repositories
-            </div>
+<div class="main-container">
+    <!-- hero section -->
+    <div class="hero">
+        <h1>VIRO & ISAAC <span>🎮</span></h1>
+        <div class="halftone-underline"></div>
+        <div class="subhead">
+            <i class="fas fa-gamepad" style="margin-right: 8px;"></i> 
+            unblocked games · infinite mayhem · block crash · more coming
         </div>
-
-        <!-- stats section -->
-        <div class="stats-grid">
-            <div class="stat-card">
-                <div class="stat-number">11</div>
-                <div class="stat-label">active tools</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">11</div>
-                <div class="stat-label">repositories</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">100+</div>
-                <div class="stat-label">calculators</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">free</div>
-            </div>
+        <div class="github-badge">
+            <i class="fab fa-github"></i> 
+            <a href="https://viroda1.github.io" target="_blank">viroda1.github.io</a>
         </div>
-
-        <!-- featured tools section -->
-        <div class="featured-section">
-            <div class="section-title">
-                <i class="fas fa-star" style="color: #b47aff; margin-right: 0.5rem;"></i>
-                complete collection
-            </div>
-            <div class="tool-grid">
-                <!-- VIRO CALCULATOR -->
-                <a href="https://viroda1.github.io/calc" class="tool-card" target="_blank">
-                    <div class="card-icon"><i class="fas fa-calculator"></i></div>
-                    <div class="card-title">VIRO CALCULATOR</div>
-                    <div class="card-url">viroda1.github.io/calc</div>
-                    <div class="card-description">Basic calculator, ruler, geometry tools, measurement demos</div>
-                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /calc</div>
-                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
-                </a>
-
-                <!-- VIRO SCI -->
-                <a href="https://viroda1.github.io/sci" class="tool-card" target="_blank">
-                    <div class="card-icon"><i class="fas fa-flask"></i></div>
-                    <div class="card-title">VIRO SCI</div>
-                    <div class="card-url">viroda1.github.io/sci</div>
-                    <div class="card-description">Thermometer, pH scale, unit converter, lab equipment</div>
-                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /sci</div>
-                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
-                </a>
-
-                <!-- VIRO PHYSICS -->
-                <a href="https://viroda1.github.io/phys" class="tool-card" target="_blank">
-                    <div class="card-icon"><i class="fas fa-atom"></i></div>
-                    <div class="card-title">VIRO PHYSICS</div>
-                    <div class="card-url">viroda1.github.io/phys</div>
-                    <div class="card-description">Motion, force, energy, waves, circuits calculators</div>
-                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /phys</div>
-                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
-                </a>
-
-                <!-- VIRO GRAPH -->
-                <a href="https://viroda1.github.io/graph" class="tool-card" target="_blank">
-                    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
-                    <div class="card-title">VIRO GRAPH</div>
-                    <div class="card-url">viroda1.github.io/graph</div>
-                    <div class="card-description">Function plotter, derivatives, integrals, statistics</div>
-                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /graph</div>
-                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
-                </a>
-
-                <!-- VIRO CHEM -->
-                <a href="https://viroda1.github.io/chemo" class="tool-card" target="_blank">
-                    <div class="card-icon"><i class="fas fa-flask"></i></div>
-                    <div class="card-title">VIRO CHEM</div>
-                    <div class="card-url">viroda1.github.io/chemo</div>
-                    <div class="card-description">Periodic table, equation balancer, molar mass, pH, gas laws</div>
-                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /chemo</div>
-                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
-                </a>
-
-                <!-- VIRO CARDS -->
-                <a href="https://viroda1.github.io/cards" class="tool-card" target="_blank">
-                    <div class="card-icon"><i class="fas fa-layer-group"></i></div>
-                    <div class="card-title">VIRO CARDS</div>
-                    <div class="card-url">viroda1.github.io/cards</div>
-                    <div class="card-description">Flashcards, study cards, interactive learning tools</div>
-                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /cards</div>
-                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
-                </a>
-
-                <!-- VIRO ENCRYPT -->
-                <a href="https://viroda1.github.io/encrypt" class="tool-card" target="_blank">
-                    <div class="card-icon"><i class="fas fa-lock"></i></div>
-                    <div class="card-title">VIRO ENCRYPT</div>
-                    <div class="card-url">viroda1.github.io/encrypt</div>
-                    <div class="card-description">Encryption, decryption, cipher tools, cryptography</div>
-                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /encrypt</div>
-                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
-                </a>
-
-                <!-- VIRO AI -->
-                <a href="https://viroda1.github.io/ai2" class="tool-card" target="_blank">
-                    <div class="card-icon"><i class="fas fa-robot"></i></div>
-                    <div class="card-title">VIRO AI</div>
-                    <div class="card-url">viroda1.github.io/ai2</div>
-                    <div class="card-description">AI tools, chatbots, machine learning demos</div>
-                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /ai2</div>
-                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
-                </a>
-
-                <!-- VIRO GEO -->
-                <a href="https://viroda1.github.io/geo" class="tool-card" target="_blank">
-                    <div class="card-icon"><i class="fas fa-draw-polygon"></i></div>
-                    <div class="card-title">VIRO GEO</div>
-                    <div class="card-url">viroda1.github.io/geo</div>
-                    <div class="card-description">Geometry solver, area, volume, angles, Pythagorean theorem</div>
-                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /geo</div>
-                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
-                </a>
-
-                <!-- VIRO STATS -->
-                <a href="https://viroda1.github.io/stats" class="tool-card" target="_blank">
-                    <div class="card-icon"><i class="fas fa-chart-bar"></i></div>
-                    <div class="card-title">VIRO STATS</div>
-                    <div class="card-url">viroda1.github.io/stats</div>
-                    <div class="card-description">Statistics calculator, mean, median, standard deviation, quartiles</div>
-                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /stats</div>
-                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
-                </a>
-
-                <!-- VIRO LIBRARY -->
-                <a href="https://viroda1.github.io/library" class="tool-card" target="_blank">
-                    <div class="card-icon"><i class="fas fa-book"></i></div>
-                    <div class="card-title">VIRO LIBRARY</div>
-                    <div class="card-url">viroda1.github.io/library</div>
-                    <div class="card-description">Study tools · flashcards · pomodoro timer · notes · citation generator</div>
-                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · /library</div>
-                    <div class="card-link">launch tool <i class="fas fa-arrow-right"></i></div>
-                </a>
-            </div>
-        </div>
-
-        <!-- repositories section -->
-        <div class="repo-list">
-            <h3 style="color: #dac5ff; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-                <i class="fab fa-github" style="color: #b47aff;"></i> 
-                11 separate repositories
-            </h3>
-            <div class="repo-item">
-                <span class="repo-name">calc</span>
-                <span class="repo-url"><a href="https://viroda1.github.io/calc" target="_blank">viroda1.github.io/calc</a></span>
-                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
-            </div>
-            <div class="repo-item">
-                <span class="repo-name">sci</span>
-                <span class="repo-url"><a href="https://viroda1.github.io/sci" target="_blank">viroda1.github.io/sci</a></span>
-                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
-            </div>
-            <div class="repo-item">
-                <span class="repo-name">phys</span>
-                <span class="repo-url"><a href="https://viroda1.github.io/phys" target="_blank">viroda1.github.io/phys</a></span>
-                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
-            </div>
-            <div class="repo-item">
-                <span class="repo-name">graph</span>
-                <span class="repo-url"><a href="https://viroda1.github.io/graph" target="_blank">viroda1.github.io/graph</a></span>
-                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
-            </div>
-            <div class="repo-item">
-                <span class="repo-name">chemo</span>
-                <span class="repo-url"><a href="https://viroda1.github.io/chemo" target="_blank">viroda1.github.io/chemo</a></span>
-                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
-            </div>
-            <div class="repo-item">
-                <span class="repo-name">cards</span>
-                <span class="repo-url"><a href="https://viroda1.github.io/cards" target="_blank">viroda1.github.io/cards</a></span>
-                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
-            </div>
-            <div class="repo-item">
-                <span class="repo-name">encrypt</span>
-                <span class="repo-url"><a href="https://viroda1.github.io/encrypt" target="_blank">viroda1.github.io/encrypt</a></span>
-                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
-            </div>
-            <div class="repo-item">
-                <span class="repo-name">ai2</span>
-                <span class="repo-url"><a href="https://viroda1.github.io/ai2" target="_blank">viroda1.github.io/ai2</a></span>
-                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
-            </div>
-            <div class="repo-item">
-                <span class="repo-name">geo</span>
-                <span class="repo-url"><a href="https://viroda1.github.io/geo" target="_blank">viroda1.github.io/geo</a></span>
-                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
-            </div>
-            <div class="repo-item">
-                <span class="repo-name">stats</span>
-                <span class="repo-url"><a href="https://viroda1.github.io/stats" target="_blank">viroda1.github.io/stats</a></span>
-                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
-            </div>
-            <div class="repo-item">
-                <span class="repo-name">library</span>
-                <span class="repo-url"><a href="https://viroda1.github.io/library" target="_blank">viroda1.github.io/library</a></span>
-                <span style="color: #4aff9e; margin-left: auto;">✓ live</span>
-            </div>
-        </div>
-
-        <!-- about section -->
-        <div style="margin: 4rem 0; text-align: center;">
-            <div style="background: linear-gradient(145deg, #1a1430, #0f0b1a); border-radius: 3rem; padding: 2rem; border: 1px solid #624b8b;">
-                <i class="fas fa-quote-right" style="font-size: 3rem; color: #b47aff; opacity: 0.5; margin-bottom: 1rem;"></i>
-                <p style="font-size: 1.2rem; color: #dac5ff; max-width: 600px; margin: 0 auto;">
-                    A complete collection of beautiful, functional educational tools designed with a distinctive purple and black halftone aesthetic. Each tool lives in its own repository, making them easy to maintain and deploy independently. 11 tools and counting.
-                </p>
-                <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 2rem; flex-wrap: wrap;">
-                    <span style="background: #2d2347; padding: 0.5rem 1.2rem; border-radius: 60px; border: 1px solid #5c3f8c;">
-                        <i class="fas fa-calculator"></i> 11 tools
-                    </span>
-                    <span style="background: #2d2347; padding: 0.5rem 1.2rem; border-radius: 60px; border: 1px solid #5c3f8c;">
-                        <i class="fas fa-code"></i> 11 repositories
-                    </span>
-                    <span style="background: #2d2347; padding: 0.5rem 1.2rem; border-radius: 60px; border: 1px solid #5c3f8c;">
-                        <i class="fas fa-mobile-alt"></i> fully responsive
-                    </span>
-                </div>
-            </div>
-        </div>
-
-        <!-- quick links -->
-        <div style="background: #1a1430; border-radius: 2rem; padding: 1.5rem; border: 1px solid #5c3f8c; margin: 2rem 0;">
-            <h3 style="color: #dac5ff; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-                <i class="fas fa-link" style="color: #b47aff;"></i> quick access links
-            </h3>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.8rem;">
-                <a href="https://viroda1.github.io/calc" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">🧮 /calc</a>
-                <a href="https://viroda1.github.io/sci" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">🔬 /sci</a>
-                <a href="https://viroda1.github.io/phys" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">⚡ /phys</a>
-                <a href="https://viroda1.github.io/graph" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">📈 /graph</a>
-                <a href="https://viroda1.github.io/chemo" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">🧪 /chemo</a>
-                <a href="https://viroda1.github.io/cards" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">🃏 /cards</a>
-                <a href="https://viroda1.github.io/encrypt" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">🔒 /encrypt</a>
-                <a href="https://viroda1.github.io/ai2" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">🤖 /ai2</a>
-                <a href="https://viroda1.github.io/geo" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">📐 /geo</a>
-                <a href="https://viroda1.github.io/stats" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">📊 /stats</a>
-                <a href="https://viroda1.github.io/library" target="_blank" style="color: #b47aff; text-decoration: none; padding: 0.5rem; background: #0f0b1a; border-radius: 40px; text-align: center;">📚 /library</a>
-            </div>
-        </div>
-
-        <!-- footer -->
-        <div class="footer">
-            <p>
-                <i class="fas fa-atom"></i> <strong>VIRO TOOLS</strong> · purple black halftone collection · 
-                <a href="https://viroda1.github.io">viroda1.github.io</a>
-            </p>
-            <p style="margin-top: 0.5rem;">
-                <i class="fab fa-github"></i> 11 separate repositories · 11 live tools · complete collection
-            </p>
-            <p style="margin-top: 1rem; font-size: 0.8rem;">
-                © 2024 · free educational tools for everyone · built with 💜
-            </p>
+        <div class="path-note">
+            <i class="fas fa-folder-open"></i> games loaded from <strong>games.json</strong>
         </div>
     </div>
 
-    <script>
-        console.log('VIRO HUB loaded · viroda1.github.io');
-        console.log('11 tools · 11 repositories · complete collection');
-    </script>
+    <!-- stats section (dynamic) -->
+    <div class="stats-grid" id="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number" id="game-count">0</div>
+            <div class="stat-label">games available</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">∞</div>
+            <div class="stat-label">unblocked fun</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">free to play</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">🕹️</div>
+            <div class="stat-label">no downloads</div>
+        </div>
+    </div>
+
+    <!-- games grid (populated by JS) -->
+    <div class="featured-section">
+        <div class="section-title">
+            <i class="fas fa-star" style="color: #b47aff; margin-right: 0.5rem;"></i>
+            play now
+        </div>
+        <div class="game-grid" id="game-grid">
+            <div class="loading">Loading games... <i class="fas fa-spinner fa-pulse"></i></div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+        <p>
+            <i class="fas fa-atom"></i> <strong>VIRO & ISAAC UNBLOCKED GAMES</strong> · purple black halftone collection · 
+            <a href="https://viroda1.github.io">viroda1.github.io</a>
+        </p>
+        <p style="margin-top: 0.5rem;">
+            <i class="fab fa-github"></i> games data from <strong>games.json</strong> · add your own!
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">
+            © 2025 · endless mayhem · built with 💜
+        </p>
+    </div>
+</div>
+
+<script>
+    // Fetch games from games.json and render the grid
+    async function loadGames() {
+        const gridContainer = document.getElementById('game-grid');
+        const gameCountSpan = document.getElementById('game-count');
+        
+        try {
+            const response = await fetch('games.json');
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            const games = await response.json();
+            
+            if (!games.length) {
+                gridContainer.innerHTML = '<div class="loading">No games found. Check games.json</div>';
+                gameCountSpan.textContent = '0';
+                return;
+            }
+            
+            gameCountSpan.textContent = games.length;
+            
+            // Build game cards
+            gridContainer.innerHTML = '';
+            games.forEach(game => {
+                const card = document.createElement('a');
+                card.href = game.url;
+                card.target = '_blank';
+                card.className = 'game-card';
+                
+                // icon fallback
+                const iconHtml = game.icon ? `<i class="${game.icon}"></i>` : '<i class="fas fa-gamepad"></i>';
+                
+                card.innerHTML = `
+                    <div class="card-icon">${iconHtml}</div>
+                    <div class="card-title">${escapeHtml(game.title)}</div>
+                    <div class="card-url">${escapeHtml(game.url)}</div>
+                    <div class="card-description">${escapeHtml(game.description || 'Click to play — no signup required.')}</div>
+                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · unblocked</div>
+                    <div class="card-link">launch game <i class="fas fa-arrow-right"></i></div>
+                `;
+                gridContainer.appendChild(card);
+            });
+        } catch (err) {
+            console.error('Failed to load games.json:', err);
+            gridContainer.innerHTML = `
+                <div class="loading" style="grid-column:1/-1;">
+                    ⚠️ Could not load games.json. Make sure the file exists and is valid JSON.<br>
+                    <small>Example format: [{"title":"Game Name","url":"https://...","description":"...","icon":"fas fa-gamepad"}]</small>
+                </div>
+            `;
+            gameCountSpan.textContent = '?';
+        }
+    }
+    
+    // Simple escape to prevent XSS
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+    
+    loadGames();
+</script>
 </body>
 </html>
