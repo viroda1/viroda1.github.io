@@ -1,81 +1,46 @@
-# 🎮 VIRO & ISAAC'S ARCADE
+Viro Hub
 
-**Two original games. Infinite replay. No paywalls.**
+Where Niche Is Life.
 
-[![PLAY HUB](https://img.shields.io/badge/🎮_PLAY_HUB-viroda1.github.io-purple?style=for-the-badge&logo=github)](https://viroda1.github.io)
-[![Play Infinite Mayhem](https://img.shields.io/badge/Play_Infinite_Mayhem-🚀-8A2BE2?style=flat-square&logo=game)](https://viroda1.github.io/infmayhem/)
-[![Play Block Crash](https://img.shields.io/badge/Play_Block_Crash-💥-4aff9e?style=flat-square&logo=game)](https://viroda1.github.io/bl0ckbl-st/)
----
+![Author](https://img.shields.io)
 
-## 🕹️ CURRENT CARTRIDGES
+[![edpuzzle.cv](https://img.shields.io)](https://edpuzzle.cv)
+[![Noah's Tutoring](https://img.shields.io)](your-link-here)
+[![Classroom 6x](https://img.shields.io)](https://classroom-6x.github.io)
 
-| # | GAME | REPO | PLAY NOW | GENRE |
-|---|------|------|----------|-------|
-| 1 | **Infinite Mayhem** | `/infmayhem` | [▶ PLAY](https://viroda1.github.io/infmayhem/) | Kingdom Sim / RPG |
-| 2 | **Block Crash** | `/bl0ckbl-st` | [▶ PLAY](https://viroda1.github.io/bl0ckbl-st/) | Puzzle / Arcade |
+Welcome to Viro Hub, the ultimate lightweight repository for unblocked gaming and niche web tools. Designed to bypass filters and stay under the radar, we prioritize speed, simplicity, and the rarest finds on the web.
+------------------------------
+💎 Sponsored & Honored
+We proudly support these essential resources:
 
----
+* edpuzzle.cv – The elite, lightweight niche proxy you should be using.
+* Noah's Tutoring – Keeping the grades up while the tabs are down.
+* Classroom 6x – The gold standard for reliable school mirrors.
 
-## 👑 INFINITE MAYHEM
+------------------------------
+🚀 Why You Should Use This
 
-**You are the king. Will you build an empire or become a lazy tyrant?**
+* Niche & Unique: We don't just host the basics; we find the versions others miss.
+* Ultra-Lightweight: Optimized for performance on low-end school Chromebooks.
+* Bypass Ready: Built with mirrors and proxies to keep you playing when others are blocked.
+* Inspiration: Heavily inspired by the legend watermelon46.com.
 
-**Repo:** `infmayhem`  
-**Play now:** [https://viroda1.github.io/infmayhem/](https://viroda1.github.io/infmayhem/)
+------------------------------
+🎮 The Registry
+The hub features a curated JSON registry of over 30+ titles including:
 
-### Features
-- **Decision‑based kingdom management** – raise taxes, feast, build, or sleep
-- **Dynamic stats** – gold, popularity, buildings, tyranny, laziness
-- **Wandering NPCs** (TABS‑style with googly eyes)
-- **Secret shrine** – find it and earn a massive boost
-- **Multiple endings** – become a beloved ruler, a tyrant, or a fat bastard
-- **Mod menu** (press `O`, password `APK`) – cheats, secrets, and wonders
+* Multiplayer Mayhem: 1v1.LOL, Shell Shockers, Smash Karts.
+* Retro & Strategy: Retro Bowl, Minecraft Classic, Bloons TD.
+* The Niche: Infinite Mayhem, Block Crash, and the "Do Not Click" experiment.
+* Unblocked Hubs: Pizza Edition, Eaglercraft, and Jack-Games.
 
-### How to Play
-1. Click on decision buttons (Raise Taxes / Feast / Build / Sleep)
-2. Watch your stats change – balance is key
-3. Keep popularity high, don’t let tyranny or laziness max out
-4. Find the secret shrine (hint: near the big oak tree)
-5. Reach an ending and try a different strategy next time
+------------------------------
+🛠️ Integration
+To use this registry in your own project, simply fetch the games.json file:
 
----
+fetch('https://your-repo-path/games.json')
+  .then(response => response.json())
+  .then(data => console.log("Viro Hub Loaded", data));
 
-## 💥 BLOCK CRASH
-
-**A colourful block‑matching puzzle with explosive combos and custom skins.**
-
-**Repo:** `bl0ckbl-st`  
-**Play now:** [https://viroda1.github.io/bl0ckbl-st/](https://viroda1.github.io/bl0ckbl-st/)
-
-### Features
-- **8x8 grid** – place blocks to form complete rows or columns
-- **Variety of shapes** – over 40 different block types
-- **Combo system** – chain clears to multiply your score
-- **Custom skins** – classic, neon, watermelon, interstellar, or make your own
-- **Combo modifiers** – classic, aggressive (1.8x), or custom multiplier
-- **Particle effects & screen flash** on big clears
-- **Local high scores** – beat your own record
-
-### How to Play
-1. Click (or tap) a block on the right to select it
-2. Click a cell on the grid to place it (preview shows if it fits)
-3. Fill entire rows or columns to clear them and earn points
-4. Keep your combo alive by clearing lines within 3 moves
-5. Run out of moves? Lose a life. All lives gone? Game over.
-6. Customise colours and combo style in the panel below the game
-
----
-
-## 🎨 ARCADE VISUALS
-
-Both games share a **purple‑black halftone** aesthetic:
-
-- Deep black backgrounds (`#0b0a0f`)
-- Dark purple cards (`#1a1430`)
-- Neon purple accents (`#9f5eff`)
-- Hover glows (`#b47aff`)
-- Pixel‑perfect borders and glass morphism
-
----
-
-## 📁 REPOSITORY STRUCTURE
+------------------------------
+Stay lowkey. Stay niche.
