@@ -1,123 +1,183 @@
 [
   {
+    "title": "edpuzzle.cv",
+    "url": "https://edpuzzle.cv",
+    "description": "lightweight nieche proxy that you should use!",
+    "icon": "fas fa-user-secret"
+  },
+  {
     "title": "Infinite Mayhem",
-    "url": "https://viroda1.github.io/infmayhem/",
+    "url": "https://viroda1.github.io",
     "description": "Rule your kingdom! Build, conquer, or become a lazy tyrant. Multiple endings and secrets.",
     "icon": "fas fa-crown"
   },
   {
     "title": "Block Crash",
-    "url": "https://viroda1.github.io/bl0ckbl-st/",
+    "url": "https://viroda1.github.io",
     "description": "Colorful block puzzle with custom skins, combo modifiers, and explosive effects.",
     "icon": "fas fa-cube"
   },
   {
     "title": "Retro Bowl",
-    "url": "https://retrobowl.me/",
+    "url": "https://retrobowl.me",
     "description": "Classic football management game. Build your team, lead them to the championship!",
     "icon": "fas fa-football"
   },
   {
     "title": "Shell Shockers",
-    "url": "https://shellshock.io/",
+    "url": "https://shellshock.io",
     "description": "Egg-based multiplayer FPS. Crack your opponents in this chaotic shooter!",
     "icon": "fas fa-egg"
   },
   {
     "title": "Krunker.io",
-    "url": "https://krunker.io/",
+    "url": "https://krunker.io",
     "description": "Fast-paced browser FPS with custom maps and competitive gameplay.",
     "icon": "fas fa-crosshairs"
   },
   {
     "title": "Slope",
-    "url": "https://slope-game.io/",
+    "url": "https://slope-game.io",
     "description": "Roll down an endless track, avoid obstacles, and set high scores in this 3D runner.",
     "icon": "fas fa-chart-line"
   },
   {
     "title": "Run 3",
-    "url": "https://run3.io/",
+    "url": "https://run3.io",
     "description": "Navigate through space tunnels with gravity-defying jumps. Endless runner classic.",
     "icon": "fas fa-running"
   },
   {
     "title": "Tunnel Rush",
-    "url": "https://tunnelrush.io/",
+    "url": "https://tunnelrush.io",
     "description": "Dodge obstacles at high speed through a psychedelic tunnel. Reflexes required!",
     "icon": "fas fa-tachometer-alt"
   },
   {
     "title": "Geometry Dash",
-    "url": "https://geometrydash.io/",
+    "url": "https://geometrydash.io",
     "description": "Rhythm-based action platformer. Jump, fly, and flip past spikes and obstacles.",
     "icon": "fas fa-music"
   },
   {
     "title": "1v1.LOL",
-    "url": "https://1v1.lol/",
+    "url": "https://1v1.lol",
     "description": "Build and battle in this Fortnite-style competitive shooter. Climb the ranks!",
     "icon": "fas fa-building"
   },
   {
     "title": "Minecraft Classic",
-    "url": "https://classic.minecraft.net/",
+    "url": "https://classic.minecraft.net",
     "description": "The original browser-based Minecraft. Build, mine, and create freely.",
     "icon": "fas fa-cube"
   },
   {
     "title": "Cookie Clicker",
-    "url": "https://orteil.dashnet.org/cookieclicker/",
+    "url": "https://orteil.dashnet.org",
     "description": "The legendary idle clicker. Bake cookies, upgrade, and conquer the universe.",
     "icon": "fas fa-cookie-bite"
   },
   {
     "title": "Papa's Freezeria",
-    "url": "https://www.crazygames.com/game/papas-freezeria",
+    "url": "https://www.crazygames.com",
     "description": "Run your own ice cream shop. Take orders, mix ingredients, and serve customers.",
     "icon": "fas fa-ice-cream"
   },
   {
     "title": "Friday Night Funkin'",
-    "url": "https://ninja-muffin24.itch.io/funkin",
+    "url": "https://ninja-muffin24.itch.io",
     "description": "Rhythm battle game. Rap against your girlfriend's dad and other challengers.",
     "icon": "fas fa-microphone-alt"
   },
   {
     "title": "Happy Wheels",
-    "url": "https://happywheels.io/",
+    "url": "https://happywheels.io",
     "description": "Physics-based obstacle course game. Hilarious and gory ragdoll action.",
     "icon": "fas fa-wheelchair"
   },
   {
     "title": "Fireboy and Watergirl",
-    "url": "https://fireboyandwatergirl.co/",
+    "url": "https://fireboyandwatergirl.co",
     "description": "Co-op puzzle adventure. Control both characters to reach the exit.",
     "icon": "fas fa-hand-holding-heart"
   },
   {
     "title": "Bloons Tower Defense",
-    "url": "https://ninjakiwi.com/Games/Bloons-Tower-Defense/Play/BloonsTD6",
+    "url": "https://ninjakiwi.com",
     "description": "Strategic tower defense. Pop bloons with monkeys and upgrades.",
     "icon": "fas fa-monkey"
   },
   {
     "title": "Subway Surfers",
-    "url": "https://poki.com/en/g/subway-surfers",
+    "url": "https://poki.com",
     "description": "Endless runner classic. Dash through trains, dodge obstacles, collect coins.",
     "icon": "fas fa-subway"
   },
   {
     "title": "Basketball Stars",
-    "url": "https://basketballstars.io/",
+    "url": "https://basketballstars.io",
     "description": "Multiplayer basketball game. Dribble, shoot, and compete online.",
     "icon": "fas fa-basketball-ball"
   },
   {
     "title": "Drift Hunters",
-    "url": "https://drifthunters.io/",
+    "url": "https://drifthunters.io",
     "description": "Car drifting simulator. Customize cars and master drift tracks.",
     "icon": "fas fa-car"
+  },
+  {
+    "title": "BitLife",
+    "url": "https://www.bitlifeonline.com",
+    "description": "Text-based life simulator. Make choices from birth to death and see where they lead.",
+    "icon": "fas fa-baby"
+  },
+  {
+    "title": "Paper.io 2",
+    "url": "https://paper-io.com",
+    "description": "Capture territory by drawing loops. Don't let others hit your trail!",
+    "icon": "fas fa-draw-polygon"
+  },
+  {
+    "title": "Smash Karts",
+    "url": "https://smashkarts.io",
+    "description": "3D multiplayer kart battle. Pick up weapons and blow up your friends.",
+    "icon": "fas fa-bomb"
+  },
+  {
+    "title": "2048",
+    "url": "https://play2048.co",
+    "description": "Slide tiles to merge numbers. Can you reach the elusive 2048 tile?",
+    "icon": "fas fa-th"
+  },
+  {
+    "title": "Eaglercraft",
+    "url": "https://eaglercraft.com",
+    "description": "Minecraft 1.8 in your browser. Multiplayer servers and survival mode included.",
+    "icon": "fas fa-pickaxe"
+  },
+  {
+    "title": "Pizza Edition",
+    "url": "https://pizzagame.github.io",
+    "description": "A huge repository of emulated console games and modern web hits trending on TikTok.",
+    "icon": "fas fa-pizza-slice"
+  },
+  {
+    "title": "Classroom 6x",
+    "url": "https://classroom-6x.github.io",
+    "description": "Reliable school mirror for popular titles like Retro Bowl and 1v1.LOL.",
+    "icon": "fas fa-chalkboard-teacher"
+  },
+  {
+    "title": "TETR.IO",
+    "url": "https://tetr.io",
+    "description": "Modern, fast-paced competitive Tetris with sleek visuals and zero-lag performance.",
+    "icon": "fas fa-border-all"
+  },
+  {
+    "title": "Jack-Games",
+    "url": "https://michuscrypt.github.io",
+    "description": "Highly-rated GitHub-hosted repository for fast unblocked gaming.",
+    "icon": "fas fa-terminal"
   },
   {
     "title": "DO NOT CLICK",
