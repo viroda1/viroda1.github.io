@@ -2,11 +2,12 @@ Viro Hub
 
 Where Niche Is Life.
 
-![Author](https://img.shields.io)
+![Author](https://img.shields.io/badge/Author-viroda1-181717?logo=github)
 
-[![edpuzzle.cv](https://img.shields.io)](https://edpuzzle.cv)
-[![Noah's Tutoring](https://img.shields.io)](your-link-here)
-[![Classroom 6x](https://img.shields.io)](https://classroom-6x.github.io)
+
+[![edpuzzle.cv](https://img.shields.io/badge/edpuzzle.cv-00A86B?logo=googleclassroom)](https://edpuzzle.cv)
+[![Noah's Tutoring](https://img.shields.io/badge/Noah's_Tutoring-FF6B35?logo=bookstack)](https://noahstutoring.academy/)
+[![Classroom 6x](https://img.shields.io/badge/Classroom_6x-4A90E2?logo=googleclassroom)](https://classroom-6x.github.io)
 
 Welcome to Viro Hub, the ultimate lightweight repository for unblocked gaming and niche web tools. Designed to bypass filters and stay under the radar, we prioritize speed, simplicity, and the rarest finds on the web.
 ------------------------------
