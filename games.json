@@ -118,12 +118,11 @@
     "url": "https://drifthunters.io/",
     "description": "Car drifting simulator. Customize cars and master drift tracks.",
     "icon": "fas fa-car"
-  }
-] 
-title": "DO NOT CLICK",
+  },
+  {
+    "title": "DO NOT CLICK",
     "url": "https://viroda1.github.io/crasher/4",
-    "description": "Car drifting simulator. Customize cars and master drift tracks.",
-    "icon": "fas fa-hand"
+    "description": "⚠️ You were warned. Click at your own risk... ⚠️",
+    "icon": "fas fa-hand-paper"
   }
-] 
-
+]
