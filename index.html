@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Viro & Isaac's Unblocked Games</title>
+    <title>Isaac's Unblocked Games</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -359,25 +359,94 @@
             color: #bcb0da;
         }
 
-        @media (max-width: 600px) {
+        /* AUDIO CONTROLS - Enhanced with volume slider */
+        .audio-controls {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
+            padding: 8px 15px;
+            border-radius: 60px;
+            border: 1px solid rgba(180, 122, 255, 0.3);
+        }
+
+        .audio-btn {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.2rem;
+        }
+
+        .audio-btn:hover {
+            transform: scale(1.05);
+            background: rgba(180, 122, 255, 0.8);
+        }
+
+        .volume-slider {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 5px;
+            padding-left: 10px;
+            border-left: 1px solid rgba(180, 122, 255, 0.5);
+        }
+
+        .volume-slider input {
+            width: 80px;
+            cursor: pointer;
+            background: #2a2e3a;
+            height: 4px;
+            border-radius: 2px;
+        }
+
+        .volume-slider span {
+            font-size: 0.8rem;
+            color: #dac5ff;
+        }
+
+        @media (max-width: 700px) {
             .game-grid { gap: 1.5rem; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .audio-controls { top: 10px; right: 10px; padding: 5px 12px; }
+            .audio-btn { width: 32px; height: 32px; font-size: 1rem; }
+            .volume-slider { display: none; }
         }
     </style>
 </head>
 <body>
+<!-- Audio Controls with Volume Slider -->
+<div class="audio-controls">
+    <div class="audio-btn" id="music-toggle">🎵</div>
+    <div class="audio-btn" id="sfx-toggle">🔊</div>
+    <div class="volume-slider">
+        <span>🔊</span>
+        <input type="range" id="volume-slider" min="0" max="100" value="40">
+        <span id="volume-value">40%</span>
+    </div>
+</div>
+
 <div class="main-container">
     <!-- hero section -->
     <div class="hero">
-        <h1>VIRO & ISAAC <span>🎮</span></h1>
+        <h1>ISAAC'S UNBLOCKED <span>🎮</span></h1>
         <div class="halftone-underline"></div>
         <div class="subhead">
             <i class="fas fa-gamepad" style="margin-right: 8px;"></i> 
-            unblocked games · infinite mayhem · block crash · more coming
+            games · infinite mayhem · block crash · more coming
         </div>
         <div class="github-badge">
             <i class="fab fa-github"></i> 
-            <a href="https://viroda1.github.io" target="_blank">viroda1.github.io</a>
+            <a href="https://github.com/viroda1" target="_blank">viroda1</a>
         </div>
         <div class="path-note">
             <i class="fas fa-folder-open"></i> games loaded from <strong>games.json</strong>
@@ -418,8 +487,8 @@
     <!-- footer -->
     <div class="footer">
         <p>
-            <i class="fas fa-atom"></i> <strong>VIRO & ISAAC UNBLOCKED GAMES</strong> · purple black halftone collection · 
-            <a href="https://viroda1.github.io">viroda1.github.io</a>
+            <i class="fas fa-atom"></i> <strong>ISAAC'S UNBLOCKED GAMES</strong> · purple black halftone collection · 
+            <a href="https://github.com/viroda1" target="_blank">github.com/viroda1</a>
         </p>
         <p style="margin-top: 0.5rem;">
             <i class="fab fa-github"></i> games data from <strong>games.json</strong> · add your own!
@@ -431,69 +500,188 @@
 </div>
 
 <script>
-    // Fetch games from games.json and render the grid
-    async function loadGames() {
-        const gridContainer = document.getElementById('game-grid');
-        const gameCountSpan = document.getElementById('game-count');
-        
-        try {
-            const response = await fetch('games.json');
-            if (!response.ok) throw new Error(`HTTP ${response.status}`);
-            const games = await response.json();
-            
-            if (!games.length) {
-                gridContainer.innerHTML = '<div class="loading">No games found. Check games.json</div>';
-                gameCountSpan.textContent = '0';
-                return;
-            }
-            
-            gameCountSpan.textContent = games.length;
-            
-            // Build game cards
-            gridContainer.innerHTML = '';
-            games.forEach(game => {
-                const card = document.createElement('a');
-                card.href = game.url;
-                card.target = '_blank';
-                card.className = 'game-card';
-                
-                // icon fallback
-                const iconHtml = game.icon ? `<i class="${game.icon}"></i>` : '<i class="fas fa-gamepad"></i>';
-                
-                card.innerHTML = `
-                    <div class="card-icon">${iconHtml}</div>
-                    <div class="card-title">${escapeHtml(game.title)}</div>
-                    <div class="card-url">${escapeHtml(game.url)}</div>
-                    <div class="card-description">${escapeHtml(game.description || 'Click to play — no signup required.')}</div>
-                    <div class="card-status live"><i class="fas fa-check-circle"></i> live · unblocked</div>
-                    <div class="card-link">launch game <i class="fas fa-arrow-right"></i></div>
-                `;
-                gridContainer.appendChild(card);
-            });
-        } catch (err) {
-            console.error('Failed to load games.json:', err);
-            gridContainer.innerHTML = `
-                <div class="loading" style="grid-column:1/-1;">
-                    ⚠️ Could not load games.json. Make sure the file exists and is valid JSON.<br>
-                    <small>Example format: [{"title":"Game Name","url":"https://...","description":"...","icon":"fas fa-gamepad"}]</small>
-                </div>
-            `;
-            gameCountSpan.textContent = '?';
+// ==================== AUDIO MANAGER ====================
+class AudioManager {
+    constructor(musicUrl) {
+        this.musicEnabled = true;
+        this.sfxEnabled = true;
+        this.music = null;
+        this.audioContext = null;
+        this.musicUrl = musicUrl;
+        this.volume = 0.4;  // default volume 40%
+        this.initMusic();
+        this.initSfxFallback();
+    }
+
+    initMusic() {
+        if (this.musicUrl) {
+            this.music = new Audio(this.musicUrl);
+            this.music.loop = true;      // LOOP ON REPEAT
+            this.music.volume = this.volume;
         }
     }
-    
-    // Simple escape to prevent XSS
-    function escapeHtml(str) {
-        if (!str) return '';
-        return str.replace(/[&<>]/g, function(m) {
-            if (m === '&') return '&amp;';
-            if (m === '<') return '&lt;';
-            if (m === '>') return '&gt;';
-            return m;
-        });
+
+    initSfxFallback() {
+        try {
+            this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        } catch(e) {
+            console.log('Web Audio API not supported');
+        }
     }
+
+    setVolume(value) {
+        this.volume = Math.min(1, Math.max(0, value));
+        if (this.music) {
+            this.music.volume = this.volume;
+        }
+    }
+
+    playMusic() {
+        if (this.musicEnabled && this.music) {
+            this.music.play().catch(e => console.log('Audio play needs user interaction first:', e));
+        }
+    }
+
+    stopMusic() {
+        if (this.music) {
+            this.music.pause();
+            this.music.currentTime = 0;
+        }
+    }
+
+    toggleMusic() {
+        this.musicEnabled = !this.musicEnabled;
+        if (this.musicEnabled) {
+            this.playMusic();
+        } else {
+            this.stopMusic();
+        }
+        return this.musicEnabled;
+    }
+
+    toggleSfx() {
+        this.sfxEnabled = !this.sfxEnabled;
+        return this.sfxEnabled;
+    }
+
+    playTone(frequency, duration) {
+        if (!this.sfxEnabled || !this.audioContext) return;
+        try {
+            if (this.audioContext.state === 'suspended') {
+                this.audioContext.resume();
+            }
+            const oscillator = this.audioContext.createOscillator();
+            const gainNode = this.audioContext.createGain();
+            oscillator.connect(gainNode);
+            gainNode.connect(this.audioContext.destination);
+            oscillator.frequency.value = frequency;
+            gainNode.gain.value = 0.15;
+            oscillator.start();
+            gainNode.gain.exponentialRampToValueAtTime(0.00001, this.audioContext.currentTime + duration);
+            oscillator.stop(this.audioContext.currentTime + duration);
+        } catch(e) {}
+    }
+}
+
+// YOUR AUDIO FILE - egotistical slowed version (looping)
+const musicUrl = 'https://raw.githubusercontent.com/viroda1/viroda1.github.io/main/egotistical%20-%20slowed_spotdown.org.mp3';
+const audioManager = new AudioManager(musicUrl);
+
+// Connect UI buttons
+document.getElementById('music-toggle').addEventListener('click', () => {
+    const enabled = audioManager.toggleMusic();
+    document.getElementById('music-toggle').textContent = enabled ? '🎵' : '🔇';
+});
+
+document.getElementById('sfx-toggle').addEventListener('click', () => {
+    const enabled = audioManager.toggleSfx();
+    document.getElementById('sfx-toggle').textContent = enabled ? '🔊' : '🔇';
+});
+
+// Volume slider
+const volumeSlider = document.getElementById('volume-slider');
+const volumeValue = document.getElementById('volume-value');
+volumeSlider.addEventListener('input', (e) => {
+    const val = parseInt(e.target.value);
+    volumeValue.textContent = val + '%';
+    audioManager.setVolume(val / 100);
+});
+
+// Start music on first user interaction (browser requires this)
+let musicStarted = false;
+document.body.addEventListener('click', () => {
+    if (!musicStarted) {
+        audioManager.playMusic();
+        musicStarted = true;
+    }
+}, { once: true });
+
+// ==================== GAMES LOADER ====================
+async function loadGames() {
+    const gridContainer = document.getElementById('game-grid');
+    const gameCountSpan = document.getElementById('game-count');
     
-    loadGames();
+    try {
+        const response = await fetch('games.json');
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const games = await response.json();
+        
+        if (!games.length) {
+            gridContainer.innerHTML = '<div class="loading">No games found. Check games.json</div>';
+            gameCountSpan.textContent = '0';
+            return;
+        }
+        
+        gameCountSpan.textContent = games.length;
+        
+        gridContainer.innerHTML = '';
+        games.forEach(game => {
+            const card = document.createElement('a');
+            card.href = game.url;
+            card.target = '_blank';
+            card.className = 'game-card';
+            
+            const iconHtml = game.icon ? `<i class="${game.icon}"></i>` : '<i class="fas fa-gamepad"></i>';
+            
+            card.innerHTML = `
+                <div class="card-icon">${iconHtml}</div>
+                <div class="card-title">${escapeHtml(game.title)}</div>
+                <div class="card-url">${escapeHtml(game.url)}</div>
+                <div class="card-description">${escapeHtml(game.description || 'Click to play — no signup required.')}</div>
+                <div class="card-status live"><i class="fas fa-check-circle"></i> live · unblocked</div>
+                <div class="card-link">launch game <i class="fas fa-arrow-right"></i></div>
+            `;
+            
+            // Add hover sound effect
+            card.addEventListener('mouseenter', () => {
+                audioManager.playTone(440, 0.05);
+            });
+            
+            gridContainer.appendChild(card);
+        });
+    } catch (err) {
+        console.error('Failed to load games.json:', err);
+        gridContainer.innerHTML = `
+            <div class="loading" style="grid-column:1/-1;">
+                ⚠️ Could not load games.json. Make sure the file exists.<br>
+                <small>Example: [{"title":"Game","url":"https://...","description":"...","icon":"fas fa-gamepad"}]</small>
+            </div>
+        `;
+        gameCountSpan.textContent = '?';
+    }
+}
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, function(m) {
+        if (m === '&') return '&amp;';
+        if (m === '<') return '&lt;';
+        if (m === '>') return '&gt;';
+        return m;
+    });
+}
+
+loadGames();
 </script>
 </body>
 </html>
