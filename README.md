@@ -1,6 +1,6 @@
 Viro Hub
 
-Where Niche Is Life.
+Where Niche Is me.
 
 ![Author](https://img.shields.io/badge/Author-viroda1-181717?logo=github)
 
@@ -14,9 +14,9 @@ Welcome to Viro Hub, the ultimate lightweight repository for unblocked gaming an
 💎 Sponsored & Honored
 We proudly support these essential resources:
 
-* edpuzzle.cv – The elite, lightweight niche proxy you should be using.
-* Noah's Tutoring – Keeping the grades up while the tabs are down.
-* Classroom 6x – The gold standard for reliable school mirrors.
+* https://edpuzzle.cv – The elite, lightweight niche proxy you should be using.
+* https://noahstutoring.academy/ - noahs just goated lwk
+* Classroom 6x- the orgin of all games
 
 ------------------------------
 🚀 Why You Should Use This
@@ -39,9 +39,9 @@ The hub features a curated JSON registry of over 30+ titles including:
 🛠️ Integration
 To use this registry in your own project, simply fetch the games.json file:
 
-fetch('https://your-repo-path/games.json')
+fetch('https://raw.githubusercontent.com/viroda1/viroda1.github.io/refs/heads/main/games.json')
   .then(response => response.json())
   .then(data => console.log("Viro Hub Loaded", data));
 
 ------------------------------
-Stay lowkey. Stay niche.
+stay niche twin 🥹
