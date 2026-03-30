@@ -31,10 +31,34 @@ body {
     100%{background-position:0% 50%;}
 }
 
-.main { max-width:1200px; width:100%; position:relative; z-index:2; }
-h1 { text-align:center; font-size:3rem; background:linear-gradient(145deg,#d4c0ff,#9f5eff); -webkit-background-clip:text; color:transparent; margin-bottom:0; }
-.sub { text-align:center; color:#bcb0da; margin-top:5px; }
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; margin-top:40px; }
+.main {
+    max-width:1200px;
+    width:100%;
+    position:relative;
+    z-index:2;
+}
+
+h1 {
+    text-align:center;
+    font-size:3rem;
+    background:linear-gradient(145deg,#d4c0ff,#9f5eff);
+    -webkit-background-clip:text;
+    color:transparent;
+    margin-bottom:0;
+}
+
+.sub {
+    text-align:center;
+    color:#bcb0da;
+    margin-top:5px;
+}
+
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:40px;
+}
 
 .card {
     background:#141020;
@@ -47,7 +71,13 @@ h1 { text-align:center; font-size:3rem; background:linear-gradient(145deg,#d4c0f
     position:relative;
     overflow:hidden;
 }
-.card:hover { transform: translateY(-7px) scale(1.03); border-color:#b47aff; box-shadow:0 12px 25px rgba(180,122,255,0.3); }
+
+.card:hover {
+    transform: translateY(-7px) scale(1.03);
+    border-color:#b47aff;
+    box-shadow:0 12px 25px rgba(180,122,255,0.3);
+}
+
 .card::before {
     content:'';
     position:absolute;
@@ -57,20 +87,55 @@ h1 { text-align:center; font-size:3rem; background:linear-gradient(145deg,#d4c0f
     transform: skewX(-25deg);
     transition:0.5s;
 }
+
 .card:hover::before { left:125%; }
+
 .icon { font-size:2.2rem; margin-bottom:12px; transition:0.3s; }
 .card:hover .icon { transform: rotate(10deg) scale(1.2); }
+
 .title { font-size:1.3rem; font-weight:600; }
 
-#settingsBtn { position:fixed; top:20px; right:20px; background:#9f5eff; color:white; border:none; padding:10px 15px; border-radius:10px; cursor:pointer; z-index:3; }
-#settingsPanel { position:fixed; top:60px; right:20px; background:#141020dd; border:1px solid #3b2a55; border-radius:15px; padding:15px; display:none; z-index:3; }
+/* SETTINGS BUTTON */
+#settingsBtn {
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#9f5eff;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+    z-index:3;
+}
+
+#settingsPanel {
+    position:fixed;
+    top:60px;
+    right:20px;
+    background:#141020dd;
+    border:1px solid #3b2a55;
+    border-radius:15px;
+    padding:15px;
+    display:none;
+    z-index:3;
+}
+
 #settingsPanel label { display:block; margin-bottom:10px; }
 
-#particles { position:fixed; top:0; left:0; width:100%; height:100%; z-index:1; }
+/* PARTICLE BACKGROUND */
+#particles {
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    z-index:1;
+}
 </style>
 </head>
 
 <body>
+
 <canvas id="particles"></canvas>
 
 <div class="main">
@@ -86,65 +151,120 @@ h1 { text-align:center; font-size:3rem; background:linear-gradient(145deg,#d4c0f
 </div>
 
 <script>
-// --- JSON loader ---
+// JSON loader
 async function loadJSON(file) {
     try {
         const res = await fetch(file);
         const data = await res.json();
         const grid = document.getElementById('grid');
         grid.innerHTML = '';
-        data.forEach(item => {
+        // Use data.items
+        data.items.forEach(item => {
             const card = document.createElement('a');
             card.href = item.url;
-            card.target="_blank";
+            card.target = "_blank";
             card.className = "card";
             card.innerHTML = `<div class="icon"><i class="${item.icon||'fas fa-link'}"></i></div>
                               <div class="title">${item.title}</div>`;
-            card.addEventListener('click', e => {
-                e.preventDefault();
-                card.style.filter = "grayscale(100%)";
-                loadJSON('job.json');
-            });
             grid.appendChild(card);
         });
-    } catch(err){ console.error(err); }
+    } catch(err) { console.error(err); }
 }
 
 // Initial load
-loadJSON('games.json');
+let currentFile = 'games.json';
+loadJSON(currentFile);
+
+// Hotkeys 1-9
+document.addEventListener('keydown', e => {
+    const key = parseInt(e.key);
+    if(key >= 1 && key <= 9) {
+        currentFile = `${key}.json`;
+        loadJSON(currentFile);
+    }
+});
 
 // Settings toggle
 const settingsBtn = document.getElementById('settingsBtn');
 const settingsPanel = document.getElementById('settingsPanel');
-settingsBtn.addEventListener('click', ()=> settingsPanel.style.display = settingsPanel.style.display==='block'?'none':'block');
+settingsBtn.addEventListener('click', () => settingsPanel.style.display = settingsPanel.style.display === 'block' ? 'none' : 'block');
 
 const toggleParticles = document.getElementById('toggleParticles');
 const toggleGlow = document.getElementById('toggleGlow');
-toggleGlow.addEventListener('change', e=>{
-    document.querySelectorAll('.card').forEach(c=>{c.style.transition = e.target.checked?'0.3s':'none';});
+toggleGlow.addEventListener('change', e => {
+    document.querySelectorAll('.card').forEach(c => {
+        c.style.transition = e.target.checked ? '0.3s' : 'none';
+    });
 });
 
-// --- PARTICLE EFFECT ---
+// PARTICLE EFFECT
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
+let particlesArray = [];
 let w = canvas.width = window.innerWidth;
 let h = canvas.height = window.innerHeight;
-let particlesArray = [];
 
 class Particle {
-    constructor(){ this.x=Math.random()*w; this.y=Math.random()*h; this.size=Math.random()*3+1; this.speedX=(Math.random()-0.5)*1; this.speedY=(Math.random()-0.5)*1; }
-    update(){ this.x+=this.speedX; this.y+=this.speedY; if(this.x<0||this.x>w)this.speedX*=-1; if(this.y<0||this.y>h)this.speedY*=-1; }
-    draw(){ ctx.fillStyle='rgba(180,122,255,0.7)'; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill(); }
+    constructor() {
+        this.x = Math.random()*w;
+        this.y = Math.random()*h;
+        this.size = Math.random()*3+1;
+        this.speedX = (Math.random()-0.5)*1;
+        this.speedY = (Math.random()-0.5)*1;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if(this.x<0||this.x>w) this.speedX*=-1;
+        if(this.y<0||this.y>h) this.speedY*=-1;
+    }
+    draw() {
+        ctx.fillStyle='rgba(180,122,255,0.7)';
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+        ctx.fill();
+    }
 }
 
-function initParticles(num=100){ particlesArray=[]; for(let i=0;i<num;i++) particlesArray.push(new Particle()); }
+function initParticles(num=100) {
+    particlesArray = [];
+    for(let i=0;i<num;i++) particlesArray.push(new Particle());
+}
 initParticles();
 
-function connectParticles(){ for(let a=0;a<particlesArray.length;a++){ for(let b=a;b<particlesArray.length;b++){ const dx=particlesArray[a].x-particlesArray[b].x; const dy=particlesArray[a].y-particlesArray[b].y; const dist=Math.sqrt(dx*dx+dy*dy); if(dist<100){ ctx.strokeStyle='rgba(180,122,255,0.1)'; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(particlesArray[a].x,particlesArray[a].y); ctx.lineTo(particlesArray[b].x,particlesArray[b].y); ctx.stroke(); }}}}
+function connectParticles() {
+    for(let a=0;a<particlesArray.length;a++) {
+        for(let b=a;b<particlesArray.length;b++) {
+            const dx = particlesArray[a].x - particlesArray[b].x;
+            const dy = particlesArray[a].y - particlesArray[b].y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            if(dist<100) {
+                ctx.strokeStyle='rgba(180,122,255,0.1)';
+                ctx.lineWidth=1;
+                ctx.beginPath();
+                ctx.moveTo(particlesArray[a].x,particlesArray[a].y);
+                ctx.lineTo(particlesArray[b].x,particlesArray[b].y);
+                ctx.stroke();
+            }
+        }
+    }
+}
 
-function animate(){ ctx.clearRect(0,0,w,h); if(toggleParticles.checked){ particlesArray.forEach(p=>{p.update();p.draw();}); connectParticles(); } requestAnimationFrame(animate); }
+function animate() {
+    ctx.clearRect(0,0,w,h);
+    if(toggleParticles.checked){
+        particlesArray.forEach(p=>{p.update();p.draw();});
+        connectParticles();
+    }
+    requestAnimationFrame(animate);
+}
 animate();
-window.addEventListener('resize', ()=>{ w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight; initParticles(); });
+
+window.addEventListener('resize', ()=>{
+    w=canvas.width=window.innerWidth; 
+    h=canvas.height=window.innerHeight; 
+    initParticles();
+});
 </script>
 </body>
 </html>
