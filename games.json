@@ -6,178 +6,82 @@
     "icon": "fas fa-user-secret"
   },
   {
-    "title": "Infinite Mayhem",
-    "url": "https://viroda1.github.io",
-    "description": "Rule your kingdom! Build, conquer, or become a lazy tyrant. Multiple endings and secrets.",
-    "icon": "fas fa-crown"
+    "title": "Blooket Classic (Alt)",
+    "url": "https://classic.blooket.com/gs/MTU0LjEyLjI0Ny40Mg=/",
+    "description": "lowkey unused blooket join link (stealth mode)",
+    "icon": "fas fa-gamepad"
   },
   {
-    "title": "Block Crash",
-    "url": "https://viroda1.github.io",
-    "description": "Colorful block puzzle with custom skins, combo modifiers, and explosive effects.",
-    "icon": "fas fa-cube"
+    "title": "Gemini Share",
+    "url": "https://gemini.google.com/share/d589dfff132f",
+    "description": "custom gemini link you made",
+    "icon": "fas fa-robot"
   },
   {
-    "title": "Retro Bowl",
-    "url": "https://retrobowl.best/",
-    "description": "Classic football management game. Build your team, lead them to the championship!",
-    "icon": "fas fa-football"
+    "title": "Code.org Project",
+    "url": "https://codeprojects.org/projects/weblab/9fbc8bd0-0e42-449a-add0-8ede22a25337/",
+    "description": "your custom code.org web project",
+    "icon": "fas fa-code"
   },
   {
-    "title": "Shell Shockers",
-    "url": "https://shellshockers.today",
-    "description": "Egg-based multiplayer FPS. Crack your opponents in this chaotic shooter!",
-    "icon": "fas fa-egg"
+    "title": "GN Math Mirror 1",
+    "url": "https://mathbbd340a-ok.b-cdn.net/",
+    "description": "gn-math mirror link (CDN)",
+    "icon": "fas fa-network-wired"
   },
   {
-    "title": "Krunker.io",
-    "url": "https://krunker-unblocked.github.io/",
-    "description": "Fast-paced browser FPS with custom maps and competitive gameplay.",
-    "icon": "fas fa-crosshairs"
+    "title": "GN Math Mirror 2",
+    "url": "https://i-needraise-bbdmath.b-cdn.net/",
+    "description": "another gn-math CDN mirror",
+    "icon": "fas fa-network-wired"
   },
   {
-    "title": "Slope",
-    "url": "https://slope-game.github.io/",
-    "description": "Roll down an endless track, avoid obstacles, and set high scores in this 3D runner.",
-    "icon": "fas fa-chart-line"
+    "title": "Plnkr App",
+    "url": "https://run.plnkr.co/plunks/3rguvlbNVYsdngnS/",
+    "description": "live hosted web app (plnkr project)",
+    "icon": "fas fa-play"
   },
   {
-    "title": "Run 3",
-    "url": "https://run3-unblocked.github.io/",
-    "description": "Navigate through space tunnels with gravity-defying jumps. Endless runner classic.",
-    "icon": "fas fa-running"
+    "title": "HPV Portal",
+    "url": "https://hpv.my.to",
+    "description": "custom hosted web portal",
+    "icon": "fas fa-globe"
   },
   {
-    "title": "Tunnel Rush",
-    "url": "https://tunnel-rush.github.io/",
-    "description": "Dodge obstacles at high speed through a psychedelic tunnel. Reflexes required!",
-    "icon": "fas fa-tachometer-alt"
-  },
-  {
-    "title": "Geometry Dash",
-    "url": "https://geometry-dash.github.io/",
-    "description": "Rhythm-based action platformer. Jump, fly, and flip past spikes and obstacles.",
-    "icon": "fas fa-music"
-  },
-  {
-    "title": "1v1.LOL",
-    "url": "https://1v1lol-online.io",
-    "description": "Build and battle in this Fortnite-style competitive shooter. Climb the ranks!",
-    "icon": "fas fa-building"
-  },
-  {
-    "title": "Minecraft Classic",
-    "url": "https://eaglercraft.com",
-    "description": "The original browser-based Minecraft. Build, mine, and create freely.",
-    "icon": "fas fa-cube"
-  },
-  {
-    "title": "Cookie Clicker",
-    "url": "https://cookie-clicker.github.io/",
-    "description": "The legendary idle clicker. Bake cookies, upgrade, and conquer the universe.",
-    "icon": "fas fa-cookie-bite"
-  },
-  {
-    "title": "Papa's Freezeria",
-    "url": "https://papas-freezeria.github.io/",
-    "description": "Run your own ice cream shop. Take orders, mix ingredients, and serve customers.",
-    "icon": "fas fa-ice-cream"
-  },
-  {
-    "title": "Friday Night Funkin",
-    "url": "https://funkymods.github.io/",
-    "description": "Rhythm battle game. Rap against your girlfriend's dad and other challengers.",
-    "icon": "fas fa-microphone-alt"
-  },
-  {
-    "title": "Happy Wheels",
-    "url": "https://happy-wheels.github.io/",
-    "description": "Physics-based obstacle course game. Hilarious and gory ragdoll action.",
-    "icon": "fas fa-wheelchair"
-  },
-  {
-    "title": "Fireboy and Watergirl",
-    "url": "https://fireboy-watergirl.github.io/",
-    "description": "Co-op puzzle adventure. Control both characters to reach the exit.",
-    "icon": "fas fa-hand-holding-heart"
-  },
-  {
-    "title": "Bloons Tower Defense",
-    "url": "https://bloons-td.github.io/",
-    "description": "Strategic tower defense. Pop bloons with monkeys and upgrades.",
-    "icon": "fas fa-monkey"
-  },
-  {
-    "title": "Subway Surfers",
-    "url": "https://subway-surfers.github.io/",
-    "description": "Endless runner classic. Dash through trains, dodge obstacles, collect coins.",
-    "icon": "fas fa-subway"
-  },
-  {
-    "title": "Basketball Stars",
-    "url": "https://basketball-stars.github.io/",
-    "description": "Multiplayer basketball game. Dribble, shoot, and compete online.",
-    "icon": "fas fa-basketball-ball"
-  },
-  {
-    "title": "Drift Hunters",
-    "url": "https://drifthunters.github.io/",
-    "description": "Car drifting simulator. Customize cars and master drift tracks.",
-    "icon": "fas fa-car"
-  },
-  {
-    "title": "BitLife",
-    "url": "https://bitlife-online.github.io/",
-    "description": "Text-based life simulator. Make choices from birth to death.",
-    "icon": "fas fa-baby"
-  },
-  {
-    "title": "Paper.io 2",
-    "url": "https://paper-io2.github.io/",
-    "description": "Capture territory by drawing loops. Don't let others hit your trail!",
-    "icon": "fas fa-draw-polygon"
-  },
-  {
-    "title": "Smash Karts",
-    "url": "https://smashkarts-unblocked.github.io/",
-    "description": "3D multiplayer kart battle. Pick up weapons and blow up your friends.",
-    "icon": "fas fa-bomb"
-  },
-  {
-    "title": "2048",
-    "url": "https://gabrielecirulli.github.io",
-    "description": "Slide tiles to merge numbers. Can you reach the elusive 2048 tile?",
-    "icon": "fas fa-th"
-  },
-  {
-    "title": "Eaglercraft",
-    "url": "https://eaglercraft.github.io/",
-    "description": "Minecraft 1.8 in your browser. Multiplayer servers and survival mode included.",
-    "icon": "fas fa-pickaxe"
-  },
-  {
-    "title": "Pizza Edition",
-    "url": "https://thepizzaedition.github.io/",
-    "description": "A huge repository of emulated console games and modern web hits.",
-    "icon": "fas fa-pizza-slice"
-  },
-  {
-    "title": "Classroom 6x",
-    "url": "https://classroom-6x.github.io/",
-    "description": "Reliable school mirror for popular titles like Retro Bowl and 1v1.LOL.",
-    "icon": "fas fa-chalkboard-teacher"
-  },
-  {
-    "title": "TETR.IO",
-    "url": "https://tetr.io",
-    "description": "Modern, fast-paced competitive Tetris with sleek visuals.",
-    "icon": "fas fa-border-all"
-  },
-  {
-    "title": "Jack-Games",
-    "url": "https://michuscrypt.github.io",
-    "description": "Highly-rated GitHub-hosted repository for fast unblocked gaming.",
+    "title": "Mimo Runner",
+    "url": "https://f0igl5.mimo.run",
+    "description": "live mimo-run hosted project",
     "icon": "fas fa-terminal"
+  },
+  {
+    "title": "Loveable App",
+    "url": "https://fun-like-foundry.loveable.app",
+    "description": "hosted web app (loveable)",
+    "icon": "fas fa-heart"
+  },
+  {
+    "title": "HF Space (GN-Math)",
+    "url": "https://hihihi934-gn-math.static.hf.space",
+    "description": "huggingface static GN-math mirror",
+    "icon": "fas fa-brain"
+  },
+  {
+    "title": "Bolt Host",
+    "url": "https://code-ad-removal-m0pj.bolt.host",
+    "description": "bolt-hosted project",
+    "icon": "fas fa-bolt"
+  },
+  {
+    "title": "OneCompiler App",
+    "url": "https://app.onecomplier.com/44er5c7x7_44cux68xy",
+    "description": "online compiler hosted project",
+    "icon": "fas fa-laptop-code"
+  },
+  {
+    "title": "PlayCode App",
+    "url": "https://2673013.playcode.io",
+    "description": "playcode live web project",
+    "icon": "fas fa-code"
   },
   {
     "title": "DO NOT CLICK",
