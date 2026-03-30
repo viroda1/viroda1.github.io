@@ -10,18 +10,26 @@
 
 <style>
 body {
-    background:#0b0a0f;
     font-family:'Inter',sans-serif;
+    margin:0;
+    padding:2rem;
     color:#f2eaff;
     display:flex;
     justify-content:center;
-    padding:2rem;
+    min-height:100vh;
+    background: linear-gradient(270deg, #0b0a0f, #1c0f2c, #0b0a0f);
+    background-size: 600% 600%;
+    animation: gradientBG 20s ease infinite;
+    overflow-x:hidden;
 }
 
-.main {
-    max-width:1200px;
-    width:100%;
+@keyframes gradientBG {
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
 }
+
+.main { max-width:1200px; width:100%; }
 
 h1 {
     text-align:center;
@@ -29,13 +37,10 @@ h1 {
     background:linear-gradient(145deg,#d4c0ff,#9f5eff);
     -webkit-background-clip:text;
     color:transparent;
+    margin-bottom:0;
 }
 
-.sub {
-    text-align:center;
-    color:#bcb0da;
-    margin-top:10px;
-}
+.sub { text-align:center; color:#bcb0da; margin-top:5px; }
 
 .grid {
     display:grid;
@@ -51,67 +56,79 @@ h1 {
     border:1px solid #3b2a55;
     text-decoration:none;
     color:white;
-    transition:0.2s;
+    transition:0.3s;
+    position:relative;
+    overflow:hidden;
 }
 
 .card:hover {
-    transform:translateY(-5px);
+    transform: translateY(-7px) scale(1.03);
     border-color:#b47aff;
+    box-shadow:0 12px 25px rgba(180,122,255,0.3);
 }
 
-.icon {
-    font-size:2rem;
-    margin-bottom:10px;
+.card::before {
+    content:'';
+    position:absolute;
+    top:0; left:-75%;
+    width:50%; height:100%;
+    background: linear-gradient(120deg, rgba(255,255,255,0.15), rgba(180,122,255,0.15), rgba(255,255,255,0.15));
+    transform: skewX(-25deg);
+    transition:0.5s;
 }
 
-.title {
-    font-size:1.2rem;
-    font-weight:600;
-}
+.card:hover::before { left:125%; }
 
-.desc {
-    font-size:0.9rem;
-    color:#aaa;
-    margin-top:5px;
-}
+.icon { font-size:2.2rem; margin-bottom:12px; transition:0.3s; }
+.card:hover .icon { transform: rotate(10deg) scale(1.2); }
+.title { font-size:1.3rem; font-weight:600; }
+.category { font-size:0.8rem; color:#aaa; margin-top:5px; }
 </style>
 </head>
 
 <body>
 <div class="main">
-
 <h1>Student Portal 📁</h1>
 <div class="sub">resources · tools · portals · everything you need</div>
-
 <div class="grid" id="grid"></div>
-
 </div>
 
 <script>
-async function load() {
-    const res = await fetch('games.json');
-    const data = await res.json();
+async function loadJSON(file) {
+    try {
+        const res = await fetch(file);
+        const data = await res.json();
+        const grid = document.getElementById('grid');
+        grid.innerHTML = '';
 
-    document.getElementById('grid').innerHTML = '';
+        data.items.forEach(item => {
+            const card = document.createElement('a');
+            card.href = item.url;
+            card.target = "_blank";
+            card.className = "card";
 
-    data.forEach(item => {
-        const card = document.createElement('a');
-        card.href = item.url;
-        card.target = "_blank";
-        card.className = "card";
+            card.innerHTML = `
+                <div class="icon"><i class="${item.icon || 'fas fa-link'}"></i></div>
+                <div class="title">${item.title}</div>
+                <div class="category">${item.category || ''}</div>
+            `;
 
-        card.innerHTML = `
-            <div class="icon"><i class="${item.icon || 'fas fa-link'}"></i></div>
-            <div class="title">${item.title}</div>
-            <div class="desc">${item.description || ''}</div>
-        `;
-
-        document.getElementById('grid').appendChild(card);
-    });
+            grid.appendChild(card);
+        });
+    } catch(err) {
+        console.error("Failed to load JSON:", err);
+    }
 }
 
-load();
-</script>
+// Initial load
+let currentFile = 'games.json';
+loadJSON(currentFile);
 
+// Hotkey switching example
+document.addEventListener('keydown', e => {
+    if(e.key === '1') { currentFile = '1.json'; loadJSON(currentFile); }
+    if(e.key === '2') { currentFile = '2.json'; loadJSON(currentFile); }
+});
+</script>
 </body>
 </html>
