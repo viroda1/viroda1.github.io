@@ -1,92 +1,266 @@
 [
   {
-    "title": "edpuzzle.cv",
-    "url": "https://edpuzzle.cv",
-    "description": "lightweight nieche proxy that you should use!",
-    "icon": "fas fa-user-secret"
-  },
-  {
-    "title": "Blooket Classic (Alt)",
+    "title": "Classic Blooket GN-Math",
     "url": "https://classic.blooket.com/gs/MTU0LjEyLjI0Ny40Mg=/",
-    "description": "lowkey unused blooket join link (stealth mode)",
-    "icon": "fas fa-gamepad"
+    "description": "Unused GN-Math Blooket link",
+    "icon": "fas fa-calculator"
   },
   {
-    "title": "Gemini Share",
+    "title": "Gemini GN-Math",
     "url": "https://gemini.google.com/share/d589dfff132f",
-    "description": "custom gemini link you made",
-    "icon": "fas fa-robot"
+    "description": "GN-Math via Gemini",
+    "icon": "fas fa-calculator"
   },
   {
-    "title": "Code.org Project",
+    "title": "Code.org WebLab",
     "url": "https://codeprojects.org/projects/weblab/9fbc8bd0-0e42-449a-add0-8ede22a25337/",
-    "description": "your custom code.org web project",
+    "description": "My Code.org project",
     "icon": "fas fa-code"
   },
   {
-    "title": "GN Math Mirror 1",
+    "title": "BBD Math 1",
     "url": "https://mathbbd340a-ok.b-cdn.net/",
-    "description": "gn-math mirror link (CDN)",
-    "icon": "fas fa-network-wired"
+    "description": "GN-Math mirror",
+    "icon": "fas fa-calculator"
   },
   {
-    "title": "GN Math Mirror 2",
+    "title": "BBD Math 2",
     "url": "https://i-needraise-bbdmath.b-cdn.net/",
-    "description": "another gn-math CDN mirror",
-    "icon": "fas fa-network-wired"
+    "description": "GN-Math mirror",
+    "icon": "fas fa-calculator"
   },
   {
-    "title": "Plnkr App",
+    "title": "Plnkr GN-Math",
     "url": "https://run.plnkr.co/plunks/3rguvlbNVYsdngnS/",
-    "description": "live hosted web app (plnkr project)",
-    "icon": "fas fa-play"
+    "description": "GN-Math project",
+    "icon": "fas fa-code"
   },
   {
-    "title": "HPV Portal",
+    "title": "Luminalos Code.org",
+    "url": "https://codeprojects.org/projects/weblab/Jox_LdTKfpuCmEDxsp_f38i7Z920z9KATMZ7vmIXfJk/",
+    "description": "Luminalos GN-Math project",
+    "icon": "fas fa-code"
+  },
+  {
+    "title": "HPV My.to Portal",
     "url": "https://hpv.my.to",
-    "description": "custom hosted web portal",
+    "description": "GN-Math portal",
     "icon": "fas fa-globe"
   },
   {
-    "title": "Mimo Runner",
+    "title": "F0igl5 Mimo",
     "url": "https://f0igl5.mimo.run",
-    "description": "live mimo-run hosted project",
-    "icon": "fas fa-terminal"
+    "description": "GN-Math portal",
+    "icon": "fas fa-globe"
   },
   {
-    "title": "Loveable App",
+    "title": "Fun Like Foundry",
     "url": "https://fun-like-foundry.loveable.app",
-    "description": "hosted web app (loveable)",
-    "icon": "fas fa-heart"
+    "description": "GN-Math portal",
+    "icon": "fas fa-globe"
   },
   {
-    "title": "HF Space (GN-Math)",
+    "title": "HiHiHi GN-Math",
     "url": "https://hihihi934-gn-math.static.hf.space",
-    "description": "huggingface static GN-math mirror",
-    "icon": "fas fa-brain"
+    "description": "GN-Math portal",
+    "icon": "fas fa-calculator"
   },
   {
-    "title": "Bolt Host",
+    "title": "Code Ad Removal",
     "url": "https://code-ad-removal-m0pj.bolt.host",
-    "description": "bolt-hosted project",
-    "icon": "fas fa-bolt"
+    "description": "GN-Math portal",
+    "icon": "fas fa-globe"
   },
   {
-    "title": "OneCompiler App",
+    "title": "OneCompiler GN-Math",
     "url": "https://app.onecomplier.com/44er5c7x7_44cux68xy",
-    "description": "online compiler hosted project",
-    "icon": "fas fa-laptop-code"
-  },
-  {
-    "title": "PlayCode App",
-    "url": "https://2673013.playcode.io",
-    "description": "playcode live web project",
+    "description": "GN-Math coding portal",
     "icon": "fas fa-code"
   },
   {
-    "title": "DO NOT CLICK",
-    "url": "https://viroda1.github.io/crasher/4",
-    "description": "⚠️ You were warned. Click at your own risk... ⚠️",
-    "icon": "fas fa-hand-paper"
+    "title": "PlayCode.io",
+    "url": "https://2673013.playcode.io",
+    "description": "GN-Math coding portal",
+    "icon": "fas fa-code"
+  },
+  {
+    "title": "ChillGuy GN-Math",
+    "url": "https://chillguyaq-cmd.github.io/gn-math-DONTDMCA",
+    "description": "GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Galaxy Portal",
+    "url": "http://galaxy.xenopoem.com/",
+    "description": "Lightspeed working portal",
+    "icon": "fas fa-globe"
+  },
+  {
+    "title": "IfYouHad2PotstoSand",
+    "url": "https://ifyouhad2potstosanddoubleditwoulditbe.s3amazon.67time.co.za.com.mhanna.info/",
+    "description": "GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "GN-Math Neru",
+    "url": "https://neru.lat/gn/",
+    "description": "GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Boogabooga123 GN-Math",
+    "url": "https://boogabooga123.b-cdn.net",
+    "description": "GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Kronian CT WS",
+    "url": "https://kronian.ct.ws/",
+    "description": "GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Blooket Raw Media",
+    "url": "https://media.blooket.com/raw/upload/vkaol9qz55txpzbdlecc.html",
+    "description": "GN-Math / Blooket mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Epick FR Prox Links",
+    "url": "https://epickfr.github.io/proxlinksandsuch/",
+    "description": "Proxy / GN-Math access",
+    "icon": "fas fa-globe"
+  },
+  {
+    "title": "Student Portal V3",
+    "url": "https://sites.google.com/view/studentportalv3/home?authuser=1",
+    "description": "School portal",
+    "icon": "fas fa-school"
+  },
+  {
+    "title": "PragerU Mathematics",
+    "url": "https://s3.amazonaws.com/prageru-server/mathematics.html?id=556",
+    "description": "Educational math portal",
+    "icon": "fas fa-book"
+  },
+  {
+    "title": "TerraBacon",
+    "url": "http://terrabacon.sanditours.si",
+    "description": "GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "TerraReading",
+    "url": "http://terrareading.sanditours.si",
+    "description": "GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "HelloHelloHi",
+    "url": "http://hellohellohi.xn--a-vlitys-2za.fi",
+    "description": "GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "HelloPeople",
+    "url": "http://hellopeople.xn--a-vlitys-2za.fi",
+    "description": "GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "TelaPortal",
+    "url": "http://telaportal.xn--a-vlitys-2za.fi",
+    "description": "GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Jamals Study Time",
+    "url": "https://jamals-study-time.42web.io/?i=1",
+    "description": "GN-Math / study portal",
+    "icon": "fas fa-book"
+  },
+  {
+    "title": "Yo-Yo Yo-Yo",
+    "url": "http://yo-yo-yo-yo-yo-bludysonmadets-havefun.s3-website.us-east-2.amazonaws.com/",
+    "description": "GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "GN-Mathu",
+    "url": "https://gn-mathu.s3.amazonaws.com/index.html",
+    "description": "GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Weiner CodeHS",
+    "url": "https://weiner-17856293.codehs.me/index.html",
+    "description": "CodeHS GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Dwretthf CodeHS",
+    "url": "https://dwretthf-17856315.codehs.me/index.html",
+    "description": "CodeHS GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Mkfmnk CodeHS",
+    "url": "https://mkfmnk-17856311.codehs.me/index.html",
+    "description": "CodeHS GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Knkjnki CodeHS",
+    "url": "https://knkjnki-17856313.codehs.me/index.html",
+    "description": "CodeHS GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Fcvcx CodeHS",
+    "url": "https://fcvcx-17856309.codehs.me/index.html",
+    "description": "CodeHS GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Zzzzzzfdf CodeHS",
+    "url": "https://zzzzzzfdf-17856304.codehs.me/index.html",
+    "description": "CodeHS GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Vvvxzvf CodeHS",
+    "url": "https://vvvxzvf-17856307.codehs.me/index.html",
+    "description": "CodeHS GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Vcxdsafd CodeHS",
+    "url": "https://vcxdsafd-17856301.codehs.me/index.html",
+    "description": "CodeHS GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Sdfcvcxccv CodeHS",
+    "url": "https://sdfcvcxccv-17856300.codehs.me/index.html",
+    "description": "CodeHS GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Zohfb CodeHS",
+    "url": "https://zohfb-17856298.codehs.me/index.html",
+    "description": "CodeHS GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "Kn0tzer Math",
+    "url": "https://kn0tzer.is-a.dev/math/",
+    "description": "GN-Math mirror",
+    "icon": "fas fa-calculator"
+  },
+  {
+    "title": "MinecraftUser2 GN-Math",
+    "url": "https://minecraftuser2.github.io/gn-math.github.io/",
+    "description": "GN-Math mirror",
+    "icon": "fas fa-calculator"
   }
 ]
