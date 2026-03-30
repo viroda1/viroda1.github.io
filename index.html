@@ -12,15 +12,17 @@
 body {
     font-family:'Inter',sans-serif;
     margin:0;
-    padding:2rem;
+    padding:0;
     color:#f2eaff;
     display:flex;
     justify-content:center;
+    padding:2rem;
     min-height:100vh;
+    overflow-x:hidden;
+    position:relative;
     background: linear-gradient(270deg, #0b0a0f, #1c0f2c, #0b0a0f);
     background-size: 600% 600%;
     animation: gradientBG 20s ease infinite;
-    overflow-x:hidden;
 }
 
 @keyframes gradientBG {
@@ -29,7 +31,12 @@ body {
     100%{background-position:0% 50%;}
 }
 
-.main { max-width:1200px; width:100%; }
+.main {
+    max-width:1200px;
+    width:100%;
+    position:relative;
+    z-index:2;
+}
 
 h1 {
     text-align:center;
@@ -40,7 +47,11 @@ h1 {
     margin-bottom:0;
 }
 
-.sub { text-align:center; color:#bcb0da; margin-top:5px; }
+.sub {
+    text-align:center;
+    color:#bcb0da;
+    margin-top:5px;
+}
 
 .grid {
     display:grid;
@@ -81,54 +92,177 @@ h1 {
 
 .icon { font-size:2.2rem; margin-bottom:12px; transition:0.3s; }
 .card:hover .icon { transform: rotate(10deg) scale(1.2); }
+
 .title { font-size:1.3rem; font-weight:600; }
-.category { font-size:0.8rem; color:#aaa; margin-top:5px; }
+.desc { font-size:0.9rem; color:#aaa; margin-top:5px; line-height:1.4; }
+
+/* --- SETTINGS BUTTON --- */
+#settingsBtn {
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#9f5eff;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:10px;
+    cursor:pointer;
+    z-index:3;
+}
+
+#settingsPanel {
+    position:fixed;
+    top:60px;
+    right:20px;
+    background:#141020dd;
+    border:1px solid #3b2a55;
+    border-radius:15px;
+    padding:15px;
+    display:none;
+    z-index:3;
+}
+
+#settingsPanel label { display:block; margin-bottom:10px; }
+
+/* --- PARTICLE BACKGROUND --- */
+#particles {
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    z-index:1;
+}
 </style>
 </head>
 
 <body>
+
+<canvas id="particles"></canvas>
+
 <div class="main">
 <h1>Student Portal 📁</h1>
 <div class="sub">resources · tools · portals · everything you need</div>
 <div class="grid" id="grid"></div>
 </div>
 
+<button id="settingsBtn">⚙️ Settings</button>
+<div id="settingsPanel">
+    <label><input type="checkbox" id="toggleParticles" checked> Enable Particle Effect</label>
+    <label><input type="checkbox" id="toggleGlow" checked> Card Glow Effect</label>
+</div>
+
 <script>
+// JSON loader
 async function loadJSON(file) {
     try {
         const res = await fetch(file);
         const data = await res.json();
         const grid = document.getElementById('grid');
         grid.innerHTML = '';
-
-        data.items.forEach(item => {
+        data.forEach(item => {
             const card = document.createElement('a');
             card.href = item.url;
             card.target = "_blank";
             card.className = "card";
-
             card.innerHTML = `
-                <div class="icon"><i class="${item.icon || 'fas fa-link'}"></i></div>
+                <div class="icon"><i class="${item.icon||'fas fa-link'}"></i></div>
                 <div class="title">${item.title}</div>
-                <div class="category">${item.category || ''}</div>
             `;
-
             grid.appendChild(card);
         });
-    } catch(err) {
-        console.error("Failed to load JSON:", err);
-    }
+    } catch(err) { console.error(err); }
 }
 
 // Initial load
 let currentFile = 'games.json';
 loadJSON(currentFile);
 
-// Hotkey switching example
+// Hotkey 1-9
 document.addEventListener('keydown', e => {
-    if(e.key === '1') { currentFile = '1.json'; loadJSON(currentFile); }
-    if(e.key === '2') { currentFile = '2.json'; loadJSON(currentFile); }
+    const key = parseInt(e.key);
+    if(key >= 1 && key <= 9) {
+        currentFile = `${key}.json`;
+        loadJSON(currentFile);
+    }
 });
+
+// Settings toggle
+const settingsBtn = document.getElementById('settingsBtn');
+const settingsPanel = document.getElementById('settingsPanel');
+settingsBtn.addEventListener('click', () => settingsPanel.style.display = settingsPanel.style.display === 'block' ? 'none' : 'block');
+
+const toggleParticles = document.getElementById('toggleParticles');
+const toggleGlow = document.getElementById('toggleGlow');
+toggleGlow.addEventListener('change', e => {
+    document.querySelectorAll('.card').forEach(c => {
+        c.style.transition = e.target.checked ? '0.3s' : 'none';
+    });
+});
+
+// --- PARTICLE EFFECT ---
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let particlesArray = [];
+let w = canvas.width = window.innerWidth;
+let h = canvas.height = window.innerHeight;
+
+class Particle {
+    constructor() {
+        this.x = Math.random()*w;
+        this.y = Math.random()*h;
+        this.size = Math.random()*3+1;
+        this.speedX = (Math.random()-0.5)*1;
+        this.speedY = (Math.random()-0.5)*1;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if(this.x<0||this.x>w) this.speedX*=-1;
+        if(this.y<0||this.y>h) this.speedY*=-1;
+    }
+    draw() {
+        ctx.fillStyle='rgba(180,122,255,0.7)';
+        ctx.beginPath();
+        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
+        ctx.fill();
+    }
+}
+
+function initParticles(num=100) {
+    particlesArray = [];
+    for(let i=0;i<num;i++) particlesArray.push(new Particle());
+}
+initParticles();
+
+function connectParticles() {
+    for(let a=0;a<particlesArray.length;a++) {
+        for(let b=a;b<particlesArray.length;b++) {
+            const dx = particlesArray[a].x - particlesArray[b].x;
+            const dy = particlesArray[a].y - particlesArray[b].y;
+            const dist = Math.sqrt(dx*dx + dy*dy);
+            if(dist<100) {
+                ctx.strokeStyle='rgba(180,122,255,0.1)';
+                ctx.lineWidth=1;
+                ctx.beginPath();
+                ctx.moveTo(particlesArray[a].x,particlesArray[a].y);
+                ctx.lineTo(particlesArray[b].x,particlesArray[b].y);
+                ctx.stroke();
+            }
+        }
+    }
+}
+
+function animate() {
+    ctx.clearRect(0,0,w,h);
+    if(toggleParticles.checked){
+        particlesArray.forEach(p=>{p.update();p.draw();});
+        connectParticles();
+    }
+    requestAnimationFrame(animate);
+}
+animate();
+
+window.addEventListener('resize', ()=>{w=canvas.width=window.innerWidth; h=canvas.height=window.innerHeight; initParticles();});
 </script>
 </body>
 </html>
