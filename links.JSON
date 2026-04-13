@@ -1,0 +1,16 @@
+{
+  "links": [
+    {
+      "url": "https://run.plnkr.co/plunks/zFCEyNsJbE2twn0q/",
+      "title": "Main Site",
+      "description": "Primary live production environment for the web application, hosted on the Plunker cloud platform for real-time previewing.",
+      "icon": "fa-solid fa-globe"
+    },
+    {
+      "url": "https://run.plnkr.co/plunks/doGsfMfTLg0Bc935/",
+      "title": "Backup Instance",
+      "description": "Redundant development backup used for version control, debugging experiments, and failover support for the main site.",
+      "icon": "fa-solid fa-database"
+    }
+  ]
+}
