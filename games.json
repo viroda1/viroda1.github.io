@@ -1,436 +1,459 @@
-[
-  {
-    "title": "Duck Games",
-    "url": "https://schooleducation.org",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
+{
+  "games": [
+    {
+      "title": "Duck Games",
+      "url": "https://schooleducation.org",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "ItTommy22Toad's Game site",
+      "url": "https://vercel.app",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Os proxy",
+      "url": "https://b-cdn.net",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Minecraft 1.8.8",
+      "url": "https://englishworklearning.co",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Testson (allow popup to work)",
+      "url": "https://testson.top",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "dogeub",
+      "url": "https://googleapis.com",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Space",
+      "url": "https://local-ip.sh",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Frogie arcade",
+      "url": "https://unity-proprete.fr",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Overclocked",
+      "url": "https://meadcrown.com",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Utopia",
+      "url": "https://rdddo.ru",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "PeteZah",
+      "url": "https://super-kassa.ru",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "ferm",
+      "url": "https://egevad.se",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 45.12.151.226",
+      "url": "http://45.12.151.226:2829",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 203.115.101.58",
+      "url": "http://203.115.101.58:82",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 142.93.202.130",
+      "url": "http://142.93.202.130:3128",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 170.64.170.204",
+      "url": "http://170.64.170.204:8080",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 8.219.97.248",
+      "url": "http://8.219.97.248:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 113.204.79.230",
+      "url": "http://113.204.79.230:9091",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 176.61.151.123",
+      "url": "http://176.61.151.123:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 139.99.237.62",
+      "url": "http://139.99.237.62:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 74.176.195.135",
+      "url": "http://74.176.195.135:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 47.91.65.23",
+      "url": "http://47.91.65.23:3128",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 39.109.113.97",
+      "url": "http://39.109.113.97:4090",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 157.90.10.15",
+      "url": "http://157.90.10.15:3128",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 194.102.38.65",
+      "url": "http://194.102.38.65:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 152.53.65.215",
+      "url": "http://152.53.65.215:8090",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 150.109.236.146",
+      "url": "http://150.109.236.146:3128",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 46.17.47.48",
+      "url": "http://46.17.47.48:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 109.236.88.82",
+      "url": "http://109.236.88.82:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 172.200.72.48",
+      "url": "http://172.200.72.48:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 103.85.85.57",
+      "url": "http://103.85.85.57:1008",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 197.255.125.12",
+      "url": "http://197.255.125.12:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 194.102.38.53",
+      "url": "http://194.102.38.53:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 194.71.227.149",
+      "url": "http://194.71.227.149:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 8.220.141.8",
+      "url": "http://8.220.141.8:10000",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 87.255.196.143",
+      "url": "http://87.255.196.143:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 41.220.16.209",
+      "url": "http://41.220.16.209:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 4.195.16.140",
+      "url": "http://4.195.16.140:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 219.249.37.107",
+      "url": "http://219.249.37.107:8382",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 47.251.73.54",
+      "url": "http://47.251.73.54:6379",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 156.244.11.6",
+      "url": "http://156.244.11.6:1234",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 152.32.132.190",
+      "url": "http://152.32.132.190:7890",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 185.76.240.21",
+      "url": "http://185.76.240.21:10001",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 143.42.66.91",
+      "url": "http://143.42.66.91:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 154.0.12.163",
+      "url": "http://154.0.12.163:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 38.145.203.39",
+      "url": "http://38.145.203.39:8445",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 38.145.203.32",
+      "url": "http://38.145.203.32:8452",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 45.136.130.181",
+      "url": "http://45.136.130.181:8445",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 174.138.119.88",
+      "url": "http://174.138.119.88:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 38.34.179.178",
+      "url": "http://38.34.179.178:8444",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 38.34.179.39",
+      "url": "http://38.34.179.39:8452",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 38.145.220.8",
+      "url": "http://38.145.220.8:8452",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 176.126.164.213",
+      "url": "http://176.126.164.213:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 45.136.130.173",
+      "url": "http://45.136.130.173:8448",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 37.187.74.125",
+      "url": "http://37.187.74.125:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 219.93.101.62",
+      "url": "http://219.93.101.62:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 219.93.101.63",
+      "url": "http://219.93.101.63:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 219.93.101.60",
+      "url": "http://219.93.101.60:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 197.221.234.253",
+      "url": "http://197.221.234.253:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 154.65.39.7",
+      "url": "http://154.65.39.7:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 91.132.92.231",
+      "url": "http://91.132.92.231:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    },
+    {
+      "title": "Proxy 34.81.160.132",
+      "url": "http://34.81.160.132:80",
+      "description": "Proxy service",
+      "icon": "fas fa-shield-alt",
+      "category": "Proxies"
+    }
+  ],
+  "categories": {
+    "Proxies": 62
   },
-  {
-    "title": "ItTommy22Toad's Game site",
-    "url": "https://vercel.app",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
+  "categoryIcons": {
+    "Proxies": "\ud83d\udd17 Proxies",
+    "Games": "\ud83c\udfae Games",
+    "Math": "\ud83d\udcd0 Math",
+    "Code": "\ud83d\udcbb Code",
+    "Educational": "\ud83d\udcda Educational",
+    "Portals": "\ud83c\udf10 Portals",
+    "Tools": "\ud83d\udee0\ufe0f Tools",
+    "Utilities": "\u2699\ufe0f Utilities",
+    "Entertainment": "\ud83c\udfac Entertainment",
+    "Blooket": "\ud83c\udfaf Blooket Modes",
+    "Unblocked": "\ud83d\ude80 Unblocked Sites",
+    "Learning": "\ud83d\udcd6 Learning Resources",
+    "Development": "\ud83d\udc68\u200d\ud83d\udcbb Development",
+    "Other": "\ud83d\udccc Other"
   },
-  {
-    "title": "Os proxy",
-    "url": "https://b-cdn.net",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Minecraft 1.8.8",
-    "url": "https://englishworklearning.co",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Testson (allow popup to work)",
-    "url": "https://testson.top",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "dogeub",
-    "url": "https://googleapis.com",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Space",
-    "url": "https://local-ip.sh",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Frogie arcade",
-    "url": "https://unity-proprete.fr",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Overclocked",
-    "url": "https://meadcrown.com",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Utopia",
-    "url": "https://rdddo.ru",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "PeteZah",
-    "url": "https://super-kassa.ru",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "ferm",
-    "url": "https://egevad.se",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 45.12.151.226",
-    "url": "http://45.12.151.226:2829",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 203.115.101.58",
-    "url": "http://203.115.101.58:82",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 142.93.202.130",
-    "url": "http://142.93.202.130:3128",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 170.64.170.204",
-    "url": "http://170.64.170.204:8080",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 8.219.97.248",
-    "url": "http://8.219.97.248:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 113.204.79.230",
-    "url": "http://113.204.79.230:9091",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 176.61.151.123",
-    "url": "http://176.61.151.123:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 139.99.237.62",
-    "url": "http://139.99.237.62:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 74.176.195.135",
-    "url": "http://74.176.195.135:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 47.91.65.23",
-    "url": "http://47.91.65.23:3128",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 39.109.113.97",
-    "url": "http://39.109.113.97:4090",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 157.90.10.15",
-    "url": "http://157.90.10.15:3128",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 194.102.38.65",
-    "url": "http://194.102.38.65:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 152.53.65.215",
-    "url": "http://152.53.65.215:8090",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 150.109.236.146",
-    "url": "http://150.109.236.146:3128",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 46.17.47.48",
-    "url": "http://46.17.47.48:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 109.236.88.82",
-    "url": "http://109.236.88.82:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 172.200.72.48",
-    "url": "http://172.200.72.48:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 103.85.85.57",
-    "url": "http://103.85.85.57:1008",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 197.255.125.12",
-    "url": "http://197.255.125.12:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 194.102.38.53",
-    "url": "http://194.102.38.53:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 194.71.227.149",
-    "url": "http://194.71.227.149:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 8.220.141.8",
-    "url": "http://8.220.141.8:10000",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 87.255.196.143",
-    "url": "http://87.255.196.143:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 41.220.16.209",
-    "url": "http://41.220.16.209:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 4.195.16.140",
-    "url": "http://4.195.16.140:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 219.249.37.107",
-    "url": "http://219.249.37.107:8382",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 47.251.73.54",
-    "url": "http://47.251.73.54:6379",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 156.244.11.6",
-    "url": "http://156.244.11.6:1234",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 152.32.132.190",
-    "url": "http://152.32.132.190:7890",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 185.76.240.21",
-    "url": "http://185.76.240.21:10001",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 143.42.66.91",
-    "url": "http://143.42.66.91:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 154.0.12.163",
-    "url": "http://154.0.12.163:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 38.145.203.39",
-    "url": "http://38.145.203.39:8445",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 38.145.203.32",
-    "url": "http://38.145.203.32:8452",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 45.136.130.181",
-    "url": "http://45.136.130.181:8445",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 174.138.119.88",
-    "url": "http://174.138.119.88:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 38.34.179.178",
-    "url": "http://38.34.179.178:8444",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 38.34.179.39",
-    "url": "http://38.34.179.39:8452",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 38.145.220.8",
-    "url": "http://38.145.220.8:8452",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 176.126.164.213",
-    "url": "http://176.126.164.213:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 45.136.130.173",
-    "url": "http://45.136.130.173:8448",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 37.187.74.125",
-    "url": "http://37.187.74.125:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 219.93.101.62",
-    "url": "http://219.93.101.62:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 219.93.101.63",
-    "url": "http://219.93.101.63:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 219.93.101.60",
-    "url": "http://219.93.101.60:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 197.221.234.253",
-    "url": "http://197.221.234.253:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 154.65.39.7",
-    "url": "http://154.65.39.7:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 91.132.92.231",
-    "url": "http://91.132.92.231:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  },
-  {
-    "title": "Proxy 34.81.160.132",
-    "url": "http://34.81.160.132:80",
-    "description": "Proxy service",
-    "icon": "fas fa-shield-alt",
-    "category": "Proxies"
-  }
-]
+  "total": 62,
+  "lastUpdated": "2026-04-14"
+}
